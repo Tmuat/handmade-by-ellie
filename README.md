@@ -6,7 +6,9 @@ View live project [here](link).
 ---
 ## Description
 
+**Handmande By Ellie** is an e-commerce store selling wax melts. The website allows the company owner to list their range of products for the purpose of site visitors being able to search, view and purchase through the use of Stripe.
 
+The site allows the store admin to add, edit and delete products as well as being able to view all orders and use automated emails to update purchasers on the status of their order.
 
 ---
 
