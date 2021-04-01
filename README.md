@@ -58,28 +58,35 @@ The site allows the store admin to add, edit and delete products as well as bein
 
 ## UX
 
-### Purpose
+### **The Strategy Plane**
 
+Handamde by Ellie is the current business of client Ellie; having started the business during the COVID-19 lockdown in 2020, Ellie has primarily run the business through social media and word of mouth. With the success of her business, Ellie is looking to move her business on to an e-commerce store.
 
----
+Ellie would like an e-commerce store styled to match her current social media colours & branding. She would like the ability for site users to view information on products, add them to a shopping and finally purchase these items. Ellie would like the ability to add, edit and delete products as an when needed.
 
-### User Stories
+The aim is to build Ellie an e-commerce store which will allow registering of users, purchasing of products, viewing of order history/profile information and if needed the ability to contact the store owner. A seperate admin section (different from the Django Admin) will be created and secured from non site owners. This area will allow the site owner to manage products and orders.
 
----
+#### Site Goals
+- Create a site using HTML, CSS, Javascript, Python (Django) and SQL working together.
+- Create an e-commerce store that is appealing to view and easy to navigate.
+- Create a site that allows viewing and purchasing of products.
+- Create a fully responsive site for use on all devices.
+- Allow store owner to fulfill the other 3 variables of CRUD (CREATE, UPDATE & DELETE) for products.
+- Allow the store owner to view and manage orders
 
-#### First Time User:
+#### User stories
+
+**First Time User:**
+
 - As a **first time visitor**, I want to visit a responsive site
 
----
+**Registered User:**
 
-#### Registered User:
-**The goals of the first time visitor apply to the registered user with the exception of being able to register.**
 - As a **registered user**, I want to be able to login and logout with ease
 
----
 
-#### Admin User:
-**The goals of the previous two user's apply to the admin user with the exception of being able to register.**
+**Admin User:**
+
 
 ---
 
