@@ -118,6 +118,34 @@ The aim is to build Ellie an e-commerce store which will allow registering of us
 - Contact form for all users to be able to contact the site owner.
 - Admin section for 'staff' - area for 'staff' to manage sections of the site.
 
+### **The Structure Plane**
+
+#### User Story:
+
+> As a **annonymous user**, I want to visit a responsive site.
+
+**Acceptance Criteria**
+- The website will feature a grid layout, incorporating breakpoints and media queries to respond to the users screen size & platform.
+
+**Implementation**
+
+- The website will be built using [Bootstrap](https://getbootstrap.com/); this will entail the use of their grid system and thus the wide browser compatibility.
+
+
+#### User Story:
+
+> As a **annonymous user**, I want it to be clear the purpose of the site and what the site is intending to sell.
+
+**Acceptance Criteria**
+- The landing page will feature information regarding the site aim with headings and imagery styled to the same aim.
+
+**Implementation**
+
+- The landing page will contain the name of the site along with a short sentence for a to the point description of the site. 
+
+- Below the landing imagery is an 'About Us' section with more detail about the site and the products.
+
+
 ---
 
 ### Design
