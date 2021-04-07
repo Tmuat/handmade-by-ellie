@@ -76,16 +76,32 @@ The aim is to build Ellie an e-commerce store which will allow registering of us
 
 #### User stories
 
-**First Time User:**
+**Annonymous User:**
 
-- As a **first time visitor**, I want to visit a responsive site
+- As a **annonymous user**, I want to visit a responsive site.
+- As a **annonymous user**, I want it to be clear the purpose of the site and what the site is intending to sell.
+- As a **annonymous user**, I want to be easily able to navigate through the site.
+- As a **annonymous user**, I want to be able to register an account for the site.
+- As a **annonymous user**, I want to be able to search and filter through the different products on sale.
+- As a **annonymous user**, I want to be able to create a shopping bag of one or more items to purchase in one checkout process.
+- As a **annonymous user**, I want to be able to add, change and delete products in my shopping bag.
+- As a **annonymous user**, I want to be able to checkout annonymously.
+- As a **annonymous user**, I want to recieve an email notification of my order.
+
 
 **Registered User:**
 
-- As a **registered user**, I want to be able to login and logout with ease
-
+- As a **registered user**, I want to be able to login to the site.
+- As a **registered user**, I want to be able to reset my password if I had forgotten it.
+- As a **registered user**, I want to be able to save my default information for quicker checkout processes of future purchases.
+- As a **registered user**, I want to be able to view my previous orders and their status.
 
 **Admin User:**
+
+- As a **admin user**, I want to be able to create, update and delete products in the store.
+- As a **admin user**, I want to be able to monitor and adjust product stock quantities.
+- As a **admin user**, I want to be able to view all orders being made on the site.
+- As a **admin user**, I want to be able to adjust order status' and send corresponding.emails to users who have made purchases.
 
 
 ---
