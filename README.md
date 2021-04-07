@@ -15,13 +15,13 @@ The site allows the store admin to add, edit and delete products as well as bein
 ## Contents
 
 - [UX](#ux)
-    - [Purpose](#purpose)
-    - [User Stories](#user-stories)
-        - [First Time User](#first-time-user)
-        - [Registered User](#registered-user)
-        - [Landing Imagery](#landing-imagery)
-        - [Admin User](#admin-user)
-    - [Design](#design)
+    - [The Strategy Plane](#the-strategy-plane)
+        - [Site Goals](#site-goals)
+        - [User Stories](#user-stories)
+    - [The Scope Plane](#the-scope-plane)
+    - [The Structure Plane](#the-structure-plane)
+        
+        
         - [Colour Scheme](#colour-scheme)
         - [Fonts](#fonts)
         - [Information Architecture](#information-architecture)
@@ -74,7 +74,7 @@ The aim is to build Ellie an e-commerce store which will allow registering of us
 - Allow store owner to fulfill the other 3 variables of CRUD (CREATE, UPDATE & DELETE) for products.
 - Allow the store owner to view and manage orders
 
-#### User stories
+#### User Stories
 
 **Annonymous User:**
 
@@ -103,6 +103,20 @@ The aim is to build Ellie an e-commerce store which will allow registering of us
 - As a **admin user**, I want to be able to view all orders being made on the site.
 - As a **admin user**, I want to be able to adjust order status' and send corresponding.emails to users who have made purchases.
 
+### **The Scope Plane**
+
+**Features Planned:**
+- Responsive Design - site should be fully responsive across screen sizes/devices.
+- Cross browser functionality - the site should work no matter the browser of choice.
+- Mobile, tablet and desktop optimised navigation.
+- Website information and relevant landing imagery on landing page.
+- Registered user functionality - able to create a user, login as said user and update default information. 
+- Product information - description and stock information.
+- Search and Filter functionality.
+- Shopping bag - functionality to add one or more different products and quantities to a shopping bag.
+- Secure card checkout - utilising stripe.
+- Contact form for all users to be able to contact the site owner.
+- Admin section for 'staff' - area for 'staff' to manage sections of the site.
 
 ---
 
