@@ -567,7 +567,7 @@ Testing the user stories from the [UX Section](#ux).
 
 ---
 
-
+- To create the user model, the following tutorial was followed [here](https://testdriven.io/blog/django-custom-user-model/)
 
 
 ---
