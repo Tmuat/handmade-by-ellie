@@ -409,15 +409,7 @@ The wireframes for phone, tablet and desktop can be found by clicking [here](htt
 
 ---
 
-### Wireframes
 
-The wireframes for phone, tablet and desktop can be found by clicking [here](link).
-
-[Desktop](link)
-
-[Tablet](link)
-
-[Mobile](link)
 
 [Return to Contents](#contents)
 
