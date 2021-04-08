@@ -91,6 +91,9 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'admin_honeypot',
 ]
 
@@ -108,7 +111,7 @@ INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 # https://docs.djangoproject.com/en/dev/ref/settings/#authentication-backends
 AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
-    # "allauth.account.auth_backends.AuthenticationBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
 ]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-user-model
@@ -233,3 +236,21 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # noqa
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-root
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # noqa
+
+# ------------------------------------------------------------------------------
+# django-allauth
+# ------------------------------------------------------------------------------
+# https://django-allauth.readthedocs.io/en/latest/configuration.html
+ACCOUNT_ALLOW_REGISTRATION = env.bool("DJANGO_ACCOUNT_ALLOW_REGISTRATION", True) # noqa
+
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+
+ACCOUNT_EMAIL_REQUIRED = True
+
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+
+ACCOUNT_UNIQUE_EMAIL = True
+
+ACCOUNT_USERNAME_REQUIRED = False
+
+ACCOUNT_FORMS = {'signup': 'users.forms.CustomUserCreationForm'}
