@@ -398,7 +398,7 @@ Entering into the build process of the site, 'Handmade By Ellie' is already a fu
 
 The overall site features a light colour scheme in keeping with the already utilised colour schemes. The two main colours used on the site come from the company logo and are:
 
-![Main Colours](link "Main Colours")
+![Main Colours](https://github.com/Tmuat/handmade-by-ellie/blob/master/assets/readme_images/colours.png "Main Colours")
 
 - Colour 1 #BDA1A1
 - Colour 2 #FFEDED
