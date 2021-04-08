@@ -381,13 +381,13 @@ Some if not all the annoymous user stories carry over to registered users.
 
 ### Wireframes
 
-The wireframes for phone, tablet and desktop can be found by clicking [here]().
+The wireframes for phone, tablet and desktop can be found by clicking [here](https://github.com/Tmuat/handmade-by-ellie/tree/master/assets/wireframes).
 
-[Desktop]()
+[Desktop](https://github.com/Tmuat/handmade-by-ellie/blob/master/assets/wireframes/desktop.pdf)
 
-[Tablet]()
+[Tablet](https://github.com/Tmuat/handmade-by-ellie/blob/master/assets/wireframes/tablet.pdf)
 
-[Mobile]()
+[Mobile](https://github.com/Tmuat/handmade-by-ellie/blob/master/assets/wireframes/mobile.pdf)
 
 ---
 
