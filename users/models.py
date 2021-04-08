@@ -8,6 +8,10 @@ from .managers import CustomUserManager
 
 
 class CustomUser(AbstractUser):
+    """
+    This code is taken from the following tutorial:
+    https://testdriven.io/blog/django-custom-user-model/
+    """
     username = None
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     email = models.EmailField(_('email address'), unique=True)

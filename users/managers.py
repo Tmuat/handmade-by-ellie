@@ -6,6 +6,9 @@ class CustomUserManager(BaseUserManager):
     """
     Custom user model manager where email is the unique identifiers
     for authentication instead of usernames.
+
+    This code is taken from the following tutorial:
+    https://testdriven.io/blog/django-custom-user-model/
     """
     def create_user(self, email, password, **extra_fields):
         """

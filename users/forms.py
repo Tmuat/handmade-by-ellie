@@ -7,6 +7,10 @@ from .models import CustomUser
 
 
 class CustomUserCreationForm(UserCreationForm):
+    """
+    This code is taken from the following tutorial:
+    https://testdriven.io/blog/django-custom-user-model/
+    """
 
     class Meta(UserCreationForm):
         model = CustomUser
@@ -14,6 +18,10 @@ class CustomUserCreationForm(UserCreationForm):
 
 
 class CustomUserChangeForm(UserChangeForm):
+    """
+    This code is taken from the following tutorial:
+    https://testdriven.io/blog/django-custom-user-model/
+    """
 
     class Meta:
         model = CustomUser

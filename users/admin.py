@@ -6,6 +6,10 @@ from .models import CustomUser
 
 
 class CustomUserAdmin(UserAdmin):
+    """
+    This code is taken from the following tutorial:
+    https://testdriven.io/blog/django-custom-user-model/
+    """
     add_form = CustomUserCreationForm
     form = CustomUserChangeForm
     model = CustomUser
