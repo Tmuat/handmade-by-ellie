@@ -58,6 +58,8 @@ The site allows the store admin to add, edit and delete products as well as bein
 
 ## UX
 
+---
+
 ### **The Strategy Plane**
 
 Handamde by Ellie is the current business of client Ellie; having started the business during the COVID-19 lockdown in 2020, Ellie has primarily run the business through social media and word of mouth. With the success of her business, Ellie is looking to move her business on to an e-commerce store.
@@ -88,7 +90,6 @@ The aim is to build Ellie an e-commerce store which will allow registering of us
 - As a **annonymous user**, I want to be able to checkout annonymously.
 - As a **annonymous user**, I want to recieve an email notification of my order.
 
-
 **Registered User:**
 
 Some if not all the annoymous user stories carry over to registered users.
@@ -104,6 +105,8 @@ Some if not all the annoymous user stories carry over to registered users.
 - As a **admin user**, I want to be able to view all orders being made on the site.
 - As a **admin user**, I want to be able to adjust order status' and send corresponding.emails to users who have made purchases.
 
+---
+
 ### **The Scope Plane**
 
 **Features Planned:**
@@ -118,6 +121,8 @@ Some if not all the annoymous user stories carry over to registered users.
 - Secure card checkout - utilising stripe.
 - Contact form for all users to be able to contact the site owner.
 - Admin section for 'staff' - area for 'staff' to manage sections of the site.
+
+---
 
 ### **The Structure Plane**
 
@@ -370,8 +375,19 @@ Some if not all the annoymous user stories carry over to registered users.
 
 - A form will be used to change order status' and send orders. This will allow admin users to select multiple orders at once and mark as dispatched/completed.
 
+---
 
-### Design
+### **The Skeleton Plane**
+
+### Wireframes
+
+The wireframes for phone, tablet and desktop can be found by clicking [here]().
+
+[Desktop]()
+
+[Tablet]()
+
+[Mobile]()
 
 ---
 
