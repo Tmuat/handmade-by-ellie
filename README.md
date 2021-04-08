@@ -20,12 +20,11 @@ The site allows the store admin to add, edit and delete products as well as bein
         - [User Stories](#user-stories)
     - [The Scope Plane](#the-scope-plane)
     - [The Structure Plane](#the-structure-plane)
-        
-        
+    - [The Skeleton Plane](#the-skeleton-plane)
+        - [Wireframes](#wireframes)
         - [Colour Scheme](#colour-scheme)
         - [Fonts](#fonts)
         - [Information Architecture](#information-architecture)
-    - [Wireframes](#wireframes)
 - [Features](#features)
     - [Existing Features](#existing-features)
     - [Features Left to Implement](#features-left-to-implement)
@@ -319,8 +318,6 @@ Some if not all the annoymous user stories carry over to registered users.
 
 - The orders rendered into the table will include information, including the status. The user can view more detail when clicking on the order to see the order detail.
 
----
-
 
 #### User Story:
 
@@ -379,7 +376,7 @@ Some if not all the annoymous user stories carry over to registered users.
 
 ### **The Skeleton Plane**
 
-### Wireframes
+#### Wireframes
 
 The wireframes for phone, tablet and desktop can be found by clicking [here](https://github.com/Tmuat/handmade-by-ellie/tree/master/assets/wireframes).
 
@@ -389,21 +386,25 @@ The wireframes for phone, tablet and desktop can be found by clicking [here](htt
 
 [Mobile](https://github.com/Tmuat/handmade-by-ellie/blob/master/assets/wireframes/mobile.pdf)
 
----
+#### Landing Imagery
+
+The landing imagery has changed from wireframes; this was down to a request from Ellie having taken so updated pictures.
+
+The landing imagery was used to conincide with the landing text, as a way to allow the user to quickly identify the purpose of the site and the type of products being sold. The imagery is styled to match the existing social media posts from 'Handmade By Ellie'.
 
 #### Colour Scheme
 
----
+Entering into the build process of the site, 'Handmade By Ellie' is already a functioning business. As such the colour schemes have been dictated by the company media already out in the public domain. 
+
+The overall site features a light colour scheme in keeping with the already utilised colour schemes. The two main colours used on the site come from the company logo and are:
+
+![Main Colours](link "Main Colours")
+
+- Colour 1 #BDA1A1
+- Colour 2 #FFEDED
 
 #### Fonts
 
-
----
-
-#### Landing Imagery
-
-
----
 #### Information Architecture
 
 
