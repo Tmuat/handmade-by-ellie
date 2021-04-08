@@ -116,3 +116,11 @@ LOGGING = {
         'level': LOGLEVEL,
     },
 }
+
+# ------------------------------------------------------------------------------
+# ENVIRONMENT NOTICE
+# ------------------------------------------------------------------------------
+
+# https://pypi.org/project/django-admin-env-notice/
+ENVIRONMENT_NAME = 'Development server'
+ENVIRONMENT_COLOR = '#FF2222'

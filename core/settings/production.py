@@ -131,3 +131,10 @@ LOGGING = {
         }
     },
 }
+
+# ------------------------------------------------------------------------------
+# ENVIRONMENT NOTICE
+# ------------------------------------------------------------------------------
+# https://pypi.org/project/django-admin-env-notice/
+ENVIRONMENT_NAME = "Production server"
+ENVIRONMENT_COLOR = "#0AD12C"
