@@ -22,9 +22,13 @@ The site allows the store admin to add, edit and delete products as well as bein
     - [The Structure Plane](#the-structure-plane)
     - [The Skeleton Plane](#the-skeleton-plane)
         - [Wireframes](#wireframes)
+        - [Security](#security)
+    - [The Surface Plane](#the-surface-plane)
+        - [Landimg Imagery](#landing-imagery)
         - [Colour Scheme](#colour-scheme)
         - [Fonts](#fonts)
         - [Information Architecture](#information-architecture)
+        - [Differences To Design](#differences-to-design)
 - [Features](#features)
     - [Existing Features](#existing-features)
     - [Features Left to Implement](#features-left-to-implement)
@@ -386,6 +390,14 @@ The wireframes for phone, tablet and desktop can be found by clicking [here](htt
 
 [Mobile](https://github.com/Tmuat/handmade-by-ellie/blob/master/assets/wireframes/mobile.pdf)
 
+#### Security
+
+In order to keep the site secure, all potentially sensitive information have been kept in an env.py file which is not commited to github and on Heroku config variables have been used.
+
+Sections of the site have been decorated to ensure users are only able to access sections of the site they have been given permissions to access.
+
+### **The Surface Plane**
+
 #### Landing Imagery
 
 The landing imagery has changed from wireframes; this was down to a request from Ellie having taken so updated pictures.
@@ -405,12 +417,17 @@ The overall site features a light colour scheme in keeping with the already util
 
 #### Fonts
 
+The site features two main fonts taken from the logo; the main font across the site comes from the 'Handmade' aspect of the company logo, whilst the 'By Ellie' font is used sparingly across the site. The fonts used are:
+
+- Main Font - Baskerville
+- Secondary Font - Starlight
+
 #### Information Architecture
 
 
+#### Differences To Design
+
 ---
-
-
 
 [Return to Contents](#contents)
 
@@ -420,28 +437,7 @@ The overall site features a light colour scheme in keeping with the already util
 
 ### Existing Features
 
----
-
-#### Design
-
-- Favicon
-
-- Navbar 
-    
-
-- Footer
-
-- Interaction
-
-- Overall Design
-
-#### Users
-- User functionality
-
-
----
-
-### Features Left to Implement
+### Features Left To Implement
 
 ---
 
@@ -466,7 +462,6 @@ Across the site 4 languages were used:
 - Python 3.8.7
     - Python provided the backend language of the project.
 
-
 ---
 
 ### Frameworks and External Resources
@@ -475,6 +470,7 @@ Across the site 4 languages were used:
 
 
 
+---
 
 [Return to Contents](#contents)
 
@@ -547,6 +543,7 @@ Testing the user stories from the [UX Section](#ux).
 ---
 
 
+---
 
 [Return to Contents](#contents)
 
