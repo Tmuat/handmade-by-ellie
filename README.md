@@ -91,6 +91,7 @@ The aim is to build Ellie an e-commerce store which will allow registering of us
 
 **Registered User:**
 
+Some if not all the annoymous user stories carry over to registered users.
 - As a **registered user**, I want to be able to login to the site.
 - As a **registered user**, I want to be able to reset my password if I had forgotten it.
 - As a **registered user**, I want to be able to save my default information for quicker checkout processes of future purchases.
@@ -146,7 +147,229 @@ The aim is to build Ellie an e-commerce store which will allow registering of us
 - Below the landing imagery is an 'About Us' section with more detail about the site and the products.
 
 
+#### User Story:
+
+> As a **annonymous user**, I want to be easily able to navigate through the site.
+
+**Acceptance Criteria**
+- A navigation bar responsive to all screen sizes.
+- All links should navigate to the correct pages.
+- The current page should be highlighted as active to indicate to the user which page they are on.
+
+**Implementation**
+
+- A navigation bar will be implemented for all screen sizes with different views for mobile, tablet and desktop. The navigation bar will collapse on both tablet and mobile for a better user experience.
+
+- Dependent on whether the user is authenticated, the menu options will differ for logging in/registering and viewing a authenticated users profile.
+
+- A bag item will be used with a font awesome icon; the bag will change colour once an item is in the bag.
+
+
+#### User Story:
+
+> As a **annonymous user**, I want to be able to register an account for the site.
+
+**Acceptance Criteria**
+- A user is able to register for an account, using a site form. They will be required to complete email verification. Subsequently the user is then able to login to their account.
+
+**Implementation**
+
+- The site will use the [All Auth](https://django-allauth.readthedocs.io/en/latest/#) package which takes care of authentication & social authentication.
+
+
+#### User Story:
+
+> As a **annonymous user**, I want to be able to search and filter through the different products on sale.
+
+**Acceptance Criteria**
+- A user will be able to view all products, as well as the ability to search for an item or use page filters to see only certain categories, prices etc. The filters and search fields must show the condensed product lists and not all products.
+
+**Implementation**
+
+- A search bar will be placed in the navigation menu, thus allowing users to search for specific names of products.
+
+- A filter section on the products page will allow users to filter to any specific category they would like.
+
+
+#### User Story:
+
+> As a **annonymous user**, I want to be able to create a shopping bag of one or more items to purchase in one checkout process.
+
+**Acceptance Criteria**
+- The user will be able to add one or more products to a viewable shopping bag; the items in the shopping bag must accept varying quantities.
+
+**Implementation**
+
+- The users session will be used to hold shopping bag details.
+
+- When a user adds a product to the shopping bag, the product sku and quantity will be added or updated in the users session.
+
+
+#### User Story:
+
+> As a **annonymous user**, I want to be able to create a shopping bag of one or more items to purchase in one checkout process.
+
+**Acceptance Criteria**
+- The user will be able to add one or more products to a viewable shopping bag; the items in the shopping bag must accept varying quantities.
+
+**Implementation**
+
+- The users session will be used to hold shopping bag details.
+
+- When a user adds a product to the shopping bag, the product sku and quantity will be added or updated in the users session.
+
+- When viewing the bag, all items and quantities in the bag will be displayed for the user.
+
+
+#### User Story:
+
+> As a **annonymous user**, I want to be able to add, change and delete products in my shopping bag.
+
+**Acceptance Criteria**
+- When in the shopping bag, the user is able to adjust quantities and delete products from their bag. When doing so, the user should see their bag refreshed with the updated bag shown.
+
+**Implementation**
+
+- In the shopping bag the user will see a form to update the quantity of individual items.
+
+- On each table row for each item, there will be a remove button. This will remove the item from the bag before reloading the current page without the item in.
+
+
+#### User Story:
+
+> As a **annonymous user**, I want to be able to checkout annonymously.
+
+**Acceptance Criteria**
+- A user is able to go through the full process of purchasing an item as an unauthenticated user.
+
+**Implementation**
+
+- Users will be able to checkout without an account; they must still fill in details regarding name, email, delivery address etc but will not need to be authenticated.
+
+- When checking out they will be informed that they cannot view a full order history if not authenticated on the site.
+
+
+#### User Story:
+
+> As a **annonymous user**, I want to recieve an email notification of my order.
+
+**Acceptance Criteria**
+- Any user making a purchase must recieve email notification their order.
+
+**Implementation**
+
+- Stripe webhooks will be used to send emails; this will ensure the order has been processed and money taken by stripe before the order email is sent out.
+
+
+#### User Story:
+
+> As a **registered user**, I want to be able to login to the site.
+
+**Acceptance Criteria**
+- A registered user is able to navigate to a login page and authenticate with the site.
+
+**Implementation**
+
+- Using the previously mentioned [All Auth](https://django-allauth.readthedocs.io/en/latest/#) and the inbuilt django authentication; the user will be able to login as a registered user.
+
+
+#### User Story:
+
+> As a **registered user**, I want to be able to reset my password if I had forgotten it.
+
+**Acceptance Criteria**
+- Users are able to recieve a forgotten password email should they be unathenticated on the site. They are then able to change their password.
+
+- Users already authenticated are taken to a form to change their password; once changed they are able to login using the new password.
+
+**Implementation**
+
+- Using the previously mentioned [All Auth](https://django-allauth.readthedocs.io/en/latest/#), both scenarios will be handled with their templates.
+
+- The All Auth templates will be styled to follow the styling of the site.
+
+
+#### User Story:
+
+> As a **registered user**, I want to be able to save my default information for quicker checkout processes of future purchases.
+
+**Acceptance Criteria**
+- Users information is stored in their profile; if it has been saved and they move to checkout the information is pre-filled.
+
+**Implementation**
+
+- The user can either input their default information on their profile page to be used when checking out or they have the option to save this information from the checkout page on their order.
+
+
+#### User Story:
+
+> As a **registered user**, I want to be able to view my previous orders and their status.
+
+**Acceptance Criteria**
+- Users must be able to view all previous orders on their profile page along with the up to date status of said order/s.
+
+**Implementation**
+
+- All a authenticated users orders are linked to their profile; thus when viewing their profile a table of orders will be rendered on the same page.
+
+- The orders rendered into the table will include information, including the status. The user can view more detail when clicking on the order to see the order detail.
+
 ---
+
+
+#### User Story:
+
+> As a **admin user**, I want to be able to create, update and delete products in the store.
+
+**Acceptance Criteria**
+- The admin user is able to view the admin site and subsequently perform CRUD operations on all products within the store.
+
+**Implementation**
+
+- A seperate admin site will be created for admin users to access; once here they have the ability to perform CRUD operations on the sites products.
+
+- As well as being able to use the admin site for CRUD operations; admin users will be able to access a modal on the product pages to perform the same actions.
+
+
+#### User Story:
+
+> As a **admin user**, I want to be able to monitor and adjust product stock quantities.
+
+**Acceptance Criteria**
+- When viewing product detail, the admin user can see up to date product stock. They are also able to add/delete stock for individual products.
+
+**Implementation**
+
+- A stock model will be used for all products; this will be updated as orders are placed.
+
+- The admin user will be able to see the stock of all products and adjust the stock accordingly.
+
+
+#### User Story:
+
+> As a **admin user**, I want to be able to view all orders being made on the site.
+
+**Acceptance Criteria**
+- When on the admin site, the admin user is able to see all orders that have been placed (including order detail).
+
+**Implementation**
+
+- Once on the admin site, the admin user will have options to view all orders and also search for specific order numbers.
+
+- The admin user will be able to view all the order details of each order.
+
+
+#### User Story:
+
+> As a **admin user**, I want to be able to adjust order status' and send corresponding.emails to users who have made purchases.
+
+**Acceptance Criteria**
+- The admin user is able to select one or more orders and change the order status. This must trigger an email to be sent out to the email address linked to each order.
+
+**Implementation**
+
+- A form will be used to change order status' and send orders. This will allow admin users to select multiple orders at once and mark as dispatched/completed.
+
 
 ### Design
 
