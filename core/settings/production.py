@@ -19,7 +19,7 @@ ALLOWED_HOSTS = list(DJANGO_ALLOWED_HOSTS)
 
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 DATABASES = {
-    'default': env.db('DB_URL')
+    'default': env.db('DATABASE_URL')
              }
 
 # ------------------------------------------------------------------------------
@@ -92,7 +92,6 @@ AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
 AWS_SES_REGION_NAME = env('AWS_SES_REGION_NAME')
 AWS_SES_REGION_ENDPOINT = env('AWS_SES_REGION_ENDPOINT')
-
 
 # ------------------------------------------------------------------------------
 # LOGGING
