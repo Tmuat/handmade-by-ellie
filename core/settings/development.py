@@ -1,7 +1,7 @@
 import os
 
 from .base import env
-from .base import *  # noqa
+from .base import *
 
 
 # ------------------------------------------------------------------------------
