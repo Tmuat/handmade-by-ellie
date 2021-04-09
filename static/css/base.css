@@ -14,8 +14,40 @@
 /* || General */
 html,
 body {
-    background-color: #ffffff;
+    background-color: #000000;
     font-family: 'Libre Baskerville', serif;
+}
+
+/* || Typography */
+
+.logo-font {
+    font-family: 'starlightsitalic';
+}
+
+/* || Text Colours */
+
+.text-black {
+    color: #000;
+}
+
+/* || Placeholder Colours */
+
+.placeholder-text-grey::placeholder { 
+    color: #8a8888;
+    opacity: 1;
+}
+
+/* || Input Focus Colours */
+
+.form-focus-pink:focus {
+    border-color: #BDA1A1;
+    background: #FFEDED;
+    outline: 0;
+    box-shadow: none;
+}
+
+.form-focus-within-pink:focus-within {
+    box-shadow: 0 0 0 .2rem rgba(255, 237, 237, .25);
 }
 
 /* || Background Colours */
@@ -23,4 +55,18 @@ body {
 .bg-glass {
     background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(20px);
+}
+
+.bg-custom-dark-pink {
+    background: #BDA1A1;
+}
+
+.bg-custom-pink {
+    background: #FFEDED;
+}
+
+/* || Border Colours */
+
+.border-custom-dark-pink {
+    border: 4px solid #BDA1A1;
 }
