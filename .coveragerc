@@ -8,3 +8,4 @@ omit =
   *wsgi/*,
   manage.py
   *site-packages/*
+  *__init__.py
