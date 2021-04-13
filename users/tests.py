@@ -1,5 +1,14 @@
+import pytest
+
 from django.test import TestCase
 from django.contrib.auth import get_user_model
+
+
+pytestmark = pytest.mark.django_db
+
+
+def test_hello_world():
+    assert "hello_world" == "hello_world"
 
 
 class UsersManagersTests(TestCase):
