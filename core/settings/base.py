@@ -37,7 +37,7 @@ DEBUG = env.bool("DJANGO_DEBUG", False)
 DJANGO_SETTINGS_MODULE_ENV = env("DJANGO_SETTINGS_MODULE_ENV")
 
 # https://docs.djangoproject.com/en/3.1/ref/contrib/messages/
-MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -68,39 +68,36 @@ LOCALE_PATHS = [str(BASE_DIR / "locale")]
 # ------------------------------------------------------------------------------
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#root-urlconf
-ROOT_URLCONF = 'core.urls'
+ROOT_URLCONF = "core.urls"
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
-WSGI_APPLICATION = 'core.wsgi.application'
+WSGI_APPLICATION = "core.wsgi.application"
 
 # ------------------------------------------------------------------------------
 # APPS
 # ------------------------------------------------------------------------------
 
 DJANGO_APPS = [
-    'django_admin_env_notice',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.sites',
+    "django_admin_env_notice",
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django.contrib.sites",
     "django.contrib.humanize",
     "django.forms",
 ]
 
 THIRD_PARTY_APPS = [
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'admin_honeypot',
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "admin_honeypot",
 ]
 
-LOCAL_APPS = [
-    'users',
-    'home'
-]
+LOCAL_APPS = ["users", "home"]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
@@ -116,13 +113,13 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-user-model
-AUTH_USER_MODEL = 'users.CustomUser'
+AUTH_USER_MODEL = "users.CustomUser"
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#login-redirect-url
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = "/"
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#login-url
-LOGIN_URL = '/accounts/login/'
+LOGIN_URL = "/accounts/login/"
 
 # ------------------------------------------------------------------------------
 # MIDDLEWARE
@@ -161,7 +158,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},  # noqa
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},  # noqa
-    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},  # noqa
+    {
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"
+    },  # noqa
 ]
 
 # ------------------------------------------------------------------------------
@@ -174,23 +173,23 @@ TEMPLATES = [
         # https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-TEMPLATES-BACKEND
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         # https://docs.djangoproject.com/en/dev/ref/settings/#template-dirs
-        'DIRS': [
-            os.path.join(BASE_DIR, 'templates'),
-            os.path.join(BASE_DIR, 'templates', 'allauth'),
+        "DIRS": [
+            os.path.join(BASE_DIR, "templates"),
+            os.path.join(BASE_DIR, "templates", "allauth"),
         ],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.tz',
-                'django.template.context_processors.media',
-                'django.template.context_processors.static',
-                'django_admin_env_notice.context_processors.from_settings',
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.tz",
+                "django.template.context_processors.media",
+                "django.template.context_processors.static",
+                "django_admin_env_notice.context_processors.from_settings",
             ],
-        }
+        },
     }
 ]
 
@@ -228,23 +227,23 @@ MANAGERS = ADMINS
 # ------------------------------------------------------------------------------
 
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )  # noqa
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)  # noqa
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # noqa
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")  # noqa
 
 # ------------------------------------------------------------------------------
 # MEDIA
 # ------------------------------------------------------------------------------
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-root
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # noqa
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")  # noqa
 
 # ------------------------------------------------------------------------------
 # django-allauth
 # ------------------------------------------------------------------------------
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_ALLOW_REGISTRATION = env.bool("DJANGO_ACCOUNT_ALLOW_REGISTRATION", True) # noqa
+ACCOUNT_ALLOW_REGISTRATION = env.bool("DJANGO_ACCOUNT_ALLOW_REGISTRATION", True)  # noqa
 
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 
@@ -256,4 +255,4 @@ ACCOUNT_UNIQUE_EMAIL = True
 
 ACCOUNT_USERNAME_REQUIRED = False
 
-ACCOUNT_FORMS = {'signup': 'users.forms.CustomUserCreationForm'}
+ACCOUNT_FORMS = {"signup": "users.forms.CustomUserCreationForm"}

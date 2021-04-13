@@ -21,14 +21,11 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
+    path("admin/", include("admin_honeypot.urls", namespace="admin_honeypot")),
     path(settings.ADMIN_URL, admin.site.urls),
-    path('__debug__/', include(debug_toolbar.urls)),
-
-    path('accounts/', include('allauth.urls')),
-
-    path('', include('home.urls')),
-
+    path("__debug__/", include(debug_toolbar.urls)),
+    path("accounts/", include("allauth.urls")),
+    path("", include("home.urls")),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

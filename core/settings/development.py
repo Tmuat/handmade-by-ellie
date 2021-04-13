@@ -47,7 +47,7 @@ INTERNAL_IPS = ["127.0.0.1", "10.0.2.2"]
 # ------------------------------------------------------------------------------
 
 # https://docs.djangoproject.com/en/3.1/ref/settings/#email-backend
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 # ------------------------------------------------------------------------------
 # DATABASES
@@ -55,25 +55,25 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'), # noqa
-        }
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),  # noqa
     }
+}
 
 # ------------------------------------------------------------------------------
 # STATIC
 # ------------------------------------------------------------------------------
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-url
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 
 # ------------------------------------------------------------------------------
 # MEDIA
 # ------------------------------------------------------------------------------
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-url
-MEDIA_URL = '/media/'
+MEDIA_URL = "/media/"
 
 # ------------------------------------------------------------------------------
 # LOGGING
@@ -82,38 +82,38 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/dev/ref/settings/#logging
 # See https://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
-LOGLEVEL = env.str('DJANGO_LOGGING_LEVEL', 'info').upper()
+LOGLEVEL = env.str("DJANGO_LOGGING_LEVEL", "info").upper()
 
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': '{levelname} {asctime} {module} '
-                      '{process:d} {thread:d} {message}',
-            'style': '{',
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": "{levelname} {asctime} {module} "
+            "{process:d} {thread:d} {message}",
+            "style": "{",
         },
-        'simple': {
-            'format': '{levelname} {message}',
-            'style': '{',
-        },
-    },
-    'handlers': {
-        'console': {
-            'level': LOGLEVEL,
-            'class': 'logging.StreamHandler',
-            'formatter': 'verbose'
+        "simple": {
+            "format": "{levelname} {message}",
+            "style": "{",
         },
     },
-    'loggers': {
-        'django': {
-            'handlers': ['console'],
-            'propagate': True,
+    "handlers": {
+        "console": {
+            "level": LOGLEVEL,
+            "class": "logging.StreamHandler",
+            "formatter": "verbose",
+        },
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "propagate": True,
         }
     },
-    'root': {
-        'handlers': ['console'],
-        'level': LOGLEVEL,
+    "root": {
+        "handlers": ["console"],
+        "level": LOGLEVEL,
     },
 }
 
@@ -122,5 +122,5 @@ LOGGING = {
 # ------------------------------------------------------------------------------
 
 # https://pypi.org/project/django-admin-env-notice/
-ENVIRONMENT_NAME = 'Development server'
-ENVIRONMENT_COLOR = '#FF2222'
+ENVIRONMENT_NAME = "Development server"
+ENVIRONMENT_COLOR = "#FF2222"
