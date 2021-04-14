@@ -1,82 +1,88 @@
 /* || Fonts */
 
 @font-face {
-    font-family: 'starlightsitalic';
-    src: url('../fonts/starlights_italic-webfont.woff2') format('woff2'),
-         url('../fonts/starlights_italic-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+  font-family: "starlightsitalic";
+  src: url("../fonts/starlights_italic-webfont.woff2") format("woff2"),
+    url("../fonts/starlights_italic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
 
 /* || General */
 html,
 body {
-    background-color: #000000;
-    font-family: 'Libre Baskerville', serif;
+  background-color: #000000;
+  font-family: "Libre Baskerville", serif;
 }
 
 /* || Typography */
 
 .logo-font {
-    font-family: 'starlightsitalic';
+  font-family: "starlightsitalic";
 }
 
 /* || Text Colours */
 
 .text-black {
-    color: #000;
+  color: #000;
 }
 
 /* || Placeholder Colours */
 
-.placeholder-text-grey::placeholder { 
-    color: #8a8888;
-    opacity: 1;
+.placeholder-text-grey::placeholder {
+  color: #8a8888;
+  opacity: 1;
 }
 
 /* || Input Focus Colours */
 
 .form-focus-pink:focus {
-    border-color: #BDA1A1;
-    background: #FFEDED;
-    outline: 0;
-    box-shadow: none;
+  border-color: #bda1a1;
+  background: #ffeded;
+  outline: 0;
+  box-shadow: none;
 }
 
 .form-focus-within-pink:focus-within {
-    box-shadow: 0 0 0 .2rem rgba(255, 237, 237, .25);
+  box-shadow: 0 0 0 0.2rem rgba(255, 237, 237, 0.25);
+}
+
+.bg-custom-dark-pink:focus {
+    background: #bda1a1;;
+    border-color: transparent;
+    box-shadow: 0 0 0;
 }
 
 /* || Icon Hover */
 
 .rotate {
-    transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
-.outer-hover:hover .rotate {
-    transform: rotate(90deg);
+.outer-hover:hover .rotate,
+.outer-hover:focus .rotate {
+  transform: rotate(90deg);
 }
 
 /* || Background Colours */
 
 .bg-glass {
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
 }
 
 .bg-custom-dark-pink {
-    background: #BDA1A1;
+  background: #bda1a1;
 }
 
 .bg-custom-pink {
-    background: #FFEDED;
+  background: #ffeded;
 }
 
 /* || Border Colours */
 
 .border-custom-dark-pink {
-    border: 4px solid #BDA1A1;
+  border: 4px solid #bda1a1;
 }
