@@ -6,19 +6,59 @@
 {% endblock %}
 
 {% block content %}
-<div class="bg">
-    <div class="container h-100">
-        <div class="row h-100">
-            <div class="col-4 my-auto">
-                <div class="card bg-card-glass box-shadow border-15 border-0">
-                    <div class="card-body text-white">
-                      <h1 class="card-title text-uppercase text-shadow">Welcome</h1>
-                      <p class="card-text text-black font-weight-bold">Take a look at any of our wax melts and you’ll be sure to find one to match any mood.</p>
-                      <a href="" class="btn btn-custom-pink btn-shop-now font-weight-bold"> Shop Now</a>
+<section id="landing-section">
+    <div class="bg">
+        <div class="container h-100">
+            <div class="row h-90-vh">
+                <div class="col-4 my-auto">
+                    <div class="card bg-card-glass box-shadow border-15 border-0">
+                        <div class="card-body text-white">
+                            <h1 class="card-title text-uppercase text-shadow">Welcome</h1>
+                            <p class="card-text text-black font-weight-bold">Take a look at any of our wax melts and
+                                you’ll be sure to find one to match any mood.</p>
+                            <a href="" class="btn btn-custom-pink btn-shop-now font-weight-bold"> Shop Now</a>
+                        </div>
                     </div>
-                  </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>
+<section class="product-card">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-white">
+                <div class="row position-relative mt-n-6" style="z-index: 10;">
+                    <div class="col-xl-5 offset-xl-7 col-lg-9">
+                        <div class="card product-card border-0 border-15 box-shadow">
+                            <div class="card-body px-3 d-flex justify-content-around my-auto">
+                                <div class="row mx-0">
+                                    <div class="col-4 px-2 my-auto">
+                                        <a class="d-block text-center text-decoration-none" href="shop-grid-ls.html">
+                                            <img class="d-block rounded img-fluid" src="{% static 'home/images/ellie-background.png' %}" alt="Men">
+                                        </a>
+                                    </div>
+                                    <div class="col-4 px-2 my-auto">
+                                        <a class="d-block text-center text-decoration-none" href="shop-grid-ls.html">
+                                            <img class="d-block rounded img-fluid" src="{% static 'home/images/ellie-background.png' %}" alt="Men">
+                                        </a>
+                                    </div>
+                                    <div class="col-4 px-2 my-auto">
+                                        <a class="d-block text-center text-decoration-none" href="shop-grid-ls.html">
+                                            <img class="d-block rounded img-fluid" src="{% static 'home/images/ellie-background.png' %}" alt="Men">
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- <img class="rounded img-product-card my-auto" src="{% static 'home/images/ellie-background.png' %}" alt="">
+                                <img class="rounded img-fluid my-auto" src="{% static 'home/images/grey.png' %}" alt="" style="max-height: 150px;">
+                                <img class="rounded img-fluid my-auto" src="{% static 'home/images/grey.png' %}" alt="" style="max-height: 150px;"> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}

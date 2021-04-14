@@ -1,3 +1,5 @@
+/* || Background */
+
 .bg {
     background-image: url('/static/home/images/ellie-background.png');
 
@@ -7,3 +9,14 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
+
+/* || Product Card */
+
+.product-card {
+  height: 12rem;
+}
+
+.img-product-card {
+
+  object-fit: cover;
+}

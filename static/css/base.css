@@ -13,7 +13,7 @@
 /* || General */
 html,
 body {
-  background-color: #000000;
+  background-color: #fff;
   font-family: "Libre Baskerville", serif;
   height: 100%;
   margin: 0;
@@ -122,6 +122,16 @@ body {
 
 .border-15 {
   border-radius: 15px;
+}
+
+/* || Extending Bootstrap */
+
+.h-90-vh {
+  height: 90vh !important;
+}
+
+.mt-n-6 {
+  margin-top: -6rem;
 }
 
 /* || Media Queries */
