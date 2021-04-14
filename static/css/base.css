@@ -31,6 +31,16 @@ body {
   color: #000;
 }
 
+/* || Shadows */
+
+.text-shadow {
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.box-shadow {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
 /* || Placeholder Colours */
 
 .placeholder-text-grey::placeholder {
@@ -68,11 +78,30 @@ body {
   transform: rotate(90deg);
 }
 
+/* || Buttons */
+
+.btn-shop-now {
+  min-width: 120px;
+}
+
+/* || Button Colours */
+
+.btn-custom-pink {
+  background: #FFEDED;
+  border: 5px solid #BDA1A1;
+  box-sizing: border-box;
+}
+
 /* || Background Colours */
 
 .bg-glass {
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(20px);
+}
+
+.bg-card-glass {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
 }
 
 .bg-custom-dark-pink {
@@ -87,4 +116,35 @@ body {
 
 .border-custom-dark-pink {
   border: 4px solid #bda1a1;
+}
+
+/* || Border Radius */
+
+.border-15 {
+  border-radius: 15px;
+}
+
+/* || Media Queries */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .container {
+    max-width: 80%;
+  }
 }
