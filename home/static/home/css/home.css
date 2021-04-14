@@ -1,0 +1,9 @@
+.bg {
+    background-image: url('/static/home/images/ellie-background.png');
+
+    height: 100%; 
+  
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
