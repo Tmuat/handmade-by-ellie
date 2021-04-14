@@ -25,6 +25,19 @@ body {
   font-family: "starlightsitalic";
 }
 
+.header-text {
+  font-family: Baskerville;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 60px;
+}
+
+.paragraph-text {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+}
+
 /* || Text Colours */
 
 .text-black {
