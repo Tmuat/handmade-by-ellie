@@ -31,6 +31,15 @@ body {
   color: #000;
 }
 
+.text-custom-pink {
+  color: #ffeded;
+}
+
+.text-custom-pink.nav-link:hover,
+.text-custom-pink.nav-link:focus {
+  color: #bda1a1;
+}
+
 /* || Shadows */
 
 .text-shadow {
