@@ -150,10 +150,6 @@ body {
   height: 90vh !important;
 }
 
-.card-translate {
-  margin-top: -50%;
-}
-
 /* || Media Queries */
 
 /* Extra small devices (phones, 600px and down) */
@@ -167,10 +163,6 @@ body {
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-  .card-translate {
-    margin-top: -30%;
-  }
-
   .header-text {
     font-size: 60px;
   }
@@ -188,9 +180,5 @@ body {
 @media only screen and (min-width: 1200px) {
   .container {
     max-width: 90%;
-  }
-
-  .card-translate {
-    margin-top: -20%;
   }
 }

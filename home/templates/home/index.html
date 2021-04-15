@@ -57,7 +57,7 @@
                     </div>
                     <div class="col-12 order-lg-3">
                         <div class="row">
-                            <div class="col-12 col-md-7 text-black text-center text-md-left py-5">
+                            <div class="col-12 col-md-7 text-black text-center text-md-left py-3 py-lg-5">
                                 <p class="card-text paragraph-text">Our luxury wax melts are made with 100% soy wax coloured with mica powder rather than harmful dyes. The glitter and wax melt packaging is biodegradable. All our products are eco friendly, vegan and cruelty free.
                                 </p>
                                 <p class="card-text paragraph-text">
@@ -66,25 +66,15 @@
                                 <p class="card-text paragraph-text">
                                     All hand poured with a long lasting burn time from each burn to the next.
                                 </p>
-                                <span class="border-dark border-top w-100 d-block mb-3"></span>
-                                <p class="card-text paragraph-text font-italic">
-                                    Don't believe us, read what others had to say:
-                                </p>
-                                <p class="card-text paragraph-text font-italic font-weight-normal">
-                                    "Honestly I have nothing bad to say, they are so strong and smell gorgeous." <span class="font-weight-bold">Giveaway Winner</span>
-                                </p>
-                                <p class="card-text paragraph-text font-italic font-weight-normal">
-                                    "They all smell amazing and are such gorgeous colours!" <span class="font-weight-bold">Jaz</span>
-                                </p>
-                                <p class="card-text paragraph-text font-italic font-weight-normal">
-                                    "Absolutely love my melts! They all smell incredible and I can't believe how long they last." <span class="font-weight-bold">Zara</span>
-                                </p>
-                                <p class="card-text paragraph-text font-italic font-weight-normal">
-                                    "These wax melts smell and look great. Quick to answer my questions. Fab service!" <span class="font-weight-bold">Humaira</span>
-                                </p>
+                                <div class="d-none d-lg-inline">
+                                    {% include 'home/includes/landing-reviews.html' %}
+                                </div>
                             </div>
-                            <div class="col-5 py-5 my-auto text-center">
+                            <div class="col-12 col-md-5 py-3 py-lg-5 my-auto text-center">
                                 <img class="img-fluid rounded box-shadow pouring-image" src="{% static 'home/images/pouring.png' %}" alt="">
+                            </div>
+                            <div class="col-12 d-inline d-lg-none text-black text-center text-md-left pb-3">
+                                {% include 'home/includes/landing-reviews.html' %}
                             </div>
                         </div>
                     </div>

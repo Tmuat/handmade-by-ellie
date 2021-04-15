@@ -12,10 +12,45 @@
 
 /* || Product Card */
 
+.card-translate {
+  margin-top: -50%;
+}
+
 .product-image {
   max-height: 250px;
 }
 
 .pouring-image {
-  max-height: 400px;
+  max-height: 250px;
+}
+
+/* || Media Queries */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .card-translate {
+    margin-top: -30%;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .pouring-image {
+    max-height: 400px;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .card-translate {
+    margin-top: -20%;
+  }
 }
