@@ -12,11 +12,6 @@
 
 /* || Product Card */
 
-.product-card {
-  height: 12rem;
-}
-
-.img-product-card {
-
-  object-fit: cover;
+.product-image {
+  max-height: 250px;
 }
