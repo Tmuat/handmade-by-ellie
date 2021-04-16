@@ -82,9 +82,16 @@ body {
 }
 
 .bg-custom-dark-pink:focus {
-    background: #bda1a1;;
-    border-color: transparent;
-    box-shadow: 0 0 0;
+  background: #bda1a1;
+  border-color: transparent;
+  box-shadow: 0 0 0;
+}
+
+/* || Nav Hover Colours */
+
+.bg-custom-dark-pink .dropdown-item:hover {
+  background: transparent;
+  font-style: italic;
 }
 
 /* || Icon Hover */
@@ -126,6 +133,10 @@ body {
 
 .bg-custom-dark-pink {
   background: #bda1a1;
+}
+
+.bg-custom-pink-opaque {
+  background: rgba(255, 237, 237, .6);
 }
 
 .bg-custom-pink {

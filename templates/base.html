@@ -142,6 +142,27 @@
         </div>
         <!-- Navbar Account & Bag End -->
       </div>
+      <!-- Tablet Nav -->
+      <div class="row bg-glass d-none d-sm-flex d-lg-none">
+        <nav class="navbar navbar-expand-lg navbar-dark w-100">
+            <button class="navbar-toggler menu-right" type="button" data-toggle="collapse" data-target="#main-nav"
+                aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon float-right"></span>
+            </button>
+            {% include 'includes/nav/tablet-nav.html' %}
+        </nav>
+    </div>
+    
+    <!-- Mobile Nav -->
+    <div class="row bg-glass d-flex d-sm-none">
+        <nav class="navbar navbar-expand-lg navbar-dark w-100">
+            <button class="navbar-toggler menu-right" type="button" data-toggle="collapse" data-target="#main-nav"
+                aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon float-right"></span>
+            </button>
+            {% include 'includes/nav/mobile-nav.html' %}
+        </nav>
+    </div>
     </header>
 
     {% if messages %}
