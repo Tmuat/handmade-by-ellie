@@ -122,8 +122,8 @@ body {
 /* || Background Colours */
 
 .bg-glass {
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(20px);
+  background: rgba(201, 201, 201, 0.75);
+  backdrop-filter: blur(5px);
 }
 
 .bg-card-glass {
@@ -153,6 +153,15 @@ body {
 
 .border-15 {
   border-radius: 15px;
+}
+
+/* || Footer */
+
+.footer-link:hover,
+.footer-link:focus {
+  text-decoration: none;
+  font-style: italic;
+  color: #bda1a1;
 }
 
 /* || Extending Bootstrap */
