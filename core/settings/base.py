@@ -186,6 +186,7 @@ TEMPLATES = [
                 "django.template.context_processors.media",
                 "django.template.context_processors.static",
                 "django_admin_env_notice.context_processors.from_settings",
+                'common.context_processors.get_current_year_to_context',
             ],
         },
     }
