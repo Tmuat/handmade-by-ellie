@@ -43,12 +43,24 @@ body {
 }
 
 .text-custom-pink {
-  color: #ffeded;
+  color: #ffeded !important;
+}
+
+.text-custom-dark-pink {
+  color: #bda1a1 !important;
 }
 
 .text-custom-pink.nav-link:hover,
 .text-custom-pink.nav-link:focus {
-  color: #bda1a1;
+  color: #bda1a1 !important;
+}
+
+.text-custom-pink.nav-link.no-hover:hover,
+.text-custom-pink.nav-link.no-hover:focus {
+  color: #ffeded !important;
+  background-color: transparent;
+  text-decoration: underline;
+  font-style: italic;
 }
 
 /* || Shadows */
@@ -59,6 +71,15 @@ body {
 
 .box-shadow {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.lg-box-shadow {
+  box-shadow: none;
+}
+
+.hover-pink-shadow:hover,
+.hover-pink-shadow:focus {
+  text-shadow: 0px 0px 8px rgba(255, 237, 237, 1);
 }
 
 /* || Placeholder Colours */
@@ -94,6 +115,14 @@ body {
   font-style: italic;
 }
 
+/* || Nav Spacing */
+
+.nav-bg-spread {
+  margin-left: -1rem !important;
+  margin-right: -1rem !important;
+  margin-bottom: -0.5rem !important;
+}
+
 /* || Icon Hover */
 
 .rotate {
@@ -122,7 +151,7 @@ body {
 /* || Background Colours */
 
 .bg-glass {
-  background: rgba(201, 201, 201, 0.75);
+  background: rgba(173, 173, 173, 0.75);
   backdrop-filter: blur(5px);
 }
 
@@ -139,8 +168,21 @@ body {
   background: rgba(255, 237, 237, .6);
 }
 
+.bg-custom-dark-pink-opaque {
+  background: rgba(189, 161, 161, 0.6);
+}
+
+.bg-custom-glass-and-dark-pink-opaque.nav-bg {
+  background: rgba(173, 173, 173, 0.75);
+  backdrop-filter: blur(10px);
+}
+
 .bg-custom-pink {
   background: #ffeded;
+}
+
+.bg-sub-transparent-pink {
+  background: transparent;
 }
 
 /* || Border Colours */
@@ -164,10 +206,14 @@ body {
   color: #bda1a1;
 }
 
-/* || Extending Bootstrap */
+/* || Generic Classes */
 
 .h-90-vh {
   height: 90vh !important;
+}
+
+.w-custom-100-50 {
+  width: 100% !important;
 }
 
 /* || Media Queries */
@@ -194,6 +240,22 @@ body {
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
+  .bg-custom-glass-and-dark-pink-opaque.nav-bg {
+    background: rgba(189, 161, 161, 0.8);
+    backdrop-filter: none;
+  }
+
+  .w-custom-100-50 {
+    width: 50% !important;
+  }
+
+  .bg-sub-transparent-pink {
+    background: #bda1a1;
+  }
+
+  .lg-box-shadow {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px
+  }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */

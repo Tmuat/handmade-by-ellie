@@ -48,7 +48,7 @@
   <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
     <ul class="list-inline list-unstyled text-center text-lg-right my-0">
       <li class="list-inline-item dropdown">
-          <a class="text-custom-pink nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="text-custom-pink hover-pink-shadow nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="text-center">
                   <div><i class="fas fa-user-circle fa-2x"></i></div>
                   <p class="my-0">Account</p>
@@ -57,7 +57,7 @@
           <div class="dropdown-menu bg-custom-dark-pink box-shadow border-0 my-0" aria-labelledby="user-options">
               {% if request.user.is_authenticated %}
                   {% if request.user.is_superuser %}
-                      <a href="" class="dropdown-item text-white">Product Management</a>
+                      <a href="##" class="dropdown-item text-white">Product Management</a>
                   {% endif %}
                   <a href="" class="dropdown-item text-white">My Profile</a>
                   <a href="{% url 'account_logout' %}" class="dropdown-item text-white">Logout</a>
@@ -68,7 +68,7 @@
           </div>
       </li>
       <li class="list-inline-item">
-          <a class="font-weight-bold text-custom-pink nav-link" href="">
+          <a class="font-weight-bold text-custom-pink hover-pink-shadow nav-link" href="">
               <div class="text-center">
                   <div><i class="fas fa-shopping-bag fa-2x"></i></div>
                   <p class="my-0">

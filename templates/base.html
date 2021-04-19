@@ -65,26 +65,16 @@
         {% include 'includes/nav/main-nav.html' %}
       </div>
 
-      <!-- Tablet Nav -->
-      <div class="row bg-glass d-none d-sm-flex d-lg-none">
-        <nav class="navbar navbar-expand-lg navbar-dark w-100">
+      <!-- Sub Nav -->
+      <div class="row bg-custom-glass-and-dark-pink-opaque nav-bg">
+        <nav class="navbar navbar-expand-lg navbar-dark w-custom-100-50 mx-auto py-lg-0">
             <button class="navbar-toggler menu-right" type="button" data-toggle="collapse" data-target="#main-nav"
                 aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon float-right"></span>
             </button>
-            {% include 'includes/nav/tablet-nav.html' %}
+            {% include 'includes/nav/sub-nav.html' %}
+            {% include 'includes/nav/categories.html' %}
         </nav>
-      </div>
-    
-      <!-- Mobile Nav -->
-      <div class="row bg-glass d-flex d-sm-none">
-          <nav class="navbar navbar-expand-lg navbar-dark w-100">
-              <button class="navbar-toggler menu-right" type="button" data-toggle="collapse" data-target="#main-nav"
-                  aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon float-right"></span>
-              </button>
-              {% include 'includes/nav/mobile-nav.html' %}
-          </nav>
       </div>
     </header>
 
