@@ -13,5 +13,11 @@ class CategoryAdmin(admin.ModelAdmin):
         'updated_by'
     )
 
+    def save_model(self, request, obj, form, change):
+        if not obj.created_by:
+            obj.created_by = request.user.username
+        obj.updated_by = request.user.username
+        obj.save()
+
 
 admin.site.register(Category, CategoryAdmin)
