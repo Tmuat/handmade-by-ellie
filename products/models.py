@@ -1,3 +1,10 @@
 from django.db import models
 
-# Create your models here.
+from common.models import UpdatedAndCreated
+
+
+class Category(UpdatedAndCreated):
+
+    class Meta:
+        verbose_name_plural = 'Categories'
+

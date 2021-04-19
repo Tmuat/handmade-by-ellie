@@ -9,7 +9,10 @@ pytestmark = pytest.mark.django_db
 def test_create_user():
     User = get_user_model()
     user = User.objects.create_user(
-        email="normal@user.com", first_name="test", last_name="user", password="foo"
+        email="normal@user.com",
+        first_name="test",
+        last_name="user",
+        password="foo"
     )
     assert user.email == "normal@user.com"
     assert user.first_name == "test"
