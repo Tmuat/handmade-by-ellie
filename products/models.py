@@ -1,6 +1,8 @@
 import uuid
 
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 from common.models import UpdatedAndCreated
 
@@ -19,16 +21,6 @@ class Category(UpdatedAndCreated):
         return self.friendly_name
 
 
-class ProductStock(models.Model):
-    class Meta:
-        verbose_name = "Product Stock"
-
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    available_stock = models.IntegerField(null=False,
-                                          blank=False,
-                                          default=0)
-
-
 class Product(UpdatedAndCreated):
     class Meta:
         verbose_name_plural = "Products"
@@ -45,11 +37,37 @@ class Product(UpdatedAndCreated):
     slug = models.SlugField(null=False,
                             unique=True)
     image = models.ImageField(blank=True)
-    product_stock = models.OneToOneField(
-        ProductStock,
-        on_delete=models.CASCADE,
-        related_name='product_stock',
-        null=False)
 
     def __str__(self):
         return self.name
+
+
+class ProductStock(models.Model):
+    class Meta:
+        verbose_name = "Product Stock"
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    available_stock = models.IntegerField(null=False,
+                                          blank=False,
+                                          default=0)
+    product = models.OneToOneField(
+        Product,
+        on_delete=models.CASCADE,
+        related_name='product_stock',
+    )
+
+    def __str__(self):
+        return self.product.name
+
+
+@receiver(post_save, sender=Product)
+def create_or_update_product_stock(sender, instance, created, **kwargs):
+    """
+    Create or update product stock.
+    """
+    qs_exists = ProductStock.objects.filter(
+                    product=instance).exists()
+    if qs_exists:
+        pass
+    elif created:
+        ProductStock.objects.create(product=instance)
