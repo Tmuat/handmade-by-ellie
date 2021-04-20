@@ -31,8 +31,8 @@ def test_product_model(category):
         sku=25545, name="Test Product", category=category,
         description="Test description", price=10, slug="test-product"
     )
-    assert product.sku == "25545"
-    assert product.name == "Test Category"
+    assert product.sku == 25545
+    assert product.name == "Test Product"
     assert product.category == category
     assert product.description == "Test description"
     assert product.price == 10

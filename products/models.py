@@ -20,3 +20,16 @@ class Category(UpdatedAndCreated):
 class Product(UpdatedAndCreated):
     class Meta:
         verbose_name_plural = "Products"
+
+    category = models.ForeignKey('Category', null=True, blank=True,
+                                 on_delete=models.SET_NULL)
+    sku = models.IntegerField(null=True,
+                              blank=True,
+                              unique=True,
+                              editable=False)
+    name = models.CharField(max_length=254)
+    description = models.TextField()
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+    slug = models.SlugField(null=False,
+                            unique=True)
+    image = models.ImageField(blank=True)
