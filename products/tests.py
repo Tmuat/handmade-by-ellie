@@ -26,14 +26,13 @@ def test_category_friendly_name_null():
     assert category.friendly_name == ""
 
 
-def test_product_model(category):
-    product = Product.objects.create(
-        sku=25545, name="Test Product", category=category,
-        description="Test description", price=10, slug="test-product"
-    )
+def test_product_model(product, category):
     assert product.sku == 25545
     assert product.name == "Test Product"
     assert product.category == category
     assert product.description == "Test description"
     assert product.price == 10
     assert product.slug == "test-product"
+
+
+# def test_product_model_str(category):
