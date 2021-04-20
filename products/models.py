@@ -15,3 +15,8 @@ class Category(UpdatedAndCreated):
 
     def get_friendly_name(self):
         return self.friendly_name
+
+
+class Product(UpdatedAndCreated):
+    class Meta:
+        verbose_name_plural = "Products"
