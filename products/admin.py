@@ -57,6 +57,8 @@ class ProductAdmin(admin.ModelAdmin):
 
     list_filter = ("category",)
 
+    prepopulated_fields = {'slug': ('name',)}
+
     search_fields = (
         "name",
         "category",
