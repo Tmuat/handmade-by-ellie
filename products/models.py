@@ -33,3 +33,6 @@ class Product(UpdatedAndCreated):
     slug = models.SlugField(null=False,
                             unique=True)
     image = models.ImageField(blank=True)
+
+    def __str__(self):
+        return self.name

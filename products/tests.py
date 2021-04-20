@@ -35,4 +35,5 @@ def test_product_model(product, category):
     assert product.slug == "test-product"
 
 
-# def test_product_model_str(category):
+def test_product_model_str(product):
+    assert str(product) == "Test Product"
