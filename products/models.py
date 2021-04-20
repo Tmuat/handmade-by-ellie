@@ -1,3 +1,5 @@
+import uuid
+
 from django.db import models
 
 from common.models import UpdatedAndCreated
@@ -15,6 +17,13 @@ class Category(UpdatedAndCreated):
 
     def get_friendly_name(self):
         return self.friendly_name
+
+
+class ProductStock(models.Model):
+    class Meta:
+        verbose_name = "Product Stock"
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
 
 class Product(UpdatedAndCreated):
