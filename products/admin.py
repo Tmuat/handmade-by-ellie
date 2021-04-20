@@ -17,7 +17,7 @@ class CategoryAdmin(admin.ModelAdmin):
         "name",
         "created_by",
     )
-    readonly_fields = [
+    exclude = [
         "updated_by",
         "updated",
         "created_by",
@@ -26,8 +26,8 @@ class CategoryAdmin(admin.ModelAdmin):
 
     def save_model(self, request, obj, form, change):
         if not obj.created_by:
-            obj.created_by = request.user.username
-        obj.updated_by = request.user.username
+            obj.created_by = request.user.email
+        obj.updated_by = request.user.email
         obj.save()
 
 
