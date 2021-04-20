@@ -62,3 +62,9 @@ def test_product_stock_model(product_stock, product):
 def test_all_products_view_uses_correct_template(client):
     response = client.get('/products/')
     assertTemplateUsed(response, 'products/products.html')
+
+
+def test_all_products_context_data(client):
+    response = client.get('/products/')
+    assert response.status_code == 200
+    assert 'products' in response.context
