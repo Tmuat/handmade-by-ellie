@@ -1,12 +1,19 @@
 import pytest
 
-from products.models import Category, Product
+from products.models import Category, Product, ProductStock
 
 
 @pytest.fixture
 def category() -> Category:
     return Category.objects.create(
         name="test_category", friendly_name="Test Category"
+    )
+
+
+@pytest.fixture
+def product_stock():
+    return ProductStock.objects.create(
+        available_stock=100
     )
 
 

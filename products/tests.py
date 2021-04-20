@@ -1,6 +1,6 @@
 import pytest
 
-from products.models import Category, Product
+from products.models import Category
 
 pytestmark = pytest.mark.django_db
 
@@ -27,6 +27,9 @@ def test_category_friendly_name_null():
 
 
 def test_product_model(product, category):
+    """
+    Tests the creation of instances in the product model.
+    """
     assert product.sku == 25545
     assert product.name == "Test Product"
     assert product.category == category
@@ -36,4 +39,14 @@ def test_product_model(product, category):
 
 
 def test_product_model_str(product):
+    """
+    Tests the product models str method works.
+    """
     assert str(product) == "Test Product"
+
+
+def test_product_stock_model(product_stock):
+    """
+    Tests the product stock model instance creation.
+    """
+    assert product_stock.available_stock == 100
