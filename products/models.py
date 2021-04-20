@@ -24,13 +24,16 @@ class ProductStock(models.Model):
         verbose_name = "Product Stock"
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    available_stock = models.IntegerField(null=False,
+                                          blank=False,
+                                          default=0)
 
 
 class Product(UpdatedAndCreated):
     class Meta:
         verbose_name_plural = "Products"
 
-    category = models.ForeignKey('Category', null=True, blank=True,
+    category = models.ForeignKey(Category, null=True, blank=True,
                                  on_delete=models.SET_NULL)
     sku = models.IntegerField(null=True,
                               blank=True,
@@ -42,6 +45,11 @@ class Product(UpdatedAndCreated):
     slug = models.SlugField(null=False,
                             unique=True)
     image = models.ImageField(blank=True)
+    product_stock = models.OneToOneField(
+        ProductStock,
+        on_delete=models.CASCADE,
+        related_name='product_stock',
+        null=False)
 
     def __str__(self):
         return self.name

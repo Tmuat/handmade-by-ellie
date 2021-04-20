@@ -18,8 +18,9 @@ def product_stock():
 
 
 @pytest.fixture
-def product(category) -> Product:
+def product(category, product_stock) -> Product:
     return Product.objects.create(
         sku=25545, name="Test Product", category=category,
-        description="Test description", price=10, slug="test-product"
+        description="Test description", price=10, slug="test-product",
+        product_stock=product_stock
     )
