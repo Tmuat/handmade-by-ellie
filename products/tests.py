@@ -1,9 +1,13 @@
 import pytest
 
+from pytest_django.asserts import assertTemplateUsed
+
 from products.models import Category
 
 pytestmark = pytest.mark.django_db
 
+
+# Model testing
 
 def test_category_model(category):
     """
@@ -51,3 +55,9 @@ def test_product_stock_model(product_stock, product):
     """
     assert product_stock.available_stock == 100
     assert product_stock.product == product
+
+
+# View testing
+def test_all_products_view_uses_correct_template(client):
+    response = client.get('/products/')
+    assertTemplateUsed(response, 'products/products.html')
