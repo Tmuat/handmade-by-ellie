@@ -58,6 +58,7 @@ def test_product_stock_model(product_stock, product):
 
 
 # View testing
+
 def test_all_products_view_uses_correct_template(client):
     response = client.get('/products/')
     assertTemplateUsed(response, 'products/products.html')
