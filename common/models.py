@@ -10,7 +10,5 @@ class UpdatedAndCreated(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    created_by = models.CharField(max_length=100,
-                                  blank=True)
-    updated_by = models.CharField(max_length=100,
-                                  blank=True)
+    created_by = models.CharField(max_length=100, blank=True)
+    updated_by = models.CharField(max_length=100, blank=True)

@@ -12,7 +12,7 @@ def test_create_user():
         email="normal@user.com",
         first_name="test",
         last_name="user",
-        password="foo"
+        password="foo",
     )
     assert user.email == "normal@user.com"
     assert user.first_name == "test"

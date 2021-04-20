@@ -97,11 +97,7 @@ THIRD_PARTY_APPS = [
     "admin_honeypot",
 ]
 
-LOCAL_APPS = [
-    "users",
-    "home",
-    "products"
-]
+LOCAL_APPS = ["users", "home", "products"]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
@@ -160,9 +156,15 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"  # noqa
     },
-    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},  # noqa
-    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},  # noqa
-    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},  # noqa
+    {
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"
+    },  # noqa
+    {
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"
+    },  # noqa
+    {
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"
+    },  # noqa
 ]
 
 # ------------------------------------------------------------------------------
@@ -190,7 +192,7 @@ TEMPLATES = [
                 "django.template.context_processors.media",
                 "django.template.context_processors.static",
                 "django_admin_env_notice.context_processors.from_settings",
-                'common.context_processors.get_current_year_to_context',
+                "common.context_processors.get_current_year_to_context",
             ],
         },
     }
@@ -246,7 +248,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")  # noqa
 # django-allauth
 # ------------------------------------------------------------------------------
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_ALLOW_REGISTRATION = env.bool("DJANGO_ACCOUNT_ALLOW_REGISTRATION", True)  # noqa
+ACCOUNT_ALLOW_REGISTRATION = env.bool(
+    "DJANGO_ACCOUNT_ALLOW_REGISTRATION", True
+)  # noqa
 
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 
