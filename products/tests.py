@@ -26,7 +26,7 @@ def test_category_friendly_name_null():
     assert category.friendly_name == ""
 
 
-def test_product_model(product, category):
+def test_product_model(product, category, product_stock):
     """
     Tests the creation of instances in the product model.
     """
@@ -36,6 +36,7 @@ def test_product_model(product, category):
     assert product.description == "Test description"
     assert product.price == 10
     assert product.slug == "test-product"
+    assert product.product_stock == product_stock
 
 
 def test_product_model_str(product):
