@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from products.models import Category, Product
+from products.models import Category, Product, ProductStock
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -31,10 +31,15 @@ class CategoryAdmin(admin.ModelAdmin):
         obj.save()
 
 
+class ProductStockAdminInline(admin.TabularInline):
+    model = ProductStock
+
+
 admin.site.register(Category, CategoryAdmin)
 
 
 class ProductAdmin(admin.ModelAdmin):
+    inlines = (ProductStockAdminInline,)
     list_display = (
         'sku',
         'name',

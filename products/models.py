@@ -58,16 +58,3 @@ class ProductStock(models.Model):
 
     def __str__(self):
         return self.product.name
-
-
-@receiver(post_save, sender=Product)
-def create_or_update_product_stock(sender, instance, created, **kwargs):
-    """
-    Create or update product stock.
-    """
-    qs_exists = ProductStock.objects.filter(
-                    product=instance).exists()
-    if qs_exists:
-        pass
-    elif created:
-        ProductStock.objects.create(product=instance)

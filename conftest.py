@@ -20,7 +20,6 @@ def product(category) -> Product:
 
 @pytest.fixture
 def product_stock(product):
-    product_stock = ProductStock.objects.get(product=product)
-    product_stock.available_stock = 100
-    product_stock.save()
-    return product_stock
+    return ProductStock.objects.create(
+        available_stock=100, product=product
+    )
