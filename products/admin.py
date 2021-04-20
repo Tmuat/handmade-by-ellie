@@ -46,6 +46,7 @@ class ProductAdmin(admin.ModelAdmin):
         'category',
         'price',
         'image',
+        'product_stock',
         'created',
         'created_by',
         'updated',

@@ -57,4 +57,4 @@ class ProductStock(models.Model):
     )
 
     def __str__(self):
-        return self.product.name
+        return str(self.available_stock)
