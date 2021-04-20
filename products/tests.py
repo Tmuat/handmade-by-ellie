@@ -1,14 +1,15 @@
 import pytest
 
-from products.models import Category
+from products.models import Category, Product
 
 pytestmark = pytest.mark.django_db
 
 
-def test_category_model():
-    category = Category.objects.create(
-        name="test_category", friendly_name="Test Category"
-    )
+def test_category_model(category):
+    """
+    A test to check a category can be created and is created correctly.
+    It then checks the model str and get friendly name work.
+    """
     assert category.name == "test_category"
     assert category.friendly_name == "Test Category"
     assert str(category) == "test_category"
@@ -16,6 +17,23 @@ def test_category_model():
 
 
 def test_category_friendly_name_null():
+    """
+    Checks that a category can be created with just a name and no
+    friendly name.
+    """
     category = Category.objects.create(name="test_category")
     assert category.name == "test_category"
     assert category.friendly_name == ""
+
+
+def test_product_model(category):
+    product = Product.objects.create(
+        sku=25545, name="Test Product", category=category,
+        description="Test description", price=10, slug="test-product"
+    )
+    assert product.sku == "25545"
+    assert product.name == "Test Category"
+    assert product.category == category
+    assert product.description == "Test description"
+    assert product.price == 10
+    assert product.slug == "test-product"
