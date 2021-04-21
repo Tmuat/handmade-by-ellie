@@ -68,3 +68,21 @@ def test_all_products_context_data(client):
     response = client.get('/products/')
     assert response.status_code == 200
     assert 'products' in response.context
+
+
+def test_product_detail_view_uses_correct_template(client, product):
+    detail_url = f'/products/{product.slug}'
+    response = client.get(detail_url)
+    assertTemplateUsed(response, 'products/product_detail.html')
+
+
+def test_product_detail_context_data(client, product):
+    detail_url = f'/products/{product.slug}'
+    response = client.get(detail_url)
+    assert response.status_code == 200
+    assert 'product' in response.context
+
+
+def test_product_detail_no_product(client, product):
+    response = client.get('/products/not-a-product')
+    assert response.status_code == 500
