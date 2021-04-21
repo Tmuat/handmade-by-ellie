@@ -196,7 +196,7 @@ body {
   backdrop-filter: blur(10px);
 }
 
-.bg-custom-dark-pink-and-dark-pink-opaque.nav-bg {
+.bg-custom-dark-pink-and-glass.nav-bg {
   background: rgba(189, 161, 161, 1);
   backdrop-filter: blur(10px);
 }
@@ -272,13 +272,12 @@ body {
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-  .bg-custom-glass-and-dark-pink-opaque.nav-bg {
-    background: rgba(189, 161, 161, 0.8);
+  .bg-custom-dark-pink-and-glass.nav-bg {
     backdrop-filter: none;
   }
 
   .bg-custom-dark-pink-and-dark-pink-opaque.nav-bg {
-    background: rgba(189, 161, 161, 0.8);
+    background: rgba(189, 161, 161, 1);
     backdrop-filter: none;
   }
 

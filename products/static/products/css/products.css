@@ -1,4 +1,5 @@
 .menu-row {
+  position: fixed;
   height: 40px;
   z-index: 2;
 
@@ -6,14 +7,16 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.products-row {
+  padding-top: 40px;
+}
+
 
 /* || Sidebar */
 
 .sidebar {
-  position: fixed;
-  top: 131px;
-  bottom: 505px;
-  left: 0;
+  height: 100%;
+  padding-top: 40px;
   margin-left: -100%;
   transition: 0.5s;
 }
@@ -43,29 +46,19 @@
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-    .sidebar {
-        top: 131px;
-        bottom: 353px;
-        margin-left: 0px;
-    }
+  .sidebar {
+    margin-left: 0px;
+  }
 
-    .bg-custom-white {
-        background: transparent;
-    }
+  .bg-custom-white {
+    background: transparent;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-    .sidebar {
-        top: 163px;
-        bottom: 249px;
-    }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-  .sidebar {
-    top: 163px;
-    bottom: 233px;
-  }
 }
