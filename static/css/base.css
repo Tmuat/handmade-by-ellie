@@ -23,6 +23,10 @@ body {
   padding-top: 91px;
 }
 
+.min-height {
+  min-height: calc(100vh - 596px);
+}
+
 /* || Typography */
 
 .logo-font {
@@ -260,6 +264,10 @@ body {
   .paragraph-text {
     font-size: 20px;
   }
+
+  .min-height {
+    min-height: calc(100vh - 444px);
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -289,11 +297,19 @@ body {
   .header-container {
     padding-top: 123px;
   }
+
+  .min-height {
+    min-height: calc(100vh - 372px);
+  }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
   .container {
     max-width: 90%;
+  }
+
+  .min-height {
+    min-height: calc(100vh - 356px);
   }
 }
