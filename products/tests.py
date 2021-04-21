@@ -71,18 +71,19 @@ def test_all_products_context_data(client):
 
 
 def test_product_detail_view_uses_correct_template(client, product):
-    detail_url = f'/products/{product.slug}'
+    detail_url = f'/products/item/{product.slug}/'
+    print(detail_url)
     response = client.get(detail_url)
     assertTemplateUsed(response, 'products/product_detail.html')
 
 
 def test_product_detail_context_data(client, product):
-    detail_url = f'/products/{product.slug}'
+    detail_url = f'/products/item/{product.slug}/'
     response = client.get(detail_url)
     assert response.status_code == 200
     assert 'product' in response.context
 
 
 def test_product_detail_no_product(client, product):
-    response = client.get('/products/not-a-product')
-    assert response.status_code == 500
+    response = client.get('/products/item/a-product/')
+    assert response.status_code == 404
