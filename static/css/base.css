@@ -159,6 +159,14 @@ body {
   min-width: 120px;
 }
 
+.btn-shop-now:hover,
+.btn-shop-now:focus {
+  background: #BDA1A1;
+  border: 5px solid #FFEDED;
+  box-shadow: 0 0 0 0.2rem rgba(255, 237, 237, 0.25);
+  color: white;
+}
+
 /* || Button Colours */
 
 .btn-custom-pink {
@@ -273,6 +281,11 @@ body {
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
   .bg-custom-dark-pink-and-glass.nav-bg {
+    backdrop-filter: none;
+  }
+
+  .bg-custom-glass-and-dark-pink-opaque.nav-bg {
+    background: rgba(189, 161, 161, 0.8);
     backdrop-filter: none;
   }
 
