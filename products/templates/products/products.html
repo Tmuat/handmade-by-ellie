@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'products/css/products.css' %}" />
+{% endblock %}
+
 {% block pageheader %}
     <div class="container header-container">
         <div class="row">
@@ -10,11 +14,33 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container min-height">
+<section id="products" class="min-height">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col">
+            <div class="col menu-row">
                 {{ products }}
             </div>
         </div>
+        <div class="row">
+            <div id="sidebar" class="col-12 col-md-3 col-lg-2 bg-custom-white sidebar border-right">
+                <div class="sidebar-sticky pt-2">
+                    <h6>Filters</h6>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                href="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            </div>
+        </div>
     </div>
+</section>
+{% endblock %}
+
+{% block postloadjs %}
+<script type="text/javascript" src="{% static 'products/js/products.js' %}"></script>
 {% endblock %}
