@@ -6,11 +6,11 @@
         </div>
     </a>
     <div class="dropdown-menu bg-custom-pink-opaque box-shadow border-0 w-100 rounded-0 my-0 p-3" aria-labelledby="mobile-search">
-        <form method="GET" action="">
+        <form method="GET" action="{% url 'all_products' %}">
             <div class="input-group w-100 form-focus-within-pink">
                 <input
                     class="form-control border-right-0 border-custom-dark-pink bg-custom-pink rounded-0 placeholder-text-grey form-focus-pink"
-                    type="text" name="q" placeholder="Search our site" />
+                    type="text" name="query" placeholder="Search our site" />
                 <div class="input-group-append outer-hover">
                     <button class="form-control btn bg-custom-dark-pink border-custom-pink rounded-0 outer-hover"
                         type="submit">
