@@ -175,6 +175,10 @@ body {
   box-sizing: border-box;
 }
 
+.btn-black {
+  background: #000;
+}
+
 /* || Background Colours */
 
 .bg-glass {
