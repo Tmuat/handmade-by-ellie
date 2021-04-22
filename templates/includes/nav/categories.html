@@ -11,8 +11,9 @@
             </a>
             <div class="dropdown-menu bg-sub-transparent-pink lg-box-shadow border-0 my-0" aria-labelledby="all-products-link">
                 <a href="{% url 'all_products' %}" class="dropdown-item pl-3 text-custom-pink no-hover nav-link">All Products</a>
-                <a href="" class="dropdown-item pl-3 text-custom-pink no-hover nav-link">By Price</a>
-                <a href="" class="dropdown-item pl-3 text-custom-pink no-hover nav-link">By Category</a>
+                <a href="{% url 'all_products' %}?sort=price&direction=asc" class="dropdown-item pl-3 text-custom-pink no-hover nav-link">By Price</a>
+                <a href="{% url 'all_products' %}?sort=name&direction=asc" class="dropdown-item pl-3 text-custom-pink no-hover nav-link">A - Z</a>
+                <a href="{% url 'all_products' %}?sort=name&direction=desc" class="dropdown-item pl-3 text-custom-pink no-hover nav-link">Z - A</a>
             </div>
         </li>
 
@@ -43,6 +44,7 @@
             <div class="dropdown-menu bg-sub-transparent-pink lg-box-shadow border-0 my-0" aria-labelledby="specials-link">
                 <a href="{% url 'all_products' %}?category=lady_of_luxury" class="dropdown-item pl-3 text-custom-pink no-hover nav-link">Lady of Luxury</a>
                 <a href="{% url 'all_products' %}?category=waxidents" class="dropdown-item pl-3 text-custom-pink no-hover nav-link">Waxidents</a>
+                <a href="{% url 'all_products' %}?category=special_offers" class="dropdown-item pl-3 text-custom-pink no-hover nav-link">Special Offers</a>
             </div>
         </li>
     </ul>
