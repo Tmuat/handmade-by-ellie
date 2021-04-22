@@ -95,6 +95,7 @@ THIRD_PARTY_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "admin_honeypot",
+    "django_cleanup",
 ]
 
 LOCAL_APPS = ["users", "home", "products"]
