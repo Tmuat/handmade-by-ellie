@@ -12,14 +12,16 @@ def category() -> Category:
 
 @pytest.fixture
 def product(category) -> Product:
-    return Product.objects.create(
+    product = Product.objects.create(
         sku=25545,
         name="Test Product",
-        category=category,
         description="Test description",
         price=10,
         slug="test-product",
+        image="temp-image.png"
     )
+    product.category.add(category)
+    return product
 
 
 @pytest.fixture

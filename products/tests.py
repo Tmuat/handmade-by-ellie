@@ -101,7 +101,7 @@ def test_product_model(product, category):
     """
     assert product.sku == 25545
     assert product.name == "Test Product"
-    assert product.category == category
+    assert product.category.first() == category
     assert product.description == "Test description"
     assert product.price == 10
     assert product.slug == "test-product"
@@ -135,7 +135,6 @@ def test_product_admin_save(client, category):
         obj=Product(
             sku=25545,
             name="Test Product",
-            category=category,
             description="Test description",
             price=10,
             slug="test-product",
@@ -187,6 +186,9 @@ def test_all_products_context_data(client):
     response = client.get("/products/")
     assert response.status_code == 200
     assert "products" in response.context
+    assert "search_term" in response.context
+    assert "current_categories" in response.context
+    assert "current_sorting" in response.context
 
 
 def test_product_detail_view_uses_correct_template(client, product):
