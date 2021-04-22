@@ -12,26 +12,27 @@
             <div class="dropdown-menu bg-sub-transparent-pink lg-box-shadow border-0 my-0" aria-labelledby="all-products-link">
                 <a href="{% url 'all_products' %}" class="dropdown-item pl-3 text-custom-pink no-hover nav-link">All Products</a>
                 <a href="" class="dropdown-item pl-3 text-custom-pink no-hover nav-link">By Price</a>
-                <a href="" class="dropdown-item pl-3 text-custom-pink no-hover nav-link">By Rating</a>
                 <a href="" class="dropdown-item pl-3 text-custom-pink no-hover nav-link">By Category</a>
             </div>
         </li>
 
         <li class="nav-item pl-3 dropdown">
             <a class="font-weight-bold nav-link text-custom-pink no-hover text-shadow mr-xl-3" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Clothing
+                Types
             </a>
             <div class="dropdown-menu bg-sub-transparent-pink lg-box-shadow border-0 my-0" aria-labelledby="clothing-link">
-                <a href="" class="dropdown-item pl-3 text-custom-pink no-hover nav-link">All Products</a>
+                <a href="{% url 'all_products' %}?category=snap_bars" class="dropdown-item pl-3 text-custom-pink no-hover nav-link">Snap Bars</a>
+                <a href="{% url 'all_products' %}?category=hearts" class="dropdown-item pl-3 text-custom-pink no-hover nav-link">Hearts</a>
             </div>
         </li>
 
         <li class="nav-item pl-3 dropdown">
             <a class="font-weight-bold nav-link text-custom-pink no-hover text-shadow mr-xl-3" href="#" id="homeware-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Homeware
+                Scents
             </a>
             <div class="dropdown-menu bg-sub-transparent-pink lg-box-shadow border-0 my-0" aria-labelledby="homeware-link">
-                <a href="" class="dropdown-item pl-3 text-custom-pink no-hover nav-link">All Homeware</a>
+                <a href="{% url 'all_products' %}?category=scents" class="dropdown-item pl-3 text-custom-pink no-hover nav-link">Normal Scents</a>
+                <a href="{% url 'all_products' %}?category=inspired_scents" class="dropdown-item pl-3 text-custom-pink no-hover nav-link">Inspired Scents</a>
             </div>
         </li>
 
@@ -40,10 +41,8 @@
                 Special Offers
             </a>
             <div class="dropdown-menu bg-sub-transparent-pink lg-box-shadow border-0 my-0" aria-labelledby="specials-link">
-                <a href="" class="dropdown-item pl-3 text-custom-pink no-hover nav-link">New Arrivals</a>
-                <a href="" class="dropdown-item pl-3 text-custom-pink no-hover nav-link">Deals</a>
-                <a href="" class="dropdown-item pl-3 text-custom-pink no-hover nav-link">Clearance</a>
-                <a href="" class="dropdown-item pl-3 text-custom-pink no-hover nav-link">All Specials</a>
+                <a href="{% url 'all_products' %}?category=lady_of_luxury" class="dropdown-item pl-3 text-custom-pink no-hover nav-link">Lady of Luxury</a>
+                <a href="{% url 'all_products' %}?category=waxidents" class="dropdown-item pl-3 text-custom-pink no-hover nav-link">Waxidents</a>
             </div>
         </li>
     </ul>
