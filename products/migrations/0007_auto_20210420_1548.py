@@ -7,19 +7,23 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('products', '0006_productstock'),
+        ("products", "0006_productstock"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='product',
-            name='product_stock',
-            field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='product_stock', to='products.productstock'),
+            model_name="product",
+            name="product_stock",
+            field=models.OneToOneField(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="product_stock",
+                to="products.productstock",
+            ),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='productstock',
-            name='available_stock',
+            model_name="productstock",
+            name="available_stock",
             field=models.IntegerField(default=0),
         ),
     ]

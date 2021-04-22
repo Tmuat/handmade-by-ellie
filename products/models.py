@@ -25,17 +25,16 @@ class Product(UpdatedAndCreated):
     class Meta:
         verbose_name_plural = "Products"
 
-    category = models.ForeignKey(Category, null=True, blank=True,
-                                 on_delete=models.SET_NULL)
-    sku = models.IntegerField(null=True,
-                              blank=True,
-                              unique=True,
-                              editable=False)
+    category = models.ForeignKey(
+        Category, null=True, blank=True, on_delete=models.SET_NULL
+    )
+    sku = models.IntegerField(
+        null=True, blank=True, unique=True, editable=False
+    )
     name = models.CharField(max_length=254)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    slug = models.SlugField(null=False,
-                            unique=True)
+    slug = models.SlugField(null=False, unique=True)
     image = models.ImageField(blank=True)
 
     def __str__(self):
@@ -47,13 +46,11 @@ class ProductStock(models.Model):
         verbose_name = "Product Stock"
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    available_stock = models.IntegerField(null=False,
-                                          blank=False,
-                                          default=0)
+    available_stock = models.IntegerField(null=False, blank=False, default=0)
     product = models.OneToOneField(
         Product,
         on_delete=models.CASCADE,
-        related_name='product_stock',
+        related_name="product_stock",
     )
 
     def __str__(self):

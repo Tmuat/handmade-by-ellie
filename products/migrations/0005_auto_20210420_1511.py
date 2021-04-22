@@ -7,46 +7,53 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('products', '0004_product'),
+        ("products", "0004_product"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='product',
-            name='category',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='products.category'),
+            model_name="product",
+            name="category",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                to="products.category",
+            ),
         ),
         migrations.AddField(
-            model_name='product',
-            name='description',
+            model_name="product",
+            name="description",
             field=models.TextField(),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='product',
-            name='image',
-            field=models.ImageField(blank=True, upload_to=''),
+            model_name="product",
+            name="image",
+            field=models.ImageField(blank=True, upload_to=""),
         ),
         migrations.AddField(
-            model_name='product',
-            name='name',
+            model_name="product",
+            name="name",
             field=models.CharField(max_length=254),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='product',
-            name='price',
+            model_name="product",
+            name="price",
             field=models.DecimalField(decimal_places=2, max_digits=6),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='product',
-            name='sku',
-            field=models.IntegerField(blank=True, editable=False, null=True, unique=True),
+            model_name="product",
+            name="sku",
+            field=models.IntegerField(
+                blank=True, editable=False, null=True, unique=True
+            ),
         ),
         migrations.AddField(
-            model_name='product',
-            name='slug',
+            model_name="product",
+            name="slug",
             field=models.SlugField(unique=True),
             preserve_default=False,
         ),

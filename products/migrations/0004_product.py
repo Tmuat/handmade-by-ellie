@@ -7,21 +7,29 @@ import uuid
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('products', '0003_auto_20210419_1459'),
+        ("products", "0003_auto_20210419_1459"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Product',
+            name="Product",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
-                ('created', models.DateTimeField(auto_now_add=True)),
-                ('updated', models.DateTimeField(auto_now=True)),
-                ('created_by', models.CharField(blank=True, max_length=100)),
-                ('updated_by', models.CharField(blank=True, max_length=100)),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                ("created", models.DateTimeField(auto_now_add=True)),
+                ("updated", models.DateTimeField(auto_now=True)),
+                ("created_by", models.CharField(blank=True, max_length=100)),
+                ("updated_by", models.CharField(blank=True, max_length=100)),
             ],
             options={
-                'verbose_name_plural': 'Products',
+                "verbose_name_plural": "Products",
             },
         ),
     ]

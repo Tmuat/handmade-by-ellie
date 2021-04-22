@@ -41,23 +41,23 @@ admin.site.register(Category, CategoryAdmin)
 class ProductAdmin(admin.ModelAdmin):
     inlines = (ProductStockAdminInline,)
     list_display = (
-        'sku',
-        'name',
-        'category',
-        'price',
-        'image',
-        'product_stock',
-        'created',
-        'created_by',
-        'updated',
-        'updated_by',
+        "sku",
+        "name",
+        "category",
+        "price",
+        "image",
+        "product_stock",
+        "created",
+        "created_by",
+        "updated",
+        "updated_by",
     )
 
-    ordering = ('sku',)
+    ordering = ("sku",)
 
     list_filter = ("category",)
 
-    prepopulated_fields = {'slug': ('name',)}
+    prepopulated_fields = {"slug": ("name",)}
 
     search_fields = (
         "name",

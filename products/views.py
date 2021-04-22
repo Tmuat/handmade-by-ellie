@@ -12,10 +12,10 @@ def all_products(request):
     products = Product.objects.all()
 
     context = {
-        'products': products,
+        "products": products,
     }
 
-    return render(request, 'products/products.html', context)
+    return render(request, "products/products.html", context)
 
 
 def product_detail(request, product_slug):
@@ -26,7 +26,7 @@ def product_detail(request, product_slug):
     product = get_object_or_404(Product, slug=product_slug)
 
     context = {
-        'product': product,
+        "product": product,
     }
 
-    return render(request, 'products/product_detail.html', context)
+    return render(request, "products/product_detail.html", context)

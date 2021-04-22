@@ -7,17 +7,25 @@ import uuid
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('products', '0005_auto_20210420_1511'),
+        ("products", "0005_auto_20210420_1511"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='ProductStock',
+            name="ProductStock",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Product Stock',
+                "verbose_name": "Product Stock",
             },
         ),
     ]
