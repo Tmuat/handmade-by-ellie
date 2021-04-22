@@ -2,12 +2,18 @@ import pytest
 
 from pytest_django.asserts import assertTemplateUsed
 
-from products.models import Category
+from django.contrib.admin.sites import AdminSite
+from django.contrib.auth import get_user_model
+from django.shortcuts import get_object_or_404
+
+from products.admin import CategoryAdmin, ProductAdmin
+from products.models import Category, Product
 
 pytestmark = pytest.mark.django_db
 
 
 # Model testing
+
 
 def test_category_model(category):
     """
@@ -28,6 +34,38 @@ def test_category_friendly_name_null():
     category = Category.objects.create(name="test_category")
     assert category.name == "test_category"
     assert category.friendly_name == ""
+
+
+class MockRequest(object):
+    """
+    Used to create a mock request for the override of admin save.
+    """
+
+    def __init__(self, user=None):
+        self.user = user
+
+
+def test_category_admin_save(client):
+    """
+    Used to test that the save_model override sets the user email on
+    admin save.
+    """
+    User = get_user_model()
+    admin_user = User.objects.create_superuser("super@user.com", "foo")
+
+    category_model_admin = CategoryAdmin(
+        model=Category, admin_site=AdminSite()
+    )
+    category_model_admin.save_model(
+        obj=Category(name="test_category"),
+        request=MockRequest(user=admin_user),
+        form=None,
+        change=None,
+    )
+
+    category = get_object_or_404(Category, name="test_category")
+
+    assert category.created_by == "super@user.com"
 
 
 def test_product_model(product, category):
@@ -57,33 +95,62 @@ def test_product_stock_model(product_stock, product):
     assert product_stock.product == product
 
 
+def test_product_admin_save(client, category):
+    """
+    Used to test that the save_model override sets the user email on
+    admin save.
+    """
+    User = get_user_model()
+    admin_user = User.objects.create_superuser("super@user.com", "foo")
+
+    product_model_admin = ProductAdmin(model=Product, admin_site=AdminSite())
+    product_model_admin.save_model(
+        obj=Product(
+            sku=25545,
+            name="Test Product",
+            category=category,
+            description="Test description",
+            price=10,
+            slug="test-product",
+        ),
+        request=MockRequest(user=admin_user),
+        form=None,
+        change=None,
+    )
+
+    product = get_object_or_404(Product, name="Test Product")
+
+    assert product.created_by == "super@user.com"
+
+
 # View testing
 
+
 def test_all_products_view_uses_correct_template(client):
-    response = client.get('/products/')
-    assertTemplateUsed(response, 'products/products.html')
+    response = client.get("/products/")
+    assertTemplateUsed(response, "products/products.html")
 
 
 def test_all_products_context_data(client):
-    response = client.get('/products/')
+    response = client.get("/products/")
     assert response.status_code == 200
-    assert 'products' in response.context
+    assert "products" in response.context
 
 
 def test_product_detail_view_uses_correct_template(client, product):
-    detail_url = f'/products/item/{product.slug}/'
+    detail_url = f"/products/item/{product.slug}/"
     print(detail_url)
     response = client.get(detail_url)
-    assertTemplateUsed(response, 'products/product_detail.html')
+    assertTemplateUsed(response, "products/product_detail.html")
 
 
 def test_product_detail_context_data(client, product):
-    detail_url = f'/products/item/{product.slug}/'
+    detail_url = f"/products/item/{product.slug}/"
     response = client.get(detail_url)
     assert response.status_code == 200
-    assert 'product' in response.context
+    assert "product" in response.context
 
 
 def test_product_detail_no_product(client, product):
-    response = client.get('/products/item/a-product/')
+    response = client.get("/products/item/a-product/")
     assert response.status_code == 404
