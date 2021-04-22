@@ -25,9 +25,7 @@ class Product(UpdatedAndCreated):
     class Meta:
         verbose_name_plural = "Products"
 
-    category = models.ForeignKey(
-        Category, null=True, blank=True, on_delete=models.SET_NULL
-    )
+    category = models.ManyToManyField(Category)
     sku = models.IntegerField(
         null=True, blank=True, unique=True, editable=False
     )
