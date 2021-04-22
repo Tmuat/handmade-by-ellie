@@ -35,7 +35,7 @@ class Product(UpdatedAndCreated):
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     slug = models.SlugField(null=False, unique=True)
-    image = models.ImageField(blank=True)
+    image = models.ImageField(null=False, blank=False)
 
     def __str__(self):
         return self.name
