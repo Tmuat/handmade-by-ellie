@@ -48,7 +48,7 @@ class MockRequest(object):
 def test_category_admin_save(client):
     """
     Used to test that the save_model override sets the user email on
-    admin save.
+    admin save. It tests the created_by field is set.
     """
     User = get_user_model()
     admin_user = User.objects.create_superuser("super@user.com", "foo")
@@ -66,6 +66,33 @@ def test_category_admin_save(client):
     category = get_object_or_404(Category, name="test_category")
 
     assert category.created_by == "super@user.com"
+
+
+def test_category_admin_save_updated_by(client, category):
+    """
+    Used to test that the save_model override sets the user email on
+    admin save. It checks the updated_by field is set correctly
+    """
+    User = get_user_model()
+    second_admin_user = User.objects.create_superuser(
+        "second_super@user.com", "foo"
+    )
+
+    category.created_by = "super@user.com"
+    category.save()
+
+    category_model_admin = CategoryAdmin(
+        model=Category, admin_site=AdminSite()
+    )
+    category_model_admin.save_model(
+        obj=category,
+        request=MockRequest(user=second_admin_user),
+        form=None,
+        change=None,
+    )
+
+    assert category.created_by == "super@user.com"
+    assert category.updated_by == "second_super@user.com"
 
 
 def test_product_model(product, category):
@@ -98,7 +125,7 @@ def test_product_stock_model(product_stock, product):
 def test_product_admin_save(client, category):
     """
     Used to test that the save_model override sets the user email on
-    admin save.
+    admin save. It checks the created_by field is set.
     """
     User = get_user_model()
     admin_user = User.objects.create_superuser("super@user.com", "foo")
@@ -121,6 +148,31 @@ def test_product_admin_save(client, category):
     product = get_object_or_404(Product, name="Test Product")
 
     assert product.created_by == "super@user.com"
+
+
+def test_product_admin_save_updated_by(client, product):
+    """
+    Used to test that the save_model override sets the user email on
+    admin save. It checks the updated_by field is set correctly
+    """
+    User = get_user_model()
+    second_admin_user = User.objects.create_superuser(
+        "second_super@user.com", "foo"
+    )
+
+    product.created_by = "super@user.com"
+    product.save()
+
+    product_model_admin = ProductAdmin(model=Product, admin_site=AdminSite())
+    product_model_admin.save_model(
+        obj=product,
+        request=MockRequest(user=second_admin_user),
+        form=None,
+        change=None,
+    )
+
+    assert product.created_by == "super@user.com"
+    assert product.updated_by == "second_super@user.com"
 
 
 # View testing
