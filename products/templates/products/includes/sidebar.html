@@ -1,12 +1,102 @@
 <div id="sidebar" class="col-12 col-md-3 col-lg-2 bg-custom-white sidebar border-right">
     <div class="sidebar-sticky pt-3">
-        <h6>Filters</h6>
+        <h5>Filters</h5>
+        <h6 class="mt-2">Types</h6>
+        {% if current_categories %}
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <input type="checkbox" id="snap_bars" name="category_select" value="snap_bars" {% for category in current_categories %}{% if category.name == 'snap_bars' %}checked{% endif %}
+                    {% endfor %}>
+                    <label for="snap_bars">Snap Bars</label><br>
+                </li>
+                <li class="nav-item">
+                    <input type="checkbox" id="hearts" name="category_select" value="hearts" {% for category in current_categories %}{% if category.name == 'hearts' %}checked{% endif %}{% endfor %}>
+                    <label for="hearts">Hearts</label><br>
+                </li>
+            </ul>
+            <h6 class="mt-2">Scents</h6>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <input type="checkbox" id="normal_scents" name="category_select" value="normal_scents" {% for category in current_categories %}{% if category.name == 'normal_scents' %}checked{% endif %}{% endfor %}>
+                    <label for="normal_scents">Normal Scents</label><br>
+                </li>
+                <li class="nav-item">
+                    <input type="checkbox" id="inspired_scents" name="category_select" value="inspired_scents" {% for category in current_categories %}{% if category.name == 'inspired_scents' %}checked{% endif %}{% endfor %}>
+                    <label for="inspired_scents">Inspired Scents</label><br>
+                </li>
+            </ul>
+            <h6 class="mt-2">Other</h6>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <input type="checkbox" id="lady_of_luxury" name="category_select" value="lady_of_luxury" {% for category in current_categories %}{% if category.name == 'lady_of_luxury' %}checked{% endif %}{% endfor %}>
+                    <label for="lady_of_luxury">Lady of Luxury</label><br>
+                </li>
+                <li class="nav-item">
+                    <input type="checkbox" id="waxidents" name="category_select" value="waxidents" {% for category in current_categories %}{% if category.name == 'waxidents' %}checked{% endif %}{% endfor %}>
+                    <label for="waxidents">Waxidents</label><br>
+                </li>
+                <li class="nav-item">
+                    <input type="checkbox" id="special_offers" name="category_select" value="special_offers" {% for category in current_categories %}{% if category.name == 'special_offers' %}checked{% endif %}{% endfor %}>
+                    <label for="special_offers">Special Offers</label><br>
+                </li>
+            </ul>
+        {% else %}
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <input type="checkbox" id="snap_bars" name="category_select" value="snap_bars">
+                    <label for="snap_bars">Snap Bars</label><br>
+                </li>
+                <li class="nav-item">
+                    <input type="checkbox" id="hearts" name="category_select" value="hearts">
+                    <label for="hearts">Hearts</label><br>
+                </li>
+            </ul>
+            <h6 class="mt-2">Scents</h6>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <input type="checkbox" id="normal_scents" name="category_select" value="normal_scents">
+                    <label for="normal_scents">Normal Scents</label><br>
+                </li>
+                <li class="nav-item">
+                    <input type="checkbox" id="inspired_scents" name="category_select" value="inspired_scents">
+                    <label for="inspired_scents">Inspired Scents</label><br>
+                </li>
+            </ul>
+            <h6 class="mt-2">Other</h6>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <input type="checkbox" id="lady_of_luxury" name="category_select" value="lady_of_luxury">
+                    <label for="lady_of_luxury">Lady of Luxury</label><br>
+                </li>
+                <li class="nav-item">
+                    <input type="checkbox" id="waxidents" name="category_select" value="waxidents">
+                    <label for="waxidents">Waxidents</label><br>
+                </li>
+                <li class="nav-item">
+                    <input type="checkbox" id="special_offers" name="category_select" value="special_offers">
+                    <label for="special_offers">Special Offers</label><br>
+                </li>
+            </ul>
+        {% endif %}
+        <h6 class="mt-2">Sorting</h6>
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link"
-                    href="">
-                </a>
+                <input type="radio" id="price_asc" name="sort_radio" value="price_asc" {% if current_sorting == 'price_asc' %}checked{% endif %}>
+                <label for="price_asc">Price (low to high)</label><br>
+            </li>
+            <li class="nav-item">
+                <input type="radio" id="price_desc" name="sort_radio" value="price_desc" {% if current_sorting == 'price_desc' %}checked{% endif %}>
+                <label for="price_desc">Price (high to low)</label><br>
+            </li>
+            <li class="nav-item">
+                <input type="radio" id="name_asc" name="sort_radio" value="name_asc" {% if current_sorting == 'name_asc' %}checked{% endif %}>
+                <label for="name_asc">Name (A-Z)</label><br>
+            </li>
+            <li class="nav-item">
+                <input type="radio" id="name_desc" name="sort_radio" value="name_desc" {% if current_sorting == 'name_desc' %}checked{% endif %}>
+                <label for="name_desc">Name (Z-A)</label><br>
             </li>
         </ul>
+        <button class="btn btn-custom-pink border-custom-dark-pink-2 mb-2 btn-filter">Filter</button>
     </div>
 </div>
