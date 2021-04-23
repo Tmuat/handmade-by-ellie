@@ -14,10 +14,27 @@
 
 {% block content %}
 <section id="bag" class="min-height">
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col">
-                <h1>bag</h1>
+                <hr>
+                <h2 class="my-2 text-center text-sm-left">Shopping Bag</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {% if bag_items %}
+                {% else %}
+                <p class="lead mb-5">Your bag is empty.</p>
+                <a href="{% url 'all_products' %}"
+                    class="btn rounded-0 bg-custom-pink border-custom-dark-pink-2 btn-keep-shopping">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span class="text-uppercase">Keep Shopping</span>
+                </a>
+                {% endif %}
             </div>
         </div>
     </div>

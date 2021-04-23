@@ -184,6 +184,14 @@ body {
   color: white;
 }
 
+.btn-keep-shopping:hover,
+.btn-keep-shopping:focus {
+  background: #BDA1A1;
+  border: 2px solid #FFEDED;
+  box-shadow: 0 0 0 0.2rem rgba(255, 237, 237, 0.25);
+  color: white;
+}
+
 /* || Button Colours */
 
 .btn-custom-pink {
