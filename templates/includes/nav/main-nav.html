@@ -24,14 +24,14 @@
     <form method="GET" action="{% url 'all_products' %}">
       <div class="input-group w-100 form-focus-within-pink">
         <input
-          class="form-control border-right-0 bg-custom-pink rounded-0 placeholder-text-grey form-focus-pink {% if request.get_full_path == home_url %}border-custom-dark-pink{% else %}border-white border-3{% endif %}"
+          class="form-control border-right-0 bg-custom-pink rounded-0 placeholder-text-grey form-focus-pink {% if request.get_full_path == home_url %}border-custom-dark-pink-4{% else %}border-white border-3{% endif %}"
           type="text"
           name="query"
           placeholder="Search our site"
         />
         <div class="input-group-append outer-hover">
           <button
-            class="form-control btn bg-custom-dark-pink {% if request.get_full_path == home_url %}border-custom-dark-pink{% else %}border-white border-3{% endif %} rounded-0 outer-hover"
+            class="form-control btn bg-custom-dark-pink {% if request.get_full_path == home_url %}border-custom-dark-pink-4{% else %}border-white border-3{% endif %} rounded-0 outer-hover"
             type="submit"
           >
             <span class="icon">
