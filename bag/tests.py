@@ -1,3 +1,10 @@
-from django.test import TestCase
+import pytest
 
-# Create your tests here.
+from pytest_django.asserts import assertTemplateUsed
+
+pytestmark = pytest.mark.django_db
+
+# Model testing
+
+# View testing
+
