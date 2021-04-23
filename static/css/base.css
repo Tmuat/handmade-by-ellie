@@ -127,6 +127,11 @@ body {
   box-shadow: 0 0 0;
 }
 
+.custom-focus-shadow:focus {
+  border: 1px solid #bda1a1;
+  box-shadow: 0 0 0 0.2rem rgba(255, 237, 237, 0.75);
+}
+
 /* || Nav Hover Colours */
 
 .bg-custom-dark-pink .dropdown-item:hover {
@@ -167,11 +172,22 @@ body {
   color: white;
 }
 
+.btn-filter {
+  min-width: 100px;
+}
+
+.btn-filter:hover,
+.btn-filter:focus {
+  background: #BDA1A1;
+  border: 2px solid #FFEDED;
+  box-shadow: 0 0 0 0.2rem rgba(255, 237, 237, 0.25);
+  color: white;
+}
+
 /* || Button Colours */
 
 .btn-custom-pink {
   background: #FFEDED;
-  border: 5px solid #BDA1A1;
   box-sizing: border-box;
 }
 
@@ -224,8 +240,22 @@ body {
 /* || Border Colours */
 
 .border-custom-dark-pink {
+  border: 1px solid #bda1a1;
+}
+
+.border-custom-dark-pink-2 {
+  border: 2px solid #bda1a1;
+}
+
+.border-custom-dark-pink-4 {
   border: 4px solid #bda1a1;
 }
+
+.border-custom-dark-pink-5 {
+  border: 5px solid #bda1a1;
+}
+
+.border
 
 /* || Border Sizing */
 
