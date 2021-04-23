@@ -1,10 +1,9 @@
 import uuid
 
 from django.db import models
-from django.db.models.signals import post_save
-from django.dispatch import receiver
 
 from common.models import UpdatedAndCreated
+from common.utils import unique_sku_generator
 
 
 class Category(UpdatedAndCreated):
@@ -27,13 +26,21 @@ class Product(UpdatedAndCreated):
 
     category = models.ManyToManyField(Category)
     sku = models.IntegerField(
-        null=True, blank=True, unique=True, editable=False
+        null=False, blank=True, unique=True, editable=False
     )
     name = models.CharField(max_length=254)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     slug = models.SlugField(null=False, unique=True)
     image = models.ImageField(null=False, blank=False)
+
+    def save(self, *args, **kwargs):
+        """
+        Override the original save method to set a unique sku for the product.
+        """
+        if not self.sku:
+            self.sku = unique_sku_generator(self, 5)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name
