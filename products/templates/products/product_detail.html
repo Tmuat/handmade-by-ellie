@@ -43,7 +43,7 @@
                         {% endfor %}
                     </div>
                     {% if product.product_stock.available_stock > 0 %}
-                    <form class="form" action="" method="POST">
+                    <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">
                             <div class="col-12 mb-2 mb-md-1 mb-lg-2 mb-xl-2">
