@@ -17,7 +17,35 @@
 <section id="products" class="min-height">
     <div class="container-fluid">
         <div class="row">
-            <div class="col menu-row">
+            <div class="col menu-row px-4 py-1">
+                <div class="row h-100">
+                    <div class="col-4 my-auto">
+                        <p class="text-muted m-0 text-center text-md-left">
+                            {% if search_term or current_categories or current_sorting != 'None_None' %}
+                                <span><a class="text-custom-dark-pink" href="{% url 'all_products' %}">Products Home</a> | </span>
+                            {% endif %}
+                            {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+                        </p>
+                    </div>
+                    <div class="col-4 text-center my-auto">
+                        {% for category in current_categories %}
+                            <small><a class="" href="{% url 'all_products' %}?category={{ category.name }}">
+                                <span class="p-2 text-muted rounded-0"><i class="fas fa-tag mr-1"></i>{{ category.friendly_name }}</span>
+                            </a></small>
+                        {% endfor %}
+                    </div>
+                    <div class="col-4">
+                        <div class="w-50 ml-auto">
+                            <select id="sort-selector" class="custom-select custom-focus-shadow custom-select-sm rounded-0 border-{% if current_sorting != 'None_None' %}custom-dark-pink{% else %}black{% endif %}">
+                                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                                <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+                                <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                                <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                                <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -38,35 +66,37 @@
                                     <div class="row">
                                         <div class="col">
                                             <p class="lead mb-0 text-center font-weight-bold">£{{ product.price }}</p>
-                                            {% if product.category %}
-                                            <p class="text-center small mt-1 mb-0">
-                                                <a class="text-muted" href="">
-                                                    <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
-                                                </a>
-                                            </p>
-                                            {% endif %}
+                                            <div class="text-center">
+                                                {% for category in product.category.all %}
+                                                    <p class="small mt-1 mb-0 d-inline ml-2 mr-2">
+                                                        <a class="text-muted" href="{% url 'all_products' %}?category={{ category.name }}">
+                                                            <i class="fas fa-tag mr-1"></i>{{ category.friendly_name }}
+                                                        </a>
+                                                    </p>
+                                                {% endfor %}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         {% if forloop.counter|divisibleby:1 %}
-                            <div class="col-12 d-sm-none mb-5">
+                            <div class="col-12 d-sm-none mb-3">
                                 <hr>
                             </div>
                         {% endif %}                        
                         {% if forloop.counter|divisibleby:2 %}
-                            <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+                            <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-3">
                                 <hr>
                             </div>
                         {% endif %}
                         {% if forloop.counter|divisibleby:3 %}
-                            <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+                            <div class="col-12 d-none d-lg-block d-xl-none mb-3">
                                 <hr>
                             </div>
                         {% endif %}
                         {% if forloop.counter|divisibleby:4 %}
-                            <div class="col-12 d-none d-xl-block mb-5">
+                            <div class="col-12 d-none d-xl-block mb-3">
                                 <hr>
                             </div>
                         {% endif %}
