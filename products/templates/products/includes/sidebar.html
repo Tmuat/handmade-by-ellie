@@ -1,4 +1,4 @@
-<div id="sidebar" class="col-12 col-md-3 col-lg-2 bg-custom-white sidebar border-right">
+<div id="sidebar" class="col-12 col-md-3 col-lg-2 bg-custom-white sidebar border-right mt-5 mt-md-3 mb-0 mt-xl-0">
     <div class="sidebar-sticky pt-3">
         <h5>Filters</h5>
         <h6 class="mt-2">Types</h6>
@@ -82,11 +82,11 @@
         <ul class="nav flex-column">
             <li class="nav-item">
                 <input type="radio" id="price_asc" name="sort_radio" value="price_asc" {% if current_sorting == 'price_asc' %}checked{% endif %}>
-                <label for="price_asc">Price (low to high)</label><br>
+                <label for="price_asc">Price (low > high)</label><br>
             </li>
             <li class="nav-item">
                 <input type="radio" id="price_desc" name="sort_radio" value="price_desc" {% if current_sorting == 'price_desc' %}checked{% endif %}>
-                <label for="price_desc">Price (high to low)</label><br>
+                <label for="price_desc">Price (high > low)</label><br>
             </li>
             <li class="nav-item">
                 <input type="radio" id="name_asc" name="sort_radio" value="name_asc" {% if current_sorting == 'name_asc' %}checked{% endif %}>
@@ -97,6 +97,6 @@
                 <label for="name_desc">Name (Z-A)</label><br>
             </li>
         </ul>
-        <button class="btn btn-custom-pink border-custom-dark-pink-2 mb-2 btn-filter">Filter</button>
+        <button id="filter" class="btn btn-custom-pink border-custom-dark-pink-2 mb-4 btn-filter">Filter</button>
     </div>
 </div>

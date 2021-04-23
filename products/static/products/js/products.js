@@ -1,14 +1,11 @@
 // Code adapted from https://codepen.io/RonaldElzen/pen/KWpZov
 let state = "minimized";
 $('#sidenav-toggle').click(function () {
-    if (state == "expanded") {
-        $('.sidebar').css('margin-left', '-100%');
-        state = "minimized";
-    } else {
-        if (state == "minimized") {
-            $('.sidebar').css('margin-left', '0px');
-            state = "expanded";
-        }
+    if (state == "minimized") {
+        $('.sidebar').css('margin-left', '0px');
+        $('#all_products').addClass('d-none');
+        $('#sidenav-toggle').addClass('d-none');
+        state = "expanded";
     }
 })
 // Code to check if screen resized and filters are hidden
@@ -16,6 +13,8 @@ $(window).resize(function () {
     var width = $(window).width();
     if (width > 768) {
         $('.sidebar').removeAttr('style');
+        $('#all_products').removeClass('d-none');
+        $('#sidenav-toggle').removeClass('d-none');
     }
 });
 
@@ -45,7 +44,7 @@ $('#sort-selector').change(function() {
 
 // Code for the side filter
 
-$("button").click(function(){
+$("#filter").click(function(){
     var currentUrl = new URL(window.location);
     var category = [];
     var selectedVal = "";

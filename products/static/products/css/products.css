@@ -1,6 +1,6 @@
 .menu-row {
   position: fixed;
-  height: 40px;
+  min-height: 40px;
   z-index: 2;
 
   background: #ffffff;
@@ -10,7 +10,6 @@
 .products-row {
   padding-top: 40px;
 }
-
 
 /* || Sidebar */
 
@@ -32,6 +31,13 @@
 .bg-custom-white {
     z-index: 1;
     background: #ffffff;
+}
+
+.filter-button {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  z-index: 99999;
 }
 
 /* || Btn */
