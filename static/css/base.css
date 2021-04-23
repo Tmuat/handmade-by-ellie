@@ -76,6 +76,10 @@ body {
   font-style: italic;
 }
 
+.text-custom-green {
+    color: #62ac29;
+}
+
 /* || Shadows */
 
 .text-shadow {
