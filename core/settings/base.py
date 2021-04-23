@@ -98,7 +98,7 @@ THIRD_PARTY_APPS = [
     "django_cleanup",
 ]
 
-LOCAL_APPS = ["users", "home", "products"]
+LOCAL_APPS = ["users", "home", "products", "bag"]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
