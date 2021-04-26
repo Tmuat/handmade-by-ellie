@@ -10,4 +10,5 @@ urlpatterns = [
         "remove/<product_id>/", views.remove_from_bag, name="remove_from_bag"
     ),
     path("add-delivery/", views.add_delivery, name="add_delivery"),
+    path("add-discount/", views.add_discount, name="add_discount"),
 ]
