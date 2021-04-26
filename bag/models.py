@@ -6,20 +6,18 @@ from common.utils import unique_sku_generator
 
 class DeliveryOptions(UpdatedAndCreated):
     ACTIVE = (
-        (True, 'Active'),
-        (False, 'Not Active'),
+        (True, "Active"),
+        (False, "Not Active"),
     )
     sku = models.IntegerField(
         null=False, blank=True, unique=True, editable=False
     )
     option = models.CharField(max_length=255, null=False, blank=False)
-    price = models.DecimalField(max_digits=10,
-                                decimal_places=2,
-                                null=False,
-                                default=0)
+    price = models.DecimalField(
+        max_digits=10, decimal_places=2, null=False, default=0
+    )
     description = models.CharField(max_length=400, null=False, blank=False)
-    active = models.BooleanField(default=False,
-                                 choices=ACTIVE)
+    active = models.BooleanField(default=False, choices=ACTIVE)
 
     class Meta:
         verbose_name_plural = "Delivery Options"

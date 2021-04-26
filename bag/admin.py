@@ -5,18 +5,24 @@ from bag.models import DeliveryOptions
 
 
 class CustomDeliveryOptionsAdmin(admin.ModelAdmin):
-    list_display = ('option',
-                    'sku',
-                    'price',
-                    'description',
-                    'active',
-                    "created",
-                    "created_by",
-                    "updated",
-                    "updated_by",
-                    )
-    list_filter = ('option', 'price', 'description', 'active',)
-    search_fields = ('option',)
+    list_display = (
+        "option",
+        "sku",
+        "price",
+        "description",
+        "active",
+        "created",
+        "created_by",
+        "updated",
+        "updated_by",
+    )
+    list_filter = (
+        "option",
+        "price",
+        "description",
+        "active",
+    )
+    search_fields = ("option",)
     exclude = [
         "updated_by",
         "updated",

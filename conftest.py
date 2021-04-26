@@ -19,7 +19,7 @@ def product(category) -> Product:
         description="Test description",
         price=10,
         slug="test-product",
-        image="temp-image.png"
+        image="temp-image.png",
     )
     product.category.add(category)
     return product
@@ -33,6 +33,8 @@ def product_stock(product):
 @pytest.fixture
 def delivery():
     return DeliveryOptions.objects.create(
-        option="Delivery Option", price=10, description="Delivery Desc",
-        active=True
-        )
+        option="Delivery Option",
+        price=10,
+        description="Delivery Desc",
+        active=True,
+    )
