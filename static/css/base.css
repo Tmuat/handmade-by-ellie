@@ -105,6 +105,11 @@ body {
     -2px 1px 30px #ffffffb7;
 }
 
+.permanent-white-shadow {
+  text-shadow: 3px 3px 20px #ffffffb7,
+    -2px 1px 30px #ffffffb7;
+}
+
 /* || Placeholder Colours */
 
 .placeholder-text-grey::placeholder {
@@ -141,6 +146,11 @@ body {
 .bg-custom-dark-pink .dropdown-item:hover {
   background: transparent;
   font-style: italic;
+}
+
+.bag-hover:focus,
+.bag-hover:hover {
+  color: #a9ee74;
 }
 
 /* || Nav Spacing */

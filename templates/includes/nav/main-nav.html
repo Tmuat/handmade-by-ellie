@@ -68,7 +68,7 @@
           </div>
       </li>
       <li class="list-inline-item">
-          <a class="font-weight-bold {% if total %}text-custom-green{% else %}text-custom-pink{% endif %} nav-link {% if request.get_full_path == home_url %}hover-pink-shadow{% else %}dark-shadow hover-white-shadow{% endif %}" href="{% url 'view_bag' %}">
+          <a class="font-weight-bold {% if total %}text-custom-green permanent-white-shadow bag-hover{% else %}text-custom-pink{% endif %} nav-link {% if request.get_full_path == home_url %}hover-pink-shadow{% else %}dark-shadow hover-white-shadow{% endif %}" href="{% url 'view_bag' %}">
               <div class="text-center">
                   <div><i class="fas fa-shopping-bag fa-2x"></i></div>
                   <p class="my-0">
