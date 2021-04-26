@@ -41,7 +41,7 @@
     
                         {% for product in bag_items %}
                         <tr>
-                            <td class="pt-3 w-25 d-none d-md-table-cell">
+                            <td class="w-25 d-none d-md-table-cell">
                                 <img class="img-fluid rounded" src="{{ product.product.image.url }}">
                             </td>
                             <td class="py-3">
@@ -60,7 +60,7 @@
                                         {% csrf_token %}
                                         {% if product.product.product_stock.available_stock > 0 %}
                                         <div class="form-group mb-2">
-                                            <div class="input-group">
+                                            <div class="input-group {% if product.quantity > product.product.product_stock.available_stock %}border border-danger"{% else %}"{% endif %}>
                                                 <div class="input-group-prepend">
                                                     <button class="decrement-qty btn btn-black btn-sm text-custom-pink rounded-0"
                                                         data-product_id="{{ product.product.id }}" id="decrement-qty_{{ product.product.id }}">
@@ -82,6 +82,9 @@
                                                 </div>
                                                 <input type="hidden" id="id_max_qty_{{ product.product.id }}" value="{{ product.product.product_stock.available_stock }}">
                                             </div>
+                                            {% if product.quantity > product.product.product_stock.available_stock %}
+                                                <p class="text-danger"><small>Quantity available: {{ product.product.product_stock.available_stock }}</small></p>
+                                            {% endif %}
                                         </div>
                                     </form>
                                     <a class="update-link text-info float-left"><small>Update</small></a>
@@ -98,7 +101,6 @@
                                     </form>
                                     {% endif %}
                                 </div>
-    
                             </td>
                             <td class="py-3 text-center d-none d-sm-table-cell">
                                 <p class="my-0">£{{ product.product.price | calc_subtotal:product.quantity }}</p>
@@ -127,7 +129,7 @@
                                     <span class="text-uppercase">Keep Shopping</span>
                                 </a>
                                 {% if delivery_set %}
-                                    <a href="" class="btn btn-black border-custom-dark-pink-2 text-muted rounded-0 btn-lg btn-text-sm mt-2 mt-sm-0 ">
+                                    <a href="" class="btn btn-grad border-black-2 text-white rounded-0 btn-lg btn-text-sm mt-2 mt-sm-0 ">
                                         <span class="text-uppercase">Secure Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>
@@ -160,7 +162,7 @@
             </div>
         </div>
     </div>
-    <!-- Modal -->
+<!-- Modal -->
 <div class="modal fade" id="deliveryModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
     aria-labelledby="deliveryModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">

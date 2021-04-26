@@ -7,6 +7,36 @@
     border: solid 2px black;
 }
 
+.custom-text-hover {
+    color: #17a2b8;
+   cursor: pointer;
+}
+
+.custom-text-hover:hover,
+.custom-text-hover:focus {
+             color: #0f6674;
+   text-decoration: underline;
+}
+
+
+/* https://cssgradient.io/gradient-backgrounds/ */
+
+.btn-grad {background-image: linear-gradient(to right, #1D976C 0%, #93F9B9  51%, #1D976C  100%)}
+.btn-grad {
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;
+ }
+
+ .btn-grad:hover {
+   background-position: right center;
+   color: #fff;
+   text-decoration: none;
+ }
+
+
 /* || Media Queries */
 
 /* Extra small devices (phones, 576 and down) */
