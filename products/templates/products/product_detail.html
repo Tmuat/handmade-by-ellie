@@ -60,7 +60,7 @@
                                         </div>
                                         <input class="form-control qty_input" type="number" name="quantity" value="1"
                                             min="1" max="99" data-product_id="{{ product.id }}" id="id_qty_{{ product.id }}"
-                                            title="Error!" data-content="Max Quantity: {{ product.product_stock.stock_quantity }}">
+                                            title="Error!" data-content="Max Quantity: {{ product.product_stock.available_stock }}">
                                         <div class="input-group-append">
                                             <button class="increment-qty btn btn-black text-custom-pink rounded-0 input-btn"
                                                 data-product_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
@@ -99,5 +99,11 @@
             </div>
         </div>
     </div>
+    <input type="hidden" name="stock_quantity" value="{{ product.product_stock.available_stock }}">
 </section>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript" src="{% static 'products/js/product_detail.js' %}"></script>
 {% endblock %}
