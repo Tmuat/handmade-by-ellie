@@ -24,3 +24,9 @@ def test_delivery_model(delivery):
 def test_bag_view_uses_correct_template(client):
     response = client.get("/bag/")
     assertTemplateUsed(response, "bag/bag.html")
+
+
+def test_bag_context_data(client):
+    response = client.get("/bag/")
+    assert response.status_code == 200
+    assert "delivery" in response.context
