@@ -1,3 +1,5 @@
+from django.utils import timezone
+
 from django.shortcuts import (
     render,
     reverse,
@@ -8,7 +10,7 @@ from django.shortcuts import (
 
 from django.contrib import messages
 
-from bag.models import DeliveryOptions
+from bag.models import DeliveryOptions, DiscountCode
 from products.models import Product
 
 
@@ -142,6 +144,81 @@ def add_delivery(request):
             request, f"{delivery.option} - £{delivery.price} " f"selected."
         )
 
+        print(delivery_option)
+
         request.session["delivery"] = delivery_option
+
+    return redirect(reverse("view_bag"))
+
+
+def add_discount(request):
+    """
+    Check and if valid add the discount code
+    """
+    if request.method == "POST":
+        code = request.POST.get("discount-code")
+        discount = request.session.get("discount", {})
+
+        try:
+            database_code = DiscountCode.objects.get(code=code)
+        except DiscountCode.DoesNotExist:
+            messages.error(
+                request, f"'{code}' is not a valid discount code."
+            )
+            return redirect(reverse("view_bag"))
+
+        if database_code.active:
+            if database_code.set_expiry:
+                if timezone.now() < database_code.expiry:
+                    if database_code.set_quantity:
+                        if database_code.quantity > 0:
+                            discount.clear()
+                            discount["discount"] = database_code.sku
+                            messages.success(
+                                request, f"{code} has been applied."
+                            )
+                            request.session["discount"] = discount
+                        else:
+                            messages.error(
+                                request, f"'{code}' has no valid uses left."
+                            )
+                            return redirect(reverse("view_bag"))
+                    else:
+                        discount.clear()
+                        discount["discount"] = database_code.sku
+                        messages.success(
+                            request, f"{code} has been applied."
+                        )
+                        request.session["discount"] = discount
+                else:
+                    messages.error(
+                        request, f"'{code}' has expired."
+                    )
+                    return redirect(reverse("view_bag"))
+            elif database_code.set_quantity:
+                if database_code.quantity > 0:
+                    discount.clear()
+                    discount["discount"] = database_code.sku
+                    messages.success(
+                        request, f"{code} has been applied."
+                    )
+                    request.session["discount"] = discount
+                else:
+                    messages.error(
+                        request, f"'{code}' has no valid uses left."
+                    )
+                    return redirect(reverse("view_bag"))
+            else:
+                discount.clear()
+                discount["discount"] = database_code.sku
+                messages.success(
+                    request, f"{code} has been applied."
+                )
+                request.session["discount"] = discount
+        else:
+            messages.error(
+                request, f"'{code}' is not an active discount code."
+            )
+            return redirect(reverse("view_bag"))
 
     return redirect(reverse("view_bag"))
