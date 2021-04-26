@@ -110,6 +110,12 @@
                         <tr>
                             <td colspan="5" class="pt-5 text-right">
                                 <h6 class="mb-1"><strong>Bag Total: £{{ total|floatformat:2 }}</strong></h6>
+                                {% if discount_set %}
+                                    <h6 class="mb-0">Discount Code: {{ discount_code.code }}</h6>
+                                    <h6 data-toggle="modal" data-target="#discountModal" class="d-block mb-1 custom-text-hover"><strong>Change Discount Code</strong></h6>
+                                {% else %}
+                                    <h6 data-toggle="modal" data-target="#discountModal" class="d-block mb-1 custom-text-hover"><strong>Add A Discount Code</strong></h6>
+                                {% endif %}
                                 {% if delivery_set %}
                                     <h6 class="mb-0">Delivery: £{{ delivery_option.price|floatformat:2 }}</h6>
                                     <h6 data-toggle="modal" data-target="#deliveryModal" class="d-block mb-1 custom-text-hover"><strong>Change Delivery Option</strong></h6>
@@ -162,7 +168,7 @@
             </div>
         </div>
     </div>
-<!-- Modal -->
+<!-- Delivery Modal -->
 <div class="modal fade" id="deliveryModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
     aria-labelledby="deliveryModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -195,6 +201,29 @@
                     {% csrf_token %}
                     <input type="hidden" name="id-selected" id="id-selected">
                     <input class="btn btn-success delivery-submit" type="submit" value="Save">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Discount Modal -->
+<div class="modal fade" id="discountModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="discountModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="discountModalLabel">Add A Discount Code:</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p><small>Note: By entering the discount code here does not guarantee use. To ensure you are able to use the discount code, please proceed and complete the checkout process. You can only use one code at a time</small></p>
+                <form id="discount-form" action="{% url 'add_discount' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="text" class="d-block w-100 custom-focus-shadow" id="discount-code" name="discount-code">
+                    <input class="btn btn-success mt-3" type="submit" value="Add">
                 </form>
             </div>
         </div>
