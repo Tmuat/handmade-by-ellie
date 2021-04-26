@@ -1,6 +1,6 @@
 import pytest
 
-from bag.models import DeliveryOptions
+from bag.models import DeliveryOptions, DiscountCode
 from products.models import Category, Product, ProductStock
 
 
@@ -37,4 +37,11 @@ def delivery():
         price=10,
         description="Delivery Desc",
         active=True,
+    )
+
+
+def code():
+    return DiscountCode.objects.create(
+        code="TESTCODE", active=True, set_expiry=False,
+        set_quantity=False
     )
