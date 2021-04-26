@@ -1,5 +1,6 @@
 import pytest
 
+from bag.models import DeliveryOptions
 from products.models import Category, Product, ProductStock
 
 
@@ -27,3 +28,11 @@ def product(category) -> Product:
 @pytest.fixture
 def product_stock(product):
     return ProductStock.objects.create(available_stock=100, product=product)
+
+
+@pytest.fixture
+def delivery():
+    return DeliveryOptions.objects.create(
+        option="Delivery Option", price=10, description="Delivery Desc",
+        active=True
+        )
