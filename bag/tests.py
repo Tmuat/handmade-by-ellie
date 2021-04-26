@@ -23,6 +23,7 @@ def test_discount_code_model(code):
     A test to check a discount code can be created and is created correctly.
     """
     assert code.code == "TESTCODE"
+    assert code.discount == 5
     assert code.active is True
     assert code.set_expiry is False
     assert code.set_quantity is False

@@ -43,5 +43,5 @@ def delivery():
 def code():
     return DiscountCode.objects.create(
         code="TESTCODE", active=True, set_expiry=False,
-        set_quantity=False
+        set_quantity=False, discount=5
     )
