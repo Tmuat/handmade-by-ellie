@@ -1,11 +1,15 @@
+from decimal import Decimal
+
 from django.shortcuts import get_object_or_404
 
+from bag.models import DeliveryOptions
 from products.models import Product
 
 
 def bag_contents(request):
 
     bag_items = []
+    delivery_option = None
 
     total = 0
     delivery_cost = 0
@@ -13,6 +17,7 @@ def bag_contents(request):
     product_count = 0
 
     bag = request.session.get('bag', {})
+    delivery_array = request.session.get('delivery', {})
 
     for product_sku, quantity in bag.items():
         product = get_object_or_404(Product, sku=product_sku)
@@ -24,13 +29,25 @@ def bag_contents(request):
             'product': product
             })
 
+    delivery_sku = delivery_array.get('option')
+    if delivery_sku is not None:
+        delivery = get_object_or_404(
+                DeliveryOptions, sku=delivery_sku)
+        delivery_cost = Decimal(delivery.price)
+        delivery_option = delivery
+        delivery_set = True
+    else:
+        delivery_set = False
+
     grand_total = total + delivery_cost
 
     context = {
         'bag_items': bag_items,
         'product_count': product_count,
         'total': total,
-        'grand_total': grand_total
+        'grand_total': grand_total,
+        'delivery_option': delivery_option,
+        'delivery_set': delivery_set,
     }
 
     return context
