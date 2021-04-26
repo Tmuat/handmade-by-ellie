@@ -52,12 +52,18 @@ class DiscountCode(models.Model):
         null=False, blank=True, unique=True, editable=False
     )
     code = models.CharField(max_length=50, blank=False, unique=True)
-    discount = models.PositiveIntegerField(blank=False, null=False, validators=[MinValueValidator(0), MaxValueValidator(100)])
+    discount = models.PositiveIntegerField(
+        blank=False,
+        null=False,
+        validators=[MinValueValidator(0), MaxValueValidator(100)],
+    )
     active = models.BooleanField(default=False, choices=ACTIVE)
     set_expiry = models.BooleanField(default=False, choices=TRUE_FALSE)
     set_quantity = models.BooleanField(default=False, choices=TRUE_FALSE)
     expiry = models.DateTimeField(null=True, blank=True)
-    quantity = models.PositiveIntegerField(blank=True, null=True, validators=[MinValueValidator(0)])
+    quantity = models.PositiveIntegerField(
+        blank=True, null=True, validators=[MinValueValidator(0)]
+    )
     created = models.DateTimeField(auto_now_add=True)
     created_by = models.CharField(max_length=100, blank=True)
 

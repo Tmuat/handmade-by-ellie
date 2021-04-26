@@ -43,6 +43,9 @@ def delivery():
 @pytest.fixture
 def code():
     return DiscountCode.objects.create(
-        code="TESTCODE", active=True, set_expiry=False,
-        set_quantity=False, discount=5
+        code="TESTCODE",
+        active=True,
+        set_expiry=False,
+        set_quantity=False,
+        discount=5,
     )

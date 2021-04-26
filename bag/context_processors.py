@@ -45,8 +45,8 @@ def bag_contents(request):
     discount_code = discount.get("discount")
     if discount_code is not None:
         discount = get_object_or_404(DiscountCode, sku=discount_code)
-        discount_amount = 1 - Decimal(float(discount.discount))/100
-        total = total*discount_amount
+        discount_amount = 1 - Decimal(float(discount.discount)) / 100
+        total = total * discount_amount
         discount_code = discount
         discount_set = True
 
@@ -63,7 +63,7 @@ def bag_contents(request):
         "delivery_option": delivery_option,
         "delivery_set": delivery_set,
         "discount_set": discount_set,
-        "discount_code": discount_code
+        "discount_code": discount_code,
     }
 
     return context

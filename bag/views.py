@@ -38,7 +38,7 @@ def add_to_bag(request, product_id):
 
     if quantity > product.product_stock.available_stock:
         messages.error(
-            request, "There isn't enough stock" " of the selected product"
+            request, "There isn't enough stock of the selected product."
         )
         return redirect(redirect_url)
 
@@ -47,7 +47,8 @@ def add_to_bag(request, product_id):
     if str(product.sku) in list(bag.keys()):
         if bag[str(product.sku)] >= product.product_stock.available_stock:
             messages.error(
-                request, "There isn't enough stock" " of the selected product"
+                request,
+                "There isn't enough stock of the selected product. You may already have some in your bag.",
             )
             return redirect(redirect_url)
         bag[str(product.sku)] += quantity
@@ -162,9 +163,7 @@ def add_discount(request):
         try:
             database_code = DiscountCode.objects.get(code=code)
         except DiscountCode.DoesNotExist:
-            messages.error(
-                request, f"'{code}' is not a valid discount code."
-            )
+            messages.error(request, f"'{code}' is not a valid discount code.")
             return redirect(reverse("view_bag"))
 
         if database_code.active:
@@ -186,22 +185,16 @@ def add_discount(request):
                     else:
                         discount.clear()
                         discount["discount"] = database_code.sku
-                        messages.success(
-                            request, f"{code} has been applied."
-                        )
+                        messages.success(request, f"{code} has been applied.")
                         request.session["discount"] = discount
                 else:
-                    messages.error(
-                        request, f"'{code}' has expired."
-                    )
+                    messages.error(request, f"'{code}' has expired.")
                     return redirect(reverse("view_bag"))
             elif database_code.set_quantity:
                 if database_code.quantity > 0:
                     discount.clear()
                     discount["discount"] = database_code.sku
-                    messages.success(
-                        request, f"{code} has been applied."
-                    )
+                    messages.success(request, f"{code} has been applied.")
                     request.session["discount"] = discount
                 else:
                     messages.error(
@@ -211,9 +204,7 @@ def add_discount(request):
             else:
                 discount.clear()
                 discount["discount"] = database_code.sku
-                messages.success(
-                    request, f"{code} has been applied."
-                )
+                messages.success(request, f"{code} has been applied.")
                 request.session["discount"] = discount
         else:
             messages.error(

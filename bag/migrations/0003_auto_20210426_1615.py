@@ -7,13 +7,20 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('bag', '0002_discountcode'),
+        ("bag", "0002_discountcode"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='discountcode',
-            name='quantity',
-            field=models.PositiveIntegerField(blank=True, null=True, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(100)]),
+            model_name="discountcode",
+            name="quantity",
+            field=models.PositiveIntegerField(
+                blank=True,
+                null=True,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(100),
+                ],
+            ),
         ),
     ]

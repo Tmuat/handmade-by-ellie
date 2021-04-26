@@ -7,18 +7,27 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('bag', '0003_auto_20210426_1615'),
+        ("bag", "0003_auto_20210426_1615"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='discountcode',
-            name='discount',
-            field=models.PositiveIntegerField(validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(100)]),
+            model_name="discountcode",
+            name="discount",
+            field=models.PositiveIntegerField(
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(100),
+                ]
+            ),
         ),
         migrations.AlterField(
-            model_name='discountcode',
-            name='quantity',
-            field=models.PositiveIntegerField(blank=True, null=True, validators=[django.core.validators.MinValueValidator(0)]),
+            model_name="discountcode",
+            name="quantity",
+            field=models.PositiveIntegerField(
+                blank=True,
+                null=True,
+                validators=[django.core.validators.MinValueValidator(0)],
+            ),
         ),
     ]
