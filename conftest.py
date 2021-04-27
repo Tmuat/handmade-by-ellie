@@ -1,6 +1,7 @@
 import pytest
 
 from bag.models import DeliveryOptions, DiscountCode
+from checkout.models import Order
 from products.models import Category, Product, ProductStock
 
 
@@ -48,4 +49,24 @@ def code():
         set_expiry=False,
         set_quantity=False,
         discount=5,
+    )
+
+
+@pytest.fixture
+def order(delivery):
+    return Order.objects.create(
+        full_name="Order Name",
+        email="Order Email",
+        phone_number="00000 000 000",
+        country="GB",
+        postcode="AA1 1AA",
+        town_or_city="Town",
+        street_address1="2 Order Road",
+        delivery_method=delivery,
+        delivery_cost=delivery.price,
+        order_total=10,
+        grand_total=20,
+        original_bag="{}",
+        stripe_pid="stripe",
+        status="processing"
     )
