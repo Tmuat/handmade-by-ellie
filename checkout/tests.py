@@ -24,3 +24,14 @@ def test_order_model(order, delivery):
     assert order.stripe_pid == "stripe"
     assert order.status == "processing"
     assert str(order) == order.order_number
+
+
+def test_order_line_item_model(orderlineitem, order, product):
+    """
+    A test to check an order line item method can be created and
+    is created correctly.
+    """
+    assert orderlineitem.order == order
+    assert order.product == product
+    assert order.quantity == 1
+    assert order.lineitem_total == 10

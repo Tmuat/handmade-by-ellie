@@ -1,7 +1,7 @@
 import pytest
 
 from bag.models import DeliveryOptions, DiscountCode
-from checkout.models import Order
+from checkout.models import Order, OrderLineItem
 from products.models import Category, Product, ProductStock
 
 
@@ -69,4 +69,14 @@ def order(delivery):
         original_bag="{}",
         stripe_pid="stripe",
         status="processing"
+    )
+
+
+@pytest.fixture
+def orderlineitem(order, product):
+    return OrderLineItem.objects.create(
+        order=order,
+        product=product,
+        quantity=1,
+        lineitem_total=10,
     )
