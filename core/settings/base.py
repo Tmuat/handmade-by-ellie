@@ -96,7 +96,7 @@ THIRD_PARTY_APPS = [
     "allauth.socialaccount",
     "admin_honeypot",
     "django_cleanup",
-    "crispy_forms"
+    "crispy_forms",
 ]
 
 LOCAL_APPS = ["users", "home", "products", "bag", "checkout"]
@@ -197,10 +197,10 @@ TEMPLATES = [
                 "common.context_processors.get_current_year_to_context",
                 "bag.context_processors.bag_contents",
             ],
-            'builtins': [
-                'crispy_forms.templatetags.crispy_forms_tags',
-                'crispy_forms.templatetags.crispy_forms_field',
-            ]
+            "builtins": [
+                "crispy_forms.templatetags.crispy_forms_tags",
+                "crispy_forms.templatetags.crispy_forms_field",
+            ],
         },
     }
 ]
@@ -276,7 +276,7 @@ ACCOUNT_FORMS = {"signup": "users.forms.CustomUserCreationForm"}
 # ------------------------------------------------------------------------------
 # https://django-crispy-forms.readthedocs.io/en/latest/index.html
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # ------------------------------------------------------------------------------
 # stripe

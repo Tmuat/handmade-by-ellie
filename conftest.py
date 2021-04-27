@@ -68,7 +68,7 @@ def order(delivery):
         grand_total=20,
         original_bag="{}",
         stripe_pid="stripe",
-        status="processing"
+        status="processing",
     )
 
 

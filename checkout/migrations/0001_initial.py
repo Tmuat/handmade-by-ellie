@@ -11,33 +11,94 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('bag', '0004_auto_20210426_1618'),
+        ("bag", "0004_auto_20210426_1618"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Order',
+            name="Order",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
-                ('order_number', models.IntegerField(blank=True, editable=False, unique=True)),
-                ('full_name', models.CharField(max_length=50)),
-                ('email', models.EmailField(max_length=254)),
-                ('phone_number', models.CharField(max_length=20)),
-                ('country', django_countries.fields.CountryField(max_length=2)),
-                ('postcode', models.CharField(blank=True, max_length=20)),
-                ('town_or_city', models.CharField(max_length=40)),
-                ('street_address1', models.CharField(max_length=80)),
-                ('street_address2', models.CharField(blank=True, max_length=80)),
-                ('county', models.CharField(blank=True, max_length=80)),
-                ('date', models.DateTimeField(auto_now_add=True)),
-                ('delivery_cost', models.DecimalField(decimal_places=2, default=0, max_digits=6)),
-                ('order_total', models.DecimalField(decimal_places=2, default=0, max_digits=10)),
-                ('grand_total', models.DecimalField(decimal_places=2, default=0, max_digits=10)),
-                ('original_bag', models.TextField(default='')),
-                ('stripe_pid', models.CharField(default='', max_length=254)),
-                ('status', models.CharField(choices=[('processing', 'Processing'), ('dispatched', 'Dispatched'), ('complete', 'Complete')], default='processing', max_length=100)),
-                ('delivery_method', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='delivery_option', to='bag.deliveryoptions')),
-                ('discount', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='discount_code', to='bag.discountcode')),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                (
+                    "order_number",
+                    models.IntegerField(
+                        blank=True, editable=False, unique=True
+                    ),
+                ),
+                ("full_name", models.CharField(max_length=50)),
+                ("email", models.EmailField(max_length=254)),
+                ("phone_number", models.CharField(max_length=20)),
+                (
+                    "country",
+                    django_countries.fields.CountryField(max_length=2),
+                ),
+                ("postcode", models.CharField(blank=True, max_length=20)),
+                ("town_or_city", models.CharField(max_length=40)),
+                ("street_address1", models.CharField(max_length=80)),
+                (
+                    "street_address2",
+                    models.CharField(blank=True, max_length=80),
+                ),
+                ("county", models.CharField(blank=True, max_length=80)),
+                ("date", models.DateTimeField(auto_now_add=True)),
+                (
+                    "delivery_cost",
+                    models.DecimalField(
+                        decimal_places=2, default=0, max_digits=6
+                    ),
+                ),
+                (
+                    "order_total",
+                    models.DecimalField(
+                        decimal_places=2, default=0, max_digits=10
+                    ),
+                ),
+                (
+                    "grand_total",
+                    models.DecimalField(
+                        decimal_places=2, default=0, max_digits=10
+                    ),
+                ),
+                ("original_bag", models.TextField(default="")),
+                ("stripe_pid", models.CharField(default="", max_length=254)),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[
+                            ("processing", "Processing"),
+                            ("dispatched", "Dispatched"),
+                            ("complete", "Complete"),
+                        ],
+                        default="processing",
+                        max_length=100,
+                    ),
+                ),
+                (
+                    "delivery_method",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="delivery_option",
+                        to="bag.deliveryoptions",
+                    ),
+                ),
+                (
+                    "discount",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="discount_code",
+                        to="bag.discountcode",
+                    ),
+                ),
             ],
         ),
     ]
