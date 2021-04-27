@@ -23,4 +23,4 @@ def test_order_model(order, delivery):
     assert order.original_bag == "{}"
     assert order.stripe_pid == "stripe"
     assert order.status == "processing"
-    assert str(order) == order.number
+    assert str(order) == order.order_number
