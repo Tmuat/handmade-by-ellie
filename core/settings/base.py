@@ -96,6 +96,7 @@ THIRD_PARTY_APPS = [
     "allauth.socialaccount",
     "admin_honeypot",
     "django_cleanup",
+    "crispy_forms"
 ]
 
 LOCAL_APPS = ["users", "home", "products", "bag", "checkout"]
@@ -265,3 +266,10 @@ ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 
 ACCOUNT_FORMS = {"signup": "users.forms.CustomUserCreationForm"}
+
+# ------------------------------------------------------------------------------
+# crispy-forms
+# ------------------------------------------------------------------------------
+# https://django-crispy-forms.readthedocs.io/en/latest/index.html
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
