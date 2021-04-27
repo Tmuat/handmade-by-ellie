@@ -15,3 +15,14 @@ def unique_sku_generator(instance, size):
     if qs_exists:
         return unique_sku_generator(instance, size)
     return new_sku
+
+
+def unique_order_generator(instance, size):
+    new_order = random_string_generator(size)
+
+    Klass = instance.__class__
+
+    qs_exists = Klass.objects.filter(order_number=new_order).exists()
+    if qs_exists:
+        return unique_order_generator(instance, size)
+    return new_order
