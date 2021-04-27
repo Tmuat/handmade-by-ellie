@@ -213,3 +213,22 @@ def add_discount(request):
             return redirect(reverse("view_bag"))
 
     return redirect(reverse("view_bag"))
+
+
+def remove_discount(request):
+    """
+    Remove the discount code
+    """
+    try:
+        del request.session["discount"]
+
+        messages.success(request, "Removed discount code.")
+
+        return redirect(reverse("view_bag"))
+
+    except Exception as e:
+        messages.error(request, f"Error removing discount: {e}")
+
+        return redirect(reverse("view_bag"))
+
+    return redirect(reverse("view_bag"))

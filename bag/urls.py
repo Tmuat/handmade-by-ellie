@@ -11,4 +11,5 @@ urlpatterns = [
     ),
     path("add-delivery/", views.add_delivery, name="add_delivery"),
     path("add-discount/", views.add_discount, name="add_discount"),
+    path("remove-discount/", views.remove_discount, name="remove_discount"),
 ]

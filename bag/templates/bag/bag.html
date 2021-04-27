@@ -219,6 +219,12 @@
                 </button>
             </div>
             <div class="modal-body">
+                {% if discount_set %}
+                <h6 class="font-weight-bold">Current Discount:</h6>
+                <p class="mb-2 font-italic">'{{ discount_code.code }}'</p>
+                <a class="btn btn-danger mb-3" href="{% url 'remove_discount' %}">Remove</a>
+                <hr class="border border-dark m-0 mb-2">
+                {% endif %}
                 <p><small>Note: By entering the discount code here does not guarantee use. To ensure you are able to use the discount code, please proceed and complete the checkout process. You can only use one code at a time</small></p>
                 <form id="discount-form" action="{% url 'add_discount' %}" method="POST">
                     {% csrf_token %}
