@@ -1,8 +1,10 @@
 import uuid
 
+from decimal import Decimal
 from django_countries.fields import CountryField
 
 from django.db import models
+from django.db.models import Sum
 
 from bag.models import DeliveryOptions, DiscountCode
 from common.utils import unique_order_generator
@@ -61,6 +63,19 @@ class Order(models.Model):
                               default='processing',
                               choices=STATUS)
 
+    def update_total(self):
+        """
+        Update grand total each time a line item is added,
+        adding in delivery costs & any discount the orderer has.
+        """
+        self.order_total = self.lineitems.aggregate(
+            Sum('lineitem_total'))['lineitem_total__sum'] or 0
+        if self.discount:
+            discount_amount = 1 - Decimal(float(self.discount.discount)) / 100
+            self.order_total = self.order_total * discount_amount
+        self.grand_total = self.order_total + self.delivery_cost
+        self.save()
+
     def save(self, *args, **kwargs):
         """
         Override the original save method to create a unique order number.
@@ -91,6 +106,13 @@ class OrderLineItem(models.Model):
                                          null=False,
                                          blank=False,
                                          editable=False)
+
+    def save(self, *args, **kwargs):
+        """
+        Override the save method to set the lineitem total.
+        """
+        self.lineitem_total = self.product.price * self.quantity
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f'SKU {self.product.sku} on order {self.order.order_number}'
