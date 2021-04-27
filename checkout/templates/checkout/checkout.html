@@ -2,7 +2,7 @@
 {% load static %}
 {% load bag_tools %}
 
-{% block extra_css %}
+{% block extracss %}
 <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
@@ -110,13 +110,13 @@
                     <input type="hidden" value="" name="client_secret">
                 </fieldset>
                 <div class="submit-button text-right mt-3 mb-2 px-3">
-                    <a href="{% url 'view_bag' %}" class="btn bg-yellow border-black rounded-0 btn-text-sm mt-2 mt-sm-0">
+                    <a href="{% url 'view_bag' %}" class="btn rounded-0 bg-custom-pink border-custom-dark-pink-2 btn-keep-shopping">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>
                         <span class="font-weight-bold text-uppercase">Adjust Bag</span>
                     </a>
-                    <button id="submit-button" class="btn bg-black border-yellow rounded-0 btn-text-sm mt-2 mt-sm-0">
+                    <button id="submit-button" class="btn btn-grad btn-green-grad border-black-2 text-white rounded-0 btn-text-sm mt-2 mt-sm-0">
                         <span class="font-weight-bold text-uppercase">Complete Order</span>
                         <span class="icon">
                             <i class="fas fa-lock"></i>
@@ -130,8 +130,21 @@
                     </p>
                 </div>
             </form>
-            
         </div>
     </div>
 </div>
+<div id="loading-overlay">
+    <h1 class="text-light loading-spinner">
+        <span class="icon">
+            <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+        </span>
+    </h1>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
