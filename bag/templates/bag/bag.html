@@ -134,16 +134,25 @@
                                     </span>
                                     <span class="text-uppercase">Keep Shopping</span>
                                 </a>
-                                {% if delivery_set and product_stock and discount_set %}
-                                    {% if discount_valid %}
-                                        <a href="{% url 'checkout' %}" class="btn btn-grad btn-green-grad border-black-2 text-white rounded-0 btn-lg btn-text-sm mt-2 mt-sm-0">
-                                            <span class="text-uppercase">Secure Checkout</span>
-                                            <span class="icon">
-                                                <i class="fas fa-lock"></i>
-                                            </span>
-                                        </a>
+                                {% if delivery_set and product_stock %}
+                                    {% if discount_set %}
+                                        {% if discount_valid %}
+                                            <a href="{% url 'checkout' %}" class="btn btn-grad btn-green-grad border-black-2 text-white rounded-0 btn-lg btn-text-sm mt-2 mt-sm-0">
+                                                <span class="text-uppercase">Secure Checkout</span>
+                                                <span class="icon">
+                                                    <i class="fas fa-lock"></i>
+                                                </span>
+                                            </a>
+                                        {% else %}
+                                            <a href="" role="button" class="btn btn-black border-black-2 text-muted rounded-0 btn-lg btn-text-sm mt-2 mt-sm-0 disabled">
+                                                <span class="text-uppercase">Secure Checkout</span>
+                                                <span class="icon">
+                                                    <i class="fas fa-lock"></i>
+                                                </span>
+                                            </a>
+                                        {% endif %}
                                     {% else %}
-                                        <a href="" role="button" class="btn btn-black border-black-2 text-muted rounded-0 btn-lg btn-text-sm mt-2 mt-sm-0 disabled">
+                                        <a href="{% url 'checkout' %}" class="btn btn-grad btn-green-grad border-black-2 text-white rounded-0 btn-lg btn-text-sm mt-2 mt-sm-0">
                                             <span class="text-uppercase">Secure Checkout</span>
                                             <span class="icon">
                                                 <i class="fas fa-lock"></i>
