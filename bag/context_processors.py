@@ -52,14 +52,10 @@ def bag_contents(request):
 
     discount_code = discount.get("discount")
     if discount_code is not None:
-        print("I GOT TO HERE")
         discount = get_object_or_404(DiscountCode, sku=discount_code)
         if discount.active:
-            print("I GOT TO HERE AND HERE")
             if discount.set_expiry:
-                print("LOOKING AT EXPIRY")
                 if timezone.now() < discount.expiry:
-                    print("SEEMS OKAY")
                     if discount.set_quantity:
                         if discount.quantity > 0:
                             discount_amount = 1 - Decimal(float(discount.discount)) / 100
