@@ -197,6 +197,9 @@ TEMPLATES = [
                 "common.context_processors.get_current_year_to_context",
                 "bag.context_processors.bag_contents",
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
         },
     }
 ]
