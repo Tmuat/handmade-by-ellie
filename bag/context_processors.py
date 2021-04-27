@@ -89,6 +89,12 @@ def bag_contents(request):
                         request, f"'{discount.code}' has no valid uses left.  It has been removed."
                     )
                     del request.session["discount"]
+            else:
+                discount_amount = 1 - Decimal(float(discount.discount)) / 100
+                total = total * discount_amount
+                discount_code = discount
+                discount_valid = True
+                discount_set = True
         else:
             messages.error(
                 request, f"'{discount.code}' is not an active discount code.  It has been removed."
