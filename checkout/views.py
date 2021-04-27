@@ -3,7 +3,10 @@ import stripe
 
 from django.conf import settings
 from django.contrib import messages
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import (
+    render, redirect, reverse, get_object_or_404, HttpResponse
+)
+from django.views.decorators.http import require_POST
 from django.utils import timezone
 
 from bag.context_processors import bag_contents
@@ -107,9 +110,6 @@ def checkout(request):
                                     del request.session["discount"]
                                     order.delete()
                                     return redirect(reverse("view_bag"))
-                            else:
-                                discount.quantity = discount.quantity - 1
-                                discount.save()
                         else:
                             messages.error(
                                 request, f"'{discount.code}' has expired."
@@ -129,9 +129,6 @@ def checkout(request):
                             del request.session["discount"]
                             order.delete()
                             return redirect(reverse("view_bag"))
-                    else:
-                        discount.quantity = discount.quantity - 1
-                        discount.save()
                 else:
                     messages.error(
                         request,
@@ -275,3 +272,23 @@ def checkout_success(request, order_number):
     }
 
     return render(request, template, context)
+
+
+@require_POST
+def cache_checkout_data(request):
+    try:
+        pid = request.POST.get('client_secret').split('_secret')[0]
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        stripe.PaymentIntent.modify(pid, metadata={
+            'bag': json.dumps(request.session.get('bag', {})),
+            'delivery': json.dumps(request.session.get('delivery', {})),
+            'discount': json.dumps(request.session.get('discount', {})),
+            'save_info': request.POST.get('save_info'),
+            'username': request.user,
+        })
+        return HttpResponse(status=200)
+    except Exception as e:
+        messages.error(request, ('Sorry, your payment cannot be '
+                                 'processed at the moment. Please try '
+                                 'again later.'))
+        return HttpResponse(content=e, status=400)
