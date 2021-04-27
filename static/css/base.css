@@ -206,6 +206,20 @@ body {
   color: white;
 }
 
+.btn-grad {
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+}
+
+.btn-grad:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
 /* || Button Colours */
 
 .btn-custom-pink {
@@ -216,6 +230,10 @@ body {
 .btn-black {
   background: #000;
 }
+
+/* https://cssgradient.io/gradient-backgrounds/ */
+
+.btn-green-grad {background-image: linear-gradient(to right, #116346 0%, #4bbe77  51%, #1D976C  100%)}
 
 /* || Background Colours */
 
@@ -260,6 +278,10 @@ body {
 }
 
 /* || Border Colours */
+
+.border-black-2 {
+  border: solid 2px black;
+}
 
 .border-custom-dark-pink {
   border: 1px solid #bda1a1;
