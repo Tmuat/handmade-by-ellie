@@ -32,6 +32,6 @@ def test_order_line_item_model(orderlineitem, order, product):
     is created correctly.
     """
     assert orderlineitem.order == order
-    assert order.product == product
-    assert order.quantity == 1
-    assert order.lineitem_total == 10
+    assert orderlineitem.product == product
+    assert orderlineitem.quantity == 1
+    assert orderlineitem.lineitem_total == 10
