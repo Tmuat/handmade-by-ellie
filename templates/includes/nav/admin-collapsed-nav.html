@@ -29,8 +29,8 @@
         {% block extra_menu %}
         {% endblock %}
         <li class="nav-item">
-            <a class="nav-link {% if request.get_full_path == admin_edit_url %}active{% endif %}"
-                href="">
+            <a class="nav-link {% if product_page %}active{% endif %}"
+                href="{% url 'admin_products' %}">
                 <i class="far fa-edit"></i>
                 Edit Product
             </a>
