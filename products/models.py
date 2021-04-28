@@ -21,6 +21,11 @@ class Category(UpdatedAndCreated):
 
 
 class Product(UpdatedAndCreated):
+    ACTIVE = (
+        (True, "Active"),
+        (False, "Not Active"),
+    )
+
     class Meta:
         verbose_name_plural = "Products"
 
@@ -33,6 +38,7 @@ class Product(UpdatedAndCreated):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     slug = models.SlugField(null=False, unique=True)
     image = models.ImageField(null=False, blank=False)
+    active = models.BooleanField(default=True, choices=ACTIVE)
 
     def save(self, *args, **kwargs):
         """
