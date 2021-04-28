@@ -153,6 +153,7 @@ def complete_orders(request):
         selected = request.POST.get('id-selected')
         ids = selected.split(",")
         Order.objects.filter(id__in=ids).update(status="complete")
+        messages.success(request, "Order/s marked as complete!")
 
     redirect_url = request.POST.get('redirect_url')
 
