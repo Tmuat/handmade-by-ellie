@@ -27,11 +27,12 @@
 
                 <ul class="list-unstyled">
                     {% if request.user.is_authenticated %}
-                    <li class="mb-2"><a class="text-black footer-link" href="">Profile</a></li>
-                    <li class="mb-2"><a class="text-black footer-link" href="">Logout</a></li>
+                    <li class="mb-2"><a class="text-black footer-link" href="{% url 'profile' %}">Profile</a></li>
+                    <li class="mb-2"><a class="text-black footer-link" href="{% url 'account_change_password' %}">Change Password</a></li>
+                    <li class="mb-2"><a class="text-black footer-link" href="{% url 'account_logout' %}">Logout</a></li>
                     {% else %}
-                    <li class="mb-2"><a class="text-black footer-link" href="">Login</a></li>
-                    <li class="mb-2"><a class="text-black footer-link" href="">Register</a></li>
+                    <li class="mb-2"><a class="text-black footer-link" href="{% url 'account_login' %}">Login</a></li>
+                    <li class="mb-2"><a class="text-black footer-link" href="{% url 'account_signup' %}">Register</a></li>
                     {% endif %}
                 </ul>
             </div>
