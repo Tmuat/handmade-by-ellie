@@ -42,13 +42,19 @@ def add_to_bag(request, product_id):
         )
         return redirect(redirect_url)
 
+    if product.active is False:
+        messages.info(request, 'Sorry, that product is no '
+                      'longer for sale. Please check back in the future.')
+        return redirect(redirect_url)
+
     bag = request.session.get("bag", {})
 
     if str(product.sku) in list(bag.keys()):
         if bag[str(product.sku)] >= product.product_stock.available_stock:
             messages.error(
                 request,
-                "There isn't enough stock of the selected product. You may already have some in your bag.",
+                "There isn't enough stock of the selected "
+                "product. You may already have some in your bag.",
             )
             return redirect(redirect_url)
         bag[str(product.sku)] += quantity
@@ -79,6 +85,11 @@ def adjust_bag(request, product_id):
         messages.error(
             request, "There isn't enough stock" " of the selected product"
         )
+        return redirect("view_bag")
+
+    if product.active is False:
+        messages.info(request, 'Sorry, that product is no '
+                      'longer for sale. Please check back in the future.')
         return redirect("view_bag")
 
     bag = request.session.get("bag", {})
