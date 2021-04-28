@@ -36,17 +36,13 @@ class StripeWH_Handler:
 
         delivery_json = json.loads(delivery_option)
         delivery_sku = delivery_json.get("option")
-        delivery = get_object_or_404(
-            DeliveryOptions, sku=delivery_sku
-        )
+        delivery = get_object_or_404(DeliveryOptions, sku=delivery_sku)
 
         discount_json = json.loads(discount_code)
         discount_used = False
         if discount_json != {}:
             discount_sku = discount_json.get("discount")
-            discount = get_object_or_404(
-                DiscountCode, sku=discount_sku
-            )
+            discount = get_object_or_404(DiscountCode, sku=discount_sku)
             discount_used = True
 
         billing_details = intent.charges.data[0].billing_details
