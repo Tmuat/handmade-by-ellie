@@ -1,0 +1,30 @@
+#profile-update-form .form-control {
+    color: #000;
+}
+
+#profile-update-form input::placeholder {
+    color: #aab7c4;
+}
+
+#profile-update-form input:focus,
+#profile-update-form input:active,
+#profile-update-form select:focus,
+#profile-update-form select:active {
+    border: 1px solid #bda1a1;
+    box-shadow: 0 0 0 0.2rem rgba(255, 237, 237, 0.75);
+  }
+
+#id_default_country,
+#id_default_country option:not(:first-child) {
+    color: #000;
+}
+
+#id_default_country option:first-child {
+    color: #aab7c4;
+}
+
+  
+.order-history {
+    max-height: 416px;
+    overflow-y: auto;
+}
