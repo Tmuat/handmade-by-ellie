@@ -41,11 +41,13 @@ def order_history(request, order_number):
         messages.error(request, "Sorry, this is not your order.")
         return redirect(reverse("home"))
 
+    order_date = order.date.strftime("%d-%m-%Y")
+
     messages.info(
         request,
         (
             f"This is a past confirmation for order number {order_number}. "
-            f"Placed on {order.date.strftime("%d-%m-%Y")} A confirmation "
+            f"Placed on {order_date} A confirmation "
             "email was sent on the order date."
         ),
     )
