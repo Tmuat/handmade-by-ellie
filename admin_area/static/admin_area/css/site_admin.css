@@ -1,3 +1,8 @@
+/* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
+.message-container {
+    top: 50px;
+}
+
 .custom-select-width {
     width: 100%;
 }
