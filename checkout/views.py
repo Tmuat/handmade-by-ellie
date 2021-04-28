@@ -68,9 +68,12 @@ def checkout(request):
                 try:
                     product = Product.objects.get(sku=product_sku)
                     if product.active is False:
-                        messages.info(request, 'Sorry, you have a product '
-                                      ' that is no longer for sale. Please '
-                                      'check back in the future.')
+                        messages.info(
+                            request,
+                            "Sorry, you have a product "
+                            " that is no longer for sale. Please "
+                            "check back in the future.",
+                        )
                         return redirect("checkout")
                     product_stock = ProductStock.objects.get(product=product)
                     if quantity > product_stock.available_stock:
@@ -179,9 +182,12 @@ def checkout(request):
         for product_sku, quantity in bag.items():
             product = Product.objects.get(sku=product_sku)
             if product.active is False:
-                messages.info(request, 'Sorry, you have a product '
-                              ' that is no longer for sale. Please '
-                              'check back in the future.')
+                messages.info(
+                    request,
+                    "Sorry, you have a product "
+                    " that is no longer for sale. Please "
+                    "check back in the future.",
+                )
                 return redirect("checkout")
             product_stock = ProductStock.objects.get(product=product)
             if quantity > product_stock.available_stock:

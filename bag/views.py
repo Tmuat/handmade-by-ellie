@@ -43,8 +43,11 @@ def add_to_bag(request, product_id):
         return redirect(redirect_url)
 
     if product.active is False:
-        messages.info(request, 'Sorry, that product is no '
-                      'longer for sale. Please check back in the future.')
+        messages.info(
+            request,
+            "Sorry, that product is no "
+            "longer for sale. Please check back in the future.",
+        )
         return redirect(redirect_url)
 
     bag = request.session.get("bag", {})
@@ -88,8 +91,11 @@ def adjust_bag(request, product_id):
         return redirect("view_bag")
 
     if product.active is False:
-        messages.info(request, 'Sorry, that product is no '
-                      'longer for sale. Please check back in the future.')
+        messages.info(
+            request,
+            "Sorry, that product is no "
+            "longer for sale. Please check back in the future.",
+        )
         return redirect("view_bag")
 
     bag = request.session.get("bag", {})
