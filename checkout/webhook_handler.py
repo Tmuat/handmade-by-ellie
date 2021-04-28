@@ -7,6 +7,7 @@ from django.shortcuts import get_object_or_404
 from bag.models import DeliveryOptions, DiscountCode
 from checkout.models import Order, OrderLineItem
 from products.models import Product, ProductStock
+from users.models import UserProfile
 
 
 class StripeWH_Handler:
@@ -40,6 +41,7 @@ class StripeWH_Handler:
 
         discount_json = json.loads(discount_code)
         discount_used = False
+        discount = None
         if discount_json != {}:
             discount_sku = discount_json.get("discount")
             discount = get_object_or_404(DiscountCode, sku=discount_sku)
@@ -52,6 +54,20 @@ class StripeWH_Handler:
         for field, value in shipping_details.address.items():
             if value == "":
                 shipping_details.address[field] = None
+
+        profile = None
+        username = intent.metadata.username
+        if username != 'AnonymousUser':
+            profile = UserProfile.objects.get(user__email=username)
+            if save_info:
+                profile.default_phone_number = shipping_details.phone
+                profile.default_country = shipping_details.address.country
+                profile.default_postcode = shipping_details.address.postal_code
+                profile.default_town_or_city = shipping_details.address.city
+                profile.default_street_address1 = shipping_details.address.line1
+                profile.default_street_address2 = shipping_details.address.line2
+                profile.default_county = shipping_details.address.state
+                profile.save()
 
         order_exists = False
         attempt = 1
@@ -86,42 +102,28 @@ class StripeWH_Handler:
             print("Cant find the order")
             order = None
             try:
-                if discount_used:
-                    order = Order.objects.create(
-                        full_name=shipping_details.name,
-                        email=billing_details.email,
-                        phone_number=shipping_details.phone,
-                        country=shipping_details.address.country,
-                        postcode=shipping_details.address.postal_code,
-                        town_or_city=shipping_details.address.city,
-                        street_address1=shipping_details.address.line1,
-                        street_address2=shipping_details.address.line2,
-                        county=shipping_details.address.state,
-                        delivery_method=delivery,
-                        delivery_cost=delivery.price,
-                        discount=discount,
-                        original_bag=bag,
-                        stripe_pid=pid,
-                    )
+                order = Order.objects.create(
+                    full_name=shipping_details.name,
+                    user_profile=profile,
+                    email=billing_details.email,
+                    phone_number=shipping_details.phone,
+                    country=shipping_details.address.country,
+                    postcode=shipping_details.address.postal_code,
+                    town_or_city=shipping_details.address.city,
+                    street_address1=shipping_details.address.line1,
+                    street_address2=shipping_details.address.line2,
+                    county=shipping_details.address.state,
+                    delivery_method=delivery,
+                    delivery_cost=delivery.price,
+                    discount=discount,
+                    original_bag=bag,
+                    stripe_pid=pid,
+                )
+                if discount:
                     if discount.set_quantity:
                         discount.quantity = discount.quantity - 1
                         discount.save()
-                else:
-                    order = Order.objects.create(
-                        full_name=shipping_details.name,
-                        email=billing_details.email,
-                        phone_number=shipping_details.phone,
-                        country=shipping_details.address.country,
-                        postcode=shipping_details.address.postal_code,
-                        town_or_city=shipping_details.address.city,
-                        street_address1=shipping_details.address.line1,
-                        street_address2=shipping_details.address.line2,
-                        county=shipping_details.address.state,
-                        delivery_method=delivery,
-                        delivery_cost=delivery.price,
-                        original_bag=bag,
-                        stripe_pid=pid,
-                    )
+
                 for product_sku, quantity in json.loads(bag).items():
                     product = Product.objects.get(sku=product_sku)
                     product_stock = ProductStock.objects.get(product=product)
