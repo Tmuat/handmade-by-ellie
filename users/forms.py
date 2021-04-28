@@ -13,6 +13,23 @@ class CustomUserCreationForm(UserCreationForm):
         model = CustomUser
         fields = ("email", "first_name", "last_name")
 
+    def __init__(self, *args, **kwargs):
+        """
+        Add placeholders and classes, remove auto-generated
+        labels and set autofocus on first field
+        """
+        super().__init__(*args, **kwargs)
+        placeholders = {
+            "email": "Email",
+            "first_name": "First Name",
+            "last_name": "Last Name",
+            "password1": "Password",
+            "password2": "Repeat Password",
+        }
+        for field in self.fields:
+            placeholder = placeholders[field]
+            self.fields[field].widget.attrs["placeholder"] = placeholder
+
 
 class CustomUserChangeForm(UserChangeForm):
     """

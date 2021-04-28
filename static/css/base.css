@@ -220,6 +220,14 @@ body {
   text-decoration: none;
 }
 
+.btn-home:hover,
+.btn-home:focus {
+  background: #ffffff;
+  border: 2px solid #000000;
+  box-shadow: 0 0 0 0.2rem rgba(255, 237, 237, 0.25);
+  color: black !important;
+}
+
 /* || Button Colours */
 
 .btn-custom-pink {
@@ -245,6 +253,10 @@ body {
 .bg-card-glass {
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(10px);
+}
+
+.bg-custom-grey {
+  background: #EBE9E9;
 }
 
 .bg-custom-dark-pink {
@@ -297,6 +309,10 @@ body {
 
 .border-custom-dark-pink-5 {
   border: 5px solid #bda1a1;
+}
+
+.border-custom-grey-2 {
+  border: 2px solid #bbbbbb;
 }
 
 .border
