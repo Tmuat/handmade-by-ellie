@@ -80,3 +80,19 @@ def all_orders(request):
     }
 
     return render(request, template_name, context)
+
+
+@staff_member_required
+def order_detail(request, order_number):
+    """
+    A view to show individual order details
+    """
+
+    order = get_object_or_404(Order, order_number=order_number)
+
+    template = 'admin_area/admin_order_detail.html'
+    context = {
+        'order': order,
+    }
+
+    return render(request, template, context)

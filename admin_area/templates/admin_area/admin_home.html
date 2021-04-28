@@ -57,7 +57,7 @@
             <tbody>
                 {% for order in orders %}
                 <tr>
-                    <td class="text-nowrap d-none d-md-table-cell"><a href="">{{ order.order_number }}</a></td>
+                    <td class="text-nowrap d-none d-md-table-cell"><a href="{% url 'order_detail' order.order_number %}">{{ order.order_number }}</a></td>
                     <td class="d-table-cell d-md-none">{{ order.order_number }}<br>{{ order.date|date:"d/m/y" }}</td>
                     <td class="d-none d-lg-table-cell">{{ order.date|date:"D - d/m/y - H:i" }}</td>
                     <td class="d-none d-md-table-cell d-lg-none">{{ order.date|date:"d/m/y" }}</td>
@@ -80,4 +80,9 @@
         <input type="hidden" name="redirect_url" value="{{ request.path }}">
     </form>
 </main>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript" src="{% static 'admin_area/js/admin.js' %}"></script>
 {% endblock %}

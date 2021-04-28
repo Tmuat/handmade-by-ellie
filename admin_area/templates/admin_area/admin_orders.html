@@ -1,10 +1,6 @@
 {% extends "admin_base.html" %}
 {% load static %}
 
-{% block extra_css %}
-    <link rel="stylesheet" href="{% static 'admin_area/css/site_admin.css' %}">
-{% endblock %}
-
 {% block content %}
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
     <div class="row pt-3 pb-2 mb-3 border-bottom">
@@ -17,7 +13,7 @@
                     <input class="form-control border border-black rounded-0" type="text" name="q"
                         placeholder="Search by order number/name">
                     <div class="input-group-append">
-                        <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+                        <button class="form-control btn btn-light border border-black rounded-0" type="submit">
                             <span class="icon">
                                 <i class="fas fa-search"></i>
                             </span>
@@ -101,7 +97,7 @@
             <tbody>
                 {% for order in orders %}
                 <tr>
-                    <td class="text-nowrap d-none d-md-table-cell"><a href="">{{ order.order_number }}</a></td>
+                    <td class="text-nowrap d-none d-md-table-cell"><a href="{% url 'order_detail' order.order_number %}">{{ order.order_number }}</a></td>
                     <td class="d-table-cell d-md-none">{{ order.order_number }}<br>{{ order.date|date:"d/m/y" }}</td>
                     <td class="d-none d-lg-table-cell">{{ order.date|date:"D - d/m/y - H:i" }}</td>
                     <td class="d-none d-md-table-cell d-lg-none">{{ order.date|date:"d/m/y" }}</td>
