@@ -7,14 +7,20 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('users', '0002_userprofile'),
-        ('checkout', '0004_auto_20210427_1729'),
+        ("users", "0002_userprofile"),
+        ("checkout", "0004_auto_20210427_1729"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='order',
-            name='user_profile',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='orders', to='users.userprofile'),
+            model_name="order",
+            name="user_profile",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                related_name="orders",
+                to="users.userprofile",
+            ),
         ),
     ]

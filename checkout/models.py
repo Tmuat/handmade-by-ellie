@@ -20,9 +20,13 @@ class Order(models.Model):
     )
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
-                                     null=True, blank=True,
-                                     related_name='orders')
+    user_profile = models.ForeignKey(
+        UserProfile,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="orders",
+    )
     order_number = models.IntegerField(
         null=False, blank=True, unique=True, editable=False
     )
