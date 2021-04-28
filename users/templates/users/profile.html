@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'users/css/users.css' %}">
+{% endblock %}
+
+{% block pageheader %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<section id="products" class="min-height">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2 class="mb-4">My Profile</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <p class="text-muted">Default Delivery Information</p>
+            </div>
+            <div class="col-12 col-lg-6">
+                <hr class="d-lg-none">
+                <p class="text-muted">Order History</p>
+                <h4>No Order History</h4>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
