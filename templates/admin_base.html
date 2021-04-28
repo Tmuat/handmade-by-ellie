@@ -83,7 +83,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% if order_page %}active{% endif %}"
+                            <a class="nav-link {% if product_list %}active{% endif %}"
                                 href="{% url 'admin_orders' %}">
                                 <i class="fas fa-list-alt"></i>
                                 All Orders
@@ -101,8 +101,8 @@
                     <hr class="m-0 w-50 ml-2">
                     <ul class="nav flex-column mb-2">
                         <li class="nav-item">
-                            <a class="nav-link {% if request.get_full_path == admin_edit_url %}active{% endif %}"
-                                href="">
+                            <a class="nav-link {% if product_page %}active{% endif %}"
+                                href="{% url 'admin_products' %}">
                                 <i class="far fa-edit"></i>
                                 Edit Products
                             </a>
