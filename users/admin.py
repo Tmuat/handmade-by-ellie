@@ -1,8 +1,12 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from .forms import CustomUserCreationForm, CustomUserChangeForm
-from .models import CustomUser
+from users.forms import CustomUserCreationForm, CustomUserChangeForm
+from users.models import CustomUser, UserProfile
+
+
+class UserProfileAdminInline(admin.StackedInline):
+    model = UserProfile
 
 
 class CustomUserAdmin(UserAdmin):
@@ -11,6 +15,7 @@ class CustomUserAdmin(UserAdmin):
     https://testdriven.io/blog/django-custom-user-model/
     """
 
+    inlines = (UserProfileAdminInline,)
     add_form = CustomUserCreationForm
     form = CustomUserChangeForm
     model = CustomUser
