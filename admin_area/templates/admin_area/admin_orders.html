@@ -61,7 +61,13 @@
     </div>
 
     <div class="row">
-        <div class="col-6 col-lg-4 offset-6 offset-lg-8 mb-2">
+        <div class="col-6 col-lg-8 mb-2">
+            {% if query %}
+            <span><a class="text-dark" href="{% url 'admin_orders' %}">Orders Home</a> | </span>
+            {% endif %}
+            {{ orders|length }} Orders{% if query %} found for <strong>"{{ query }}"</strong>{% endif %}
+        </div>
+        <div class="col-6 col-lg-4 mb-2">
             <div class="input-group ml-auto custom-select-width">
                 <select name="select-options" id="select-options" class="btn btn-sm btn-outline-secondary custom-select">
                     <option id="select-text">Mark as...</option>
