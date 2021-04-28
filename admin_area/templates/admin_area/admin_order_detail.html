@@ -227,3 +227,8 @@
     </form>
 </main>
 {% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript" src="{% static 'admin_area/js/admin_order_detail.js' %}"></script>
+{% endblock %}
