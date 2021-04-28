@@ -141,3 +141,19 @@ def dispatch_orders(request):
     redirect_url = request.POST.get("redirect_url")
 
     return redirect(redirect_url)
+
+
+@staff_member_required
+def complete_orders(request):
+    """
+    Change the status of orders to complete.
+    """
+
+    if request.method == 'POST':
+        selected = request.POST.get('id-selected')
+        ids = selected.split(",")
+        Order.objects.filter(id__in=ids).update(status="complete")
+
+    redirect_url = request.POST.get('redirect_url')
+
+    return redirect(redirect_url)
