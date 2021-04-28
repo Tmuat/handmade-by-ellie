@@ -8,6 +8,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.template.loader import render_to_string
 
+from admin_area.forms import DeliveryFormset
 from checkout.models import Order
 from products.models import Product
 
@@ -145,6 +146,41 @@ def all_products(request):
 
 
 @staff_member_required
+def admin_edit_delivery(request):
+    """
+    A view to Edit delivery options.
+    """
+
+    if not request.user.is_staff:
+        messages.error(request, "Sorry, only store owners can do that.")
+        return redirect(reverse("home"))
+
+    if request.method == "POST":
+        formset = DeliveryFormset(request.POST)
+        if formset.is_valid():
+            formset.save()
+            messages.info(request, "Successfully updated delivery!")
+            return redirect(reverse("admin_edit_delivery"))
+        else:
+            messages.error(
+                request,
+                (
+                    "Failed to update delivery. "
+                    "Please ensure the form is valid."
+                ),
+            )
+    else:
+        formset = DeliveryFormset()
+
+    template = "admin_area/admin_delivery.html"
+    context = {
+        "formset": formset,
+    }
+
+    return render(request, template, context)
+
+
+@staff_member_required
 def dispatch_orders(request):
     """
     Change the status of orders to dispatched and send email.
@@ -192,12 +228,12 @@ def complete_orders(request):
     Change the status of orders to complete.
     """
 
-    if request.method == 'POST':
-        selected = request.POST.get('id-selected')
+    if request.method == "POST":
+        selected = request.POST.get("id-selected")
         ids = selected.split(",")
         Order.objects.filter(id__in=ids).update(status="complete")
         messages.success(request, "Order/s marked as complete!")
 
-    redirect_url = request.POST.get('redirect_url')
+    redirect_url = request.POST.get("redirect_url")
 
     return redirect(redirect_url)
