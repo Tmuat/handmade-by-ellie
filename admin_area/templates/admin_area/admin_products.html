@@ -73,6 +73,7 @@
             <thead>
                 <tr>
                     <th class="border-top-0">Product Name</th>
+                    <th class="border-top-0 d-none d-md-table-cell">Categories</th>
                     <th class="border-top-0 d-none d-lg-table-cell">Image</th>
                     <th class="border-top-0">Is Active</th>
                     <th class="border-top-0">Price</th>
@@ -83,6 +84,13 @@
                 {% for product in products %}
                 <tr>
                     <td class="text-nowrap"><a href="">{{ product.name }}</a></td>
+                    <td class="d-none d-md-table-cell">
+                        {% for category in product.category.all %}
+                            <p class="small mb-0">
+                                {{ category.friendly_name }}
+                            </p>
+                        {% endfor %}
+                    </td>
                     <td class="d-none d-lg-table-cell">
                         <img class="w-100 product-image-height img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                     </td>
