@@ -64,7 +64,7 @@
             {% if query %}
             <span><a class="text-dark" href="{% url 'admin_products' %}">Product Home</a> | </span>
             {% endif %}
-            {{ orders|length }} Products{% if query %} found for <strong>"{{ query }}"</strong>{% endif %}
+            {{ products|length }} Products{% if query %} found for <strong>"{{ query }}"</strong>{% endif %}
         </div>
     </div>
 
