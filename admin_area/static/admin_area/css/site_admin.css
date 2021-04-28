@@ -1,3 +1,7 @@
+.product-image-height {
+    max-width: 50px;
+}
+
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
 .message-container {
     top: 50px;

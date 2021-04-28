@@ -9,6 +9,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.template.loader import render_to_string
 
 from checkout.models import Order
+from products.models import Product
 
 
 @staff_member_required
@@ -99,6 +100,48 @@ def order_detail(request, order_number):
     }
 
     return render(request, template, context)
+
+
+@staff_member_required
+def all_products(request):
+    """
+    A view to show all products, including filtering and search queries
+    """
+
+    product_page = True
+    product_list = Product.objects.all().order_by("-active", "name")
+    query = None
+    page = request.GET.get("page", 1)
+
+    if request.GET:
+        if "q" in request.GET:
+            query = request.GET["q"]
+
+            queries = Q(name__icontains=query) | Q(
+                category__friendly_name__icontains=query
+            )
+            product_list = product_list.filter(queries)
+
+    paginator = Paginator(product_list, 10)
+    num_pages = paginator.num_pages
+
+    try:
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        products = paginator.page(1)
+    except EmptyPage:
+        products = paginator.page(paginator.num_pages)
+
+    template_name = "admin_area/admin_products.html"
+
+    context = {
+        "product_page": product_page,
+        "products": products,
+        "num_pages": num_pages,
+        "query": query,
+    }
+
+    return render(request, template_name, context)
 
 
 @staff_member_required
