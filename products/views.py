@@ -12,7 +12,7 @@ def all_products(request):
     A view to show all products, including sorting and search queries.
     """
 
-    products = Product.objects.all()
+    products = Product.objects.filter(active=True)
     query = None
     categories = None
     sort = None
@@ -69,6 +69,11 @@ def product_detail(request, product_slug):
     """
 
     product = get_object_or_404(Product, slug=product_slug)
+
+    if product.active is False:
+        messages.info(request, 'Sorry, that product is no '
+                      'longer for sale. Please check back in the future.')
+        return(redirect('all_products'))
 
     context = {
         "product": product,
