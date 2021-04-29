@@ -1,6 +1,11 @@
 from django import forms
 
+from admin_area.widgets import CustomClearableFileInputImages
 from bag.models import DeliveryOptions, DiscountCode
+from products.models import (
+    Product,
+    ProductStock
+)
 
 
 class DeliveryForm(forms.ModelForm):
@@ -65,3 +70,31 @@ DiscountFormset = forms.modelformset_factory(
     DiscountCode,
     form=DiscountForm,
 )
+
+
+class ProductForm(forms.ModelForm):
+
+    class Meta:
+        model = Product
+        fields = 'name', 'description', 'price', 'image', 'category', 'active'
+
+    image = forms.ImageField(label='Image',
+                             required=False,
+                             widget=CustomClearableFileInputImages)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'border-black rounded-0'
+
+
+class ProductStockForm(forms.ModelForm):
+
+    class Meta:
+        model = ProductStock
+        fields = 'available_stock',
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'border-black rounded-0'
