@@ -45,7 +45,7 @@
                     {% if products.has_next %}
                     <li class="page-item">
                         <a class="page-link text-dark"
-                            href="?{% if query %}q={{ query }}&{% endif %}page={{ orders.next_page_number }}">{{ products.next_page_number }}</a>
+                            href="?{% if query %}q={{ query }}&{% endif %}page={{ products.next_page_number }}">{{ products.next_page_number }}</a>
                     </li>
                     <li class="page-item">
                         <a class="page-link text-dark" href="?{% if query %}q={{ query }}&{% endif %}page={{ num_pages }}">Last</a>
