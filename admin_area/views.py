@@ -171,6 +171,9 @@ def admin_add_product(request):
             instance.slug = slugify(instance.name)
             instance.created_by = request.user.email
             instance.updated_by = request.user.email
+            instance.category.clear()
+            for cat in form.cleaned_data['category']:
+                instance.category.add(cat)
             instance.save()
             instance_stock.product = instance
             instance_stock.save()
@@ -216,6 +219,9 @@ def admin_edit_product(request, product_slug):
             if instance.created_by == "":
                 instance.created_by = request.user.email
             instance.updated_by = request.user.email
+            instance.category.clear()
+            for cat in form.cleaned_data['category']:
+                instance.category.add(cat)
             instance.save()
             form2.save()
             messages.info(request, "Successfully updated product!")

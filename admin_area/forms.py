@@ -78,6 +78,11 @@ class ProductForm(forms.ModelForm):
         label="Image", required=False, widget=CustomClearableFileInputImages
     )
 
+    category = forms.ModelMultipleChoiceField(
+        queryset=Category.objects.all(),
+        widget=forms.CheckboxSelectMultiple
+    )
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         categories = Category.objects.all()
