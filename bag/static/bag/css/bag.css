@@ -5,6 +5,10 @@
 * Browsers: last 4 version
 */
 
+.product-image {
+    max-width: 150px !important;
+  }
+
 .update-link,
 .remove-item {
     cursor: pointer;

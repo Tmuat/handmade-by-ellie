@@ -36,13 +36,14 @@
                                 <th scope="col" class="d-none d-sm-table-cell text-center">Price</th>
                                 <th scope="col" class="text-center cell-width-50">Qty</th>
                                 <th scope="col" class="d-none d-sm-table-cell text-center">Subtotal</th>
+                                <th scope="col" class="d-none d-sm-table-cell text-center">Remove</th>
                             </tr>
                         </thead>
     
                         {% for product in bag_items %}
                         <tr>
                             <td class="w-25 d-none d-md-table-cell">
-                                <img class="img-fluid rounded" src="{{ product.product.image.url }}">
+                                <img class="img-fluid rounded product-image" src="{{ product.product.image.url }}">
                             </td>
                             <td class="py-3">
                                 <p class="my-0 d-inline"><strong>{{ product.product.name }}</strong></p><br>
@@ -87,9 +88,9 @@
                                             {% endif %}
                                         </div>
                                     </form>
-                                    <a class="update-link text-info float-left"><small>Update</small></a>
-                                    <a class="remove-item text-danger float-right"
-                                        id="remove_{{ product.product.id }}"><small>Remove</small></a>
+                                    <a class="update-link text-info text-center"><small>Update</small></a>
+                                    <a class="d-block d-sm-none remove-item text-danger"
+                                        id="remove_{{ product.product.id }}"><small>Remove Item</small></a>
                                     {% else %}
                                         <div class="form-group">
                                             <div class="input-group">
@@ -105,10 +106,14 @@
                             <td class="py-3 text-center d-none d-sm-table-cell">
                                 <p class="my-0">£{{ product.product.price | calc_subtotal:product.quantity }}</p>
                             </td>
+                            <td class="py-3 text-center d-none d-sm-table-cell">
+                                <a class="remove-item text-danger"
+                                        id="remove_{{ product.product.id }}"><small>Remove Item</small></a>
+                            </td>
                         </tr>
                         {% endfor %}
                         <tr>
-                            <td colspan="5" class="pt-5 text-right">
+                            <td colspan="6" class="pt-5 text-right">
                                 <h6 class="mb-1"><strong>Bag Total: £{{ total|floatformat:2 }}</strong></h6>
                                 {% if discount_set %}
                                     <h6 class="mb-0">Discount Code: {{ discount_code.code }}</h6>
@@ -126,7 +131,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="5" class="text-right">
+                            <td colspan="6" class="text-right">
                                 <a href="{% url 'all_products' %}"
                                     class="btn btn-custom-pink border-custom-dark-pink-2 btn-filter rounded-0 btn-lg btn-text-sm mt-2 mt-sm-0">
                                     <span class="icon">

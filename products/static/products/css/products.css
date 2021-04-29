@@ -5,6 +5,10 @@
 * Browsers: last 4 version
 */
 
+.product-image {
+  max-width: 350px !important;
+}
+
 .menu-row {
   position: fixed;
   min-height: 40px;
