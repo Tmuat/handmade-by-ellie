@@ -8,7 +8,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.template.loader import render_to_string
 
-from admin_area.forms import DeliveryFormset
+from admin_area.forms import DeliveryFormset, DiscountFormset
 from checkout.models import Order
 from products.models import Product
 
@@ -178,6 +178,43 @@ def admin_edit_delivery(request):
         formset = DeliveryFormset()
 
     template = "admin_area/admin_delivery.html"
+    context = {
+        "formset": formset,
+    }
+
+    return render(request, template, context)
+
+
+@staff_member_required
+def admin_edit_discount(request):
+    """
+    A view to Edit discount codes.
+    """
+
+    if not request.user.is_staff:
+        messages.error(request, "Sorry, only store owners can do that.")
+        return redirect(reverse("home"))
+
+    if request.method == "POST":
+        formset = DiscountFormset(request.POST)
+        if formset.is_valid():
+            formset.save(commit=False)
+            formset.updated_by = request.user.email
+            formset.save()
+            messages.info(request, "Successfully updated discount codes!")
+            return redirect(reverse("admin_edit_discount"))
+        else:
+            messages.error(
+                request,
+                (
+                    "Failed to update discount codes. "
+                    "Please ensure the form is valid."
+                ),
+            )
+    else:
+        formset = DiscountFormset()
+
+    template = "admin_area/admin_discount.html"
     context = {
         "formset": formset,
     }

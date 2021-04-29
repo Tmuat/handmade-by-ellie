@@ -14,4 +14,9 @@ urlpatterns = [
         views.admin_edit_delivery,
         name='admin_edit_delivery'
     ),
+    path(
+        'edit-discount/',
+        views.admin_edit_discount,
+        name='admin_edit_discount'
+    ),
 ]
