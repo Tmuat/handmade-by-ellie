@@ -158,6 +158,11 @@ def admin_edit_delivery(request):
     if request.method == "POST":
         formset = DeliveryFormset(request.POST)
         if formset.is_valid():
+            forms = formset.save(commit=False)
+            for instance in forms:
+                if instance.created_by == "":
+                    instance.created_by = request.user.email
+                instance.updated_by = request.user.email
             formset.save()
             messages.info(request, "Successfully updated delivery!")
             return redirect(reverse("admin_edit_delivery"))
