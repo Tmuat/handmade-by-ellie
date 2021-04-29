@@ -8,9 +8,11 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.template.loader import render_to_string
 
-from admin_area.forms import DeliveryFormset, DiscountFormset
+from admin_area.forms import (
+    DeliveryFormset, DiscountFormset, ProductForm, ProductStockForm
+)
 from checkout.models import Order
-from products.models import Product
+from products.models import Product, ProductStock
 
 
 @staff_member_required
@@ -143,6 +145,46 @@ def all_products(request):
     }
 
     return render(request, template_name, context)
+
+
+@staff_member_required
+def admin_edit_product(request, product_slug):
+    """
+    A view to Edit a product in the store.
+    """
+
+    if not request.user.is_staff:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    product = get_object_or_404(Product, slug=product_slug)
+    product_stock = get_object_or_404(ProductStock, product=product)
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST, instance=product)
+        form2 = ProductStockForm(request.POST, instance=product_stock)
+
+        if form.is_valid() and form2.is_valid():
+            form.save()
+            form2.save()
+            messages.success(request, 'Successfully updated product!')
+            return redirect(reverse('product_detail', args=[product.slug]))
+        else:
+            messages.error(request,
+                           ('Failed to update product. '
+                            'Please ensure the form is valid.'))
+    else:
+        form = ProductForm(instance=product)
+        form2 = ProductStockForm(instance=product_stock)
+
+    template = 'admin_area/admin_edit_product.html'
+    context = {
+        'form': form,
+        'form2': form2,
+        'product': product,
+    }
+
+    return render(request, template, context)
 
 
 @staff_member_required
