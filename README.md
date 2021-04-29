@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.com/Tmuat/handmade-by-ellie.svg?branch=master)](https://travis-ci.com/Tmuat/handmade-by-ellie)
 
-![Desktop Demo](link "Desktop Demo")
+![Desktop Demo](https://github.com/Tmuat/handmade-by-ellie/blob/master/assets/readme_images/site-view.png "Desktop Demo")
 
 ## View live project [here](link).
 
