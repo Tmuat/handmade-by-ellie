@@ -6,6 +6,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.template.defaultfilters import slugify
 from django.template.loader import render_to_string
 
 from admin_area.forms import (
@@ -148,6 +149,48 @@ def all_products(request):
 
 
 @staff_member_required
+def admin_add_product(request):
+    """
+    A view to add a product in the store.
+    """
+
+    if not request.user.is_staff:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        form2 = ProductStockForm(request.POST)
+
+        if form.is_valid() and form2.is_valid():
+            instance = form.save(commit=False)
+            instance_stock = form2.save(commit=False)
+            instance.slug = slugify(instance.name)
+            instance.created_by = request.user.email
+            instance.updated_by = request.user.email
+            instance.save()
+            instance_stock.product = instance
+            instance_stock.save()
+            messages.info(request, 'Successfully added product!')
+            return redirect('admin_products')
+        else:
+            messages.error(request,
+                           ('Failed to add product. '
+                            'Please ensure the form is valid.'))
+    else:
+        form = ProductForm()
+        form2 = ProductStockForm()
+
+    template = 'admin_area/admin_add_product.html'
+    context = {
+        'form': form,
+        'form2': form2,
+    }
+
+    return render(request, template, context)
+
+
+@staff_member_required
 def admin_edit_product(request, product_slug):
     """
     A view to Edit a product in the store.
@@ -161,11 +204,15 @@ def admin_edit_product(request, product_slug):
     product_stock = get_object_or_404(ProductStock, product=product)
 
     if request.method == 'POST':
-        form = ProductForm(request.POST, instance=product)
+        form = ProductForm(request.POST, request.FILES, instance=product)
         form2 = ProductStockForm(request.POST, instance=product_stock)
 
         if form.is_valid() and form2.is_valid():
-            form.save()
+            instance = form.save(commit=False)
+            if instance.created_by == "":
+                instance.created_by = request.user.email
+            instance.updated_by = request.user.email
+            instance.save()
             form2.save()
             messages.info(request, 'Successfully updated product!')
             return redirect('admin_products')
