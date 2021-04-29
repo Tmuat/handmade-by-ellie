@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 .form-inner {
     width: 75%;
 }
@@ -11,12 +18,30 @@
 .allauth-form-inner-content input:focus {
     border-color: #bda1a1;
     outline: 0;
-    box-shadow: none;
-    box-shadow: 0 0 0 0.2rem rgba(255, 237, 237, 0.5);
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 237, 237, 0.5);
+            box-shadow: 0 0 0 0.2rem rgba(255, 237, 237, 0.5);
 }
 
 .allauth-form-inner-content label:not([for='id_remember']) {
     display: none;
+}
+
+.allauth-form-inner-content input::-webkit-input-placeholder {
+    color: #aab7c4;
+}
+
+.allauth-form-inner-content input::-moz-placeholder {
+    color: #aab7c4;
+}
+
+.allauth-form-inner-content input:-ms-input-placeholder {
+    color: #aab7c4;
+}
+
+.allauth-form-inner-content input::-ms-input-placeholder {
+    color: #aab7c4;
 }
 
 .allauth-form-inner-content input::placeholder {

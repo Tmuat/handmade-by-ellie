@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 /* || Fonts */
 
 @font-face {
@@ -87,11 +94,13 @@ body {
 }
 
 .box-shadow {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .lg-box-shadow {
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .hover-pink-shadow:hover,
@@ -112,6 +121,26 @@ body {
 
 /* || Placeholder Colours */
 
+.placeholder-text-grey::-webkit-input-placeholder {
+  color: #8a8888;
+  opacity: 1;
+}
+
+.placeholder-text-grey::-moz-placeholder {
+  color: #8a8888;
+  opacity: 1;
+}
+
+.placeholder-text-grey:-ms-input-placeholder {
+  color: #8a8888;
+  opacity: 1;
+}
+
+.placeholder-text-grey::-ms-input-placeholder {
+  color: #8a8888;
+  opacity: 1;
+}
+
 .placeholder-text-grey::placeholder {
   color: #8a8888;
   opacity: 1;
@@ -123,22 +152,26 @@ body {
   border-color: #bda1a1;
   background: #ffeded;
   outline: 0;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .form-focus-within-pink:focus-within {
-  box-shadow: 0 0 0 0.2rem rgba(255, 237, 237, 0.25);
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 237, 237, 0.25);
+          box-shadow: 0 0 0 0.2rem rgba(255, 237, 237, 0.25);
 }
 
 .bg-custom-dark-pink:focus {
   background: #bda1a1;
   border-color: transparent;
-  box-shadow: 0 0 0;
+  -webkit-box-shadow: 0 0 0;
+          box-shadow: 0 0 0;
 }
 
 .custom-focus-shadow:focus {
   border: 1px solid #bda1a1;
-  box-shadow: 0 0 0 0.2rem rgba(255, 237, 237, 0.75);
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 237, 237, 0.75);
+          box-shadow: 0 0 0 0.2rem rgba(255, 237, 237, 0.75);
 }
 
 /* || Nav Hover Colours */
@@ -164,12 +197,16 @@ body {
 /* || Icon Hover */
 
 .rotate {
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 
 .outer-hover:hover .rotate,
 .outer-hover:focus .rotate {
-  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
 }
 
 /* || Buttons */
@@ -182,7 +219,8 @@ body {
 .btn-shop-now:focus {
   background: #BDA1A1;
   border: 5px solid #FFEDED;
-  box-shadow: 0 0 0 0.2rem rgba(255, 237, 237, 0.25);
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 237, 237, 0.25);
+          box-shadow: 0 0 0 0.2rem rgba(255, 237, 237, 0.25);
   color: white;
 }
 
@@ -194,7 +232,8 @@ body {
 .btn-filter:focus {
   background: #BDA1A1;
   border: 2px solid #FFEDED;
-  box-shadow: 0 0 0 0.2rem rgba(255, 237, 237, 0.25);
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 237, 237, 0.25);
+          box-shadow: 0 0 0 0.2rem rgba(255, 237, 237, 0.25);
   color: white;
 }
 
@@ -202,13 +241,16 @@ body {
 .btn-keep-shopping:focus {
   background: #BDA1A1;
   border: 2px solid #FFEDED;
-  box-shadow: 0 0 0 0.2rem rgba(255, 237, 237, 0.25);
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 237, 237, 0.25);
+          box-shadow: 0 0 0 0.2rem rgba(255, 237, 237, 0.25);
   color: white;
 }
 
 .btn-grad {
   text-align: center;
   text-transform: uppercase;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
   transition: 0.5s;
   background-size: 200% auto;
   color: white;
@@ -224,7 +266,8 @@ body {
 .btn-home:focus {
   background: #ffffff;
   border: 2px solid #000000;
-  box-shadow: 0 0 0 0.2rem rgba(255, 237, 237, 0.25);
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 237, 237, 0.25);
+          box-shadow: 0 0 0 0.2rem rgba(255, 237, 237, 0.25);
   color: black !important;
 }
 
@@ -232,7 +275,8 @@ body {
 
 .btn-custom-pink {
   background: #FFEDED;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .btn-black {
@@ -241,18 +285,20 @@ body {
 
 /* https://cssgradient.io/gradient-backgrounds/ */
 
-.btn-green-grad {background-image: linear-gradient(to right, #116346 0%, #4bbe77  51%, #1D976C  100%)}
+.btn-green-grad {background-image: -webkit-gradient(linear, left top, right top, from(#116346), color-stop(51%, #4bbe77), to(#1D976C));background-image: -o-linear-gradient(left, #116346 0%, #4bbe77  51%, #1D976C  100%);background-image: linear-gradient(to right, #116346 0%, #4bbe77  51%, #1D976C  100%)}
 
 /* || Background Colours */
 
 .bg-glass {
   background: rgba(173, 173, 173, 0.75);
-  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
 }
 
 .bg-card-glass {
   background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
 }
 
 .bg-custom-grey {
@@ -273,12 +319,14 @@ body {
 
 .bg-custom-glass-and-dark-pink-opaque.nav-bg {
   background: rgba(173, 173, 173, 0.75);
-  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
 }
 
 .bg-custom-dark-pink-and-glass.nav-bg {
   background: rgba(189, 161, 161, 1);
-  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
 }
 
 .bg-custom-pink {
@@ -443,17 +491,20 @@ body {
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
   .bg-custom-dark-pink-and-glass.nav-bg {
-    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+            backdrop-filter: none;
   }
 
   .bg-custom-glass-and-dark-pink-opaque.nav-bg {
     background: rgba(189, 161, 161, 0.8);
-    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+            backdrop-filter: none;
   }
 
   .bg-custom-dark-pink-and-dark-pink-opaque.nav-bg {
     background: rgba(189, 161, 161, 1);
-    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+            backdrop-filter: none;
   }
 
   .w-custom-100-50 {
@@ -465,7 +516,8 @@ body {
   }
 
   .lg-box-shadow {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px
+    -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px
   }
 
   .header-container {
