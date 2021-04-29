@@ -448,7 +448,61 @@ The admin section of the site was created utilising a bootstrap example; this wa
 
 ### Existing Features
 
+#### Navbar
+
+The site features a consistent navbar across the store. The navbar changes colour when moving away from the landing page to improve the user experience. The navbar features filter links to all products; when on the products page these filters are not displayed as they are displayed elsewhere on the page. Also on the navbar is an account section for access for the user to resgister, login, logout, change password and access their profile. It also includes a link to the users 'shopping bag', with a colour change when one or more items are in the bag. The navbar is full responsive; moving to a dropdown on smaller screens. There is a difference on the admin site but this is detailed below.
+
+#### Footer
+
+Much like the navbar, the site features a consistently themed footer across all pages. The footer includes links to popular pages on the site as well as a short description of the website. The colour of the footer matches the overall theme of the site.
+
+#### Landing Page
+
+The landing page features imagery consistent with the Handmade By Ellie brand. The landing page features very little text; the page includes a call to action 'Shop Now' and the user will be able to glimpse another section below. When the users scrolls they are able to see a short section detailing the Handmade By Ellie brand along with a few select testimonials.
+
+#### Products
+
+In order to get to the products page, the user can either search for a particular term in the search bar or use some of the dropdowns to filter or sort all the active products.
+
+Once on the products page, the user will be presented with all the products they have either searched or filtered for (no filtering takes place if they select all products). They can then see each products image, name, price and any categories they fall into.
+
+To give the user information, a white row is displayed underneath the navbar to display the current number of products displayed, the number when filtered and a link to the products home and finally if the products have been searched it will show the number of products and search term. In the middle it will show any categories if the user has filtered by these. Lastly it gives a select box for the user to sort the items in different ways.
+
+On the left hand side of the screen for small screen sizes and up is a sidebar including more advanced filtering options for the user to sort and filter the products on screen. On smaller screen sizes the filter is hidden off screen with a fixed filter button appearing in the bottom right of the screen.
+
+The user can view product detail by simply clicking on the product image or on the product name.
+
+#### Product Detail
+
+On the product detail page, the user is able to see a short description of the product along with any categories it falls into. Below this the user can add a quantity of the product to their bag and also see product stock. The user cannot put more than the max stock level of the product into their bag. The site features a number of checks to ensure that this is not possible.
+
+#### Shopping Bag
+
+The user can navigate to the shopping bag. If the shopping bag is empty they are informed of this and offered a link back to all products. If they have any products in their bag they will be able to see all the products and corresponding quantities they wish to purchase. The user can adjust the quantity of individual items from here or remove the item entirely from the bag. 
+
+The shopping bag features some defensive programming; on loading the bag page, the view performs a check to ensure any products in the bag are still in stock and active. This counters the problem with someone putting an item into their bag and it being added to the value in their session; them leaving the site coming back a week later when it is out of stock and still being able to proceed to checkout. The checkout button will be disabled if any of the products aren't in stock or active.
+
+Also on this page the user is required to enter a delivery option; without this they cannot proceed to the checkout page. The delivery method is then set into the session and the grand total is updated.
+
+Another feature on this page is the ability to add a discount code (these are set by the store owner). This is not required to proceed to checkout but should you have a discount you enter it here and it will calculate your discount (a percentage). Only one discount code can be added at any time.
+
+Once you have in stock and active product and set your delivery method you can proceed to the checkout page.
+
+#### Checkout
+
+Like the shopping bag, on loading the checkout all products in the shopping bag are checked for stock and to see if they are still active. The view also checks if any discount code is included and if it is valid as the code can have either an expiry or quantity set on it. This stops a user being in the bag for a while and coming back and proceeding straight to checkout.
+
+The user is required to add some basic order information such as name, email and phone number along with billing/delivery address. The checkout then utilises stripe to form a card element and handle the payment process. The user can then proceed with an order.
+
+#### Checkout Success
+
+Should the store process the order, the user is displayed with a summary of the order along with receiving an order email.
+
 ### Features Left To Implement
+
+#### Contact Page
+
+At the moment the store doesn't contain a standalone contact page; this is something that would improve the users site experience in case they wanted to contact the sites owner.
 
 ---
 
