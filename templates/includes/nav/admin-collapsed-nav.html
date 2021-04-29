@@ -35,6 +35,8 @@
                 Edit Product
             </a>
         </li>
+        {% block extra_menu_two %}
+        {% endblock %}
         <li class="nav-item">
             <a class="nav-link {% if request.get_full_path == admin_edit_delivery %}active{% endif %}"
                 href="{% url 'admin_edit_delivery' %}">
