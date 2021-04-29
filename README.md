@@ -4,7 +4,7 @@
 
 ![Desktop Demo](https://github.com/Tmuat/handmade-by-ellie/blob/master/assets/readme_images/site-view.png "Desktop Demo")
 
-## View live project [here](link).
+## View live project [here](https://handmade-by-ellie.herokuapp.com/).
 
 ## Description
 
