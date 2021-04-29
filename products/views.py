@@ -17,6 +17,7 @@ def all_products(request):
     categories = None
     sort = None
     direction = None
+    product_page = True
 
     if request.GET:
         if "sort" in request.GET:
@@ -58,6 +59,7 @@ def all_products(request):
         "search_term": query,
         "current_categories": categories,
         "current_sorting": current_sorting,
+        "product_page": product_page
     }
 
     return render(request, "products/products.html", context)
