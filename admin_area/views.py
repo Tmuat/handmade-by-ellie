@@ -172,6 +172,7 @@ def admin_add_product(request):
             instance.created_by = request.user.email
             instance.updated_by = request.user.email
             instance.category.clear()
+            instance.save()
             for cat in form.cleaned_data['category']:
                 instance.category.add(cat)
             instance.save()
