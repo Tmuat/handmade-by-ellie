@@ -3,6 +3,7 @@
 {% url 'admin_home' as admin_url %}
 {% url 'admin_edit_delivery' as admin_edit_delivery %}
 {% url 'admin_edit_discount' as admin_edit_discount %}
+{% url 'admin_add_product' as admin_add_product %}
 
 <!doctype html>
 <html lang="en">
@@ -101,7 +102,15 @@
                         <i class="fas fa-cog"></i>
                     </h6>
                     <hr class="m-0 w-50 ml-2">
+
                     <ul class="nav flex-column mb-2">
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.get_full_path == admin_add_product %}active{% endif %}"
+                                href="{% url 'admin_add_product' %}">
+                                <i class="far fa-plus-square"></i>
+                                Add Product
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link {% if product_page %}active{% endif %}"
                                 href="{% url 'admin_products' %}">

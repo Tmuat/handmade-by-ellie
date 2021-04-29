@@ -29,6 +29,13 @@
         {% block extra_menu %}
         {% endblock %}
         <li class="nav-item">
+            <a class="nav-link {% if request.get_full_path == admin_add_product %}active{% endif %}"
+                href="{% url 'admin_add_product' %}">
+                <i class="far fa-edit"></i>
+                Add Product
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link {% if product_page %}active{% endif %}"
                 href="{% url 'admin_products' %}">
                 <i class="far fa-edit"></i>
