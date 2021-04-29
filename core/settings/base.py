@@ -99,7 +99,7 @@ THIRD_PARTY_APPS = [
     "crispy_forms",
 ]
 
-LOCAL_APPS = ["users", "home", "products", "bag", "checkout", "admin_area"]
+LOCAL_APPS = ["users", "home", "products", "bag", "checkout", "admin_area", ]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS

@@ -9,7 +9,7 @@
     </div>
     <div class="row">
         <div class="col-12 mx-auto">
-            <form method="POST" action="{% url 'admin_edit_delivery' %}" class="form mb-2 w-100">
+            <form method="POST" action="{% url 'admin_edit_discount' %}" class="form mb-2 w-100">
                 {% csrf_token %}
 
                 <!-- Discount Formsets -->
@@ -24,19 +24,21 @@
                             {% if forloop.first %}
                             <thead>
                                 <tr>
-                                    <th class="border-right border-top-0">{{ form.option.label_tag }}</th>
-                                    <th class="border-right border-top-0">{{ form.description.label_tag }}</th>
-                                    <th class="border-right border-top-0">{{ form.price.label_tag }}</th>
-                                    <th class="border-top-0">{{ form.active.label_tag }}</th>
+                                    <th class="border-right border-top-0">{{ form.code.label_tag }}<br><small>Must Be Unqiue</small></th>
+                                    <th class="border-right border-top-0">{{ form.discount.label_tag }}<br><small>For 10% put '10'</small></th>
+                                    <th class="border-right border-top-0">{{ form.expiry.label_tag }}<br><small>Not Required - Format DD/MM/YYYY</small></th>
+                                    <th class="border-right border-top-0">{{ form.quantity.label_tag }}<br><small>Not Required</small></th>
+                                    <th class="border-top-0">{{ form.active.label_tag }}<br><small>Codes Can Only Be Used If 'Active'</small></th>
                                 </tr>
                             </thead>
                             <tbody>
                             {% endif %}
                                 <tr>
-                                    <td class="border-right border-bottom p-1 custom-w-option table-form">{{ form.option }}</td>
-                                    <td class="border-right border-bottom p-1 custom-w-desc table-form">{{ form.description }}</td>
-                                    <td class="border-right border-bottom p-1 custom-w-price table-form">{{ form.price }}</td>
-                                    <td class="p-1 border-bottom table-form custom-w-active">{{ form.active }}</td>
+                                    <td class="border-right border-bottom p-1 table-form">{{ form.code }}</td>
+                                    <td class="border-right border-bottom p-1 table-form">{{ form.discount }}</td>
+                                    <td class="border-right border-bottom p-1 table-form">{{ form.expiry }}</td>
+                                    <td class="border-right border-bottom p-1 table-form">{{ form.quantity }}</td>
+                                    <td class="p-1 border-bottom table-form">{{ form.active }}</td>
                                 </tr>
                         {% endfor %}
                             </tbody>
@@ -45,10 +47,10 @@
                 </div>
                 <!-- Delivery End -->
 
-                <div class="col-12 text-right mt-2 mb-3">
+                <div class="col-12 text-right mb-3">
                     <a class="btn btn-secondary border border-dark rounded-0 btn-text-sm mt-2 mt-sm-0" href="{% url 'admin_home' %}">Cancel</a>
                     <button class="btn btn-primary border border-dark rounded-0 btn-text-sm mt-2 mt-sm-0" type="submit">Update
-                        Delivery</button>
+                        Discount</button>
                 </div>
             </form>
         </div>

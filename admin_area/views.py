@@ -198,8 +198,14 @@ def admin_edit_discount(request):
     if request.method == "POST":
         formset = DiscountFormset(request.POST)
         if formset.is_valid():
-            formset.save(commit=False)
-            formset.updated_by = request.user.email
+            forms = formset.save(commit=False)
+            for instance in forms:
+                if instance.created_by == "":
+                    instance.created_by = request.user.email
+                if instance.expiry:
+                    instance.set_expiry = True
+                if instance.quantity:
+                    instance.set_quantity = True
             formset.save()
             messages.info(request, "Successfully updated discount codes!")
             return redirect(reverse("admin_edit_discount"))

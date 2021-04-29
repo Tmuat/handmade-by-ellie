@@ -60,7 +60,7 @@ class DiscountCode(models.Model):
     active = models.BooleanField(default=False, choices=ACTIVE)
     set_expiry = models.BooleanField(default=False, choices=TRUE_FALSE)
     set_quantity = models.BooleanField(default=False, choices=TRUE_FALSE)
-    expiry = models.DateTimeField(null=True, blank=True)
+    expiry = models.DateField(null=True, blank=True)
     quantity = models.PositiveIntegerField(
         blank=True, null=True, validators=[MinValueValidator(0)]
     )
