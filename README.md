@@ -492,17 +492,43 @@ Once you have in stock and active product and set your delivery method you can p
 
 Like the shopping bag, on loading the checkout all products in the shopping bag are checked for stock and to see if they are still active. The view also checks if any discount code is included and if it is valid as the code can have either an expiry or quantity set on it. This stops a user being in the bag for a while and coming back and proceeding straight to checkout.
 
-The user is required to add some basic order information such as name, email and phone number along with billing/delivery address. The checkout then utilises stripe to form a card element and handle the payment process. The user can then proceed with an order.
+The user is required to add some basic order information such as name, email and phone number along with billing/delivery address. The checkout then utilises stripe to form a card element and handle the payment process. The user can then proceed with an order. A store user can checkout without being authenticated; but if they are they have the option to save their info to a profile model which can auto filled out when they next proceed to checkout.
 
 #### Checkout Success
 
 Should the store process the order, the user is displayed with a summary of the order along with receiving an order email.
+
+#### Profile
+
+An authenticated user is able to view their profile; here they can see details of all previous orders and also update/change any of their default information for the next time they checkout. If a user selects an order to see, they see the same screen as the checkout success without a duplicate order email being sent.
+
+#### Site Admin
+
+The store features a seperate admin area, with a UX more in keeping with manageing stock and orders. The store owner can set orders as dispatched which sends an automated email to the customers email address. The admin site also allows users to search for a particular order in case of queries from a customer. 
+
+The admin site features a side navigation bar to allow the the store owner to edit and add products, edit discount codes and edit delivery options. The discount codes and delivery options are created using formsets to allow for multiple instances to be edited on the same page; creating a quicker user experience.
+
+#### Django Admin
+
+The site uses the [Django Admin Honeypot](https://pypi.org/project/django-admin-honeypot/) package to change the admin url of the site. This stops web crawlers from trying to force their way into the admin section.
 
 ### Features Left To Implement
 
 #### Contact Page
 
 At the moment the store doesn't contain a standalone contact page; this is something that would improve the users site experience in case they wanted to contact the sites owner.
+
+#### Editing Products
+
+Whilst the site features a nice admin site to manage the store, the store owner currently doesn't have a way to edit the store products from the normal store. Implementing this would allow the store owner to make small changes quickly as they find them.
+
+#### Discount Codes & Product Names
+
+As the site uses the product skug for product detail, it requires them all to be unique. At the moment this is enforced on the backend; however to improve UX, it would be good to have an ajax call to check for uniqueness on the front end so the user doesn't need to submit the form to find out.
+
+#### Store Emails
+
+Currently when a store user makes a purchase, they are sent an email summarising their order. However, an automated email to the store owner would allow to owner to start acting on orders without having to access the site.
 
 ---
 
