@@ -26,7 +26,7 @@ The site allows the store admin to add, edit and delete products as well as bein
     - [Wireframes](#wireframes)
     - [Security](#security)
   - [The Surface Plane](#the-surface-plane)
-    - [Landimg Imagery](#landing-imagery)
+    - [Landing Imagery](#landing-imagery)
     - [Colour Scheme](#colour-scheme)
     - [Fonts](#fonts)
     - [Information Architecture](#information-architecture)
@@ -431,6 +431,12 @@ The site features two main fonts taken from the logo; the main font across the s
 #### Information Architecture
 
 #### Differences To Design
+
+There were two main differences to the wireframes; the landing imagery and the admin section.
+
+The landing imagery was changed from the wireframes as the client supplied their own imagery to be used in the background.
+
+The admin section of the site was created utilising a bootstrap example; this was used to give a better experience to the store owner.
 
 ---
 
