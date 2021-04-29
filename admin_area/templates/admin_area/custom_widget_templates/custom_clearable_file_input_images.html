@@ -1,6 +1,12 @@
 {% if widget.is_initial %}
-<p class="mb-1">Currently</p>
+<p class="mb-1">Currently*:</p>
 <img width="96" height="96" class="rounded shadow-sm" src="{{ widget.value.url }}">
+<div class="custom-file mt-2">
+    <input type="file" name="image" accept="image/*" class="custom-file-input" id="id_image">
+    <span class="custom-file-upload">Upload <i class="fas fa-upload"></i></span>
+    <p class="text-transparent text-danger mb-0" id="id_new_image">New Image: </p>
+</div>
+                                    
 
 {% if not widget.required %}
 {% endif %}

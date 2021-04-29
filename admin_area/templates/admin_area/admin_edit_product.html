@@ -28,12 +28,17 @@
                         {{ form.name | as_crispy_field }}
                         {{ form.description | as_crispy_field }}
                         {{ form.category | as_crispy_field }}
-                        {{ form.image }}
                     </div>
                     <div class="col-12 col-md-6 px-xl-5">
                         {{ form.price | as_crispy_field }}
                         {{ form2.available_stock | as_crispy_field }}
                         {{ form.active | as_crispy_field }}
+                        <div>
+                            {{ form.image }}
+                            <div class="mt-2">
+  
+                            </div>
+                        </div>
                     </div>
                     <!-- Product & Productstock Form End -->
                 </div>
@@ -50,5 +55,5 @@
 
 {% block postloadjs %}
 {{ block.super }}
-<script type="text/javascript" src="{% static 'site_admin/js/edit_product.js' %}"></script>
+<script type="text/javascript" src="{% static 'admin_area/js/admin_product.js' %}"></script>
 {% endblock %}
