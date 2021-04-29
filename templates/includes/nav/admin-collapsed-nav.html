@@ -43,10 +43,10 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link {% if request.get_full_path == admin_edit_testimonials %}active{% endif %}"
-                href="">
+            <a class="nav-link {% if request.get_full_path == admin_edit_discount %}active{% endif %}"
+                href="{% url 'admin_edit_discount' %}">
                 <i class="fas fa-comment-dots"></i>
-                Edit Testimonials
+                Edit Discount Codes
             </a>
         </li>
     </ul>
