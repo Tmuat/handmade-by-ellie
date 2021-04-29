@@ -2,11 +2,7 @@ from django import forms
 
 from admin_area.widgets import CustomClearableFileInputImages
 from bag.models import DeliveryOptions, DiscountCode
-from products.models import (
-    Category,
-    Product,
-    ProductStock
-)
+from products.models import Category, Product, ProductStock
 
 
 class DeliveryForm(forms.ModelForm):
@@ -33,7 +29,7 @@ class DeliveryForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
-            if field_name == 'active':
+            if field_name == "active":
                 field.widget.attrs[
                     "class"
                 ] = "border-0 rounded-0 w-100 h-100 no-active bg-transparent"
@@ -57,7 +53,7 @@ class DiscountForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
-            if field_name == 'active':
+            if field_name == "active":
                 field.widget.attrs[
                     "class"
                 ] = "border-0 rounded-0 w-100 h-100 no-active bg-transparent"
@@ -74,33 +70,31 @@ DiscountFormset = forms.modelformset_factory(
 
 
 class ProductForm(forms.ModelForm):
-
     class Meta:
         model = Product
-        fields = 'name', 'description', 'price', 'image', 'category', 'active'
+        fields = "name", "description", "price", "image", "category", "active"
 
-    image = forms.ImageField(label='Image',
-                             required=False,
-                             widget=CustomClearableFileInputImages)
+    image = forms.ImageField(
+        label="Image", required=False, widget=CustomClearableFileInputImages
+    )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         categories = Category.objects.all()
         friendly_names = [(c.id, c.get_friendly_name()) for c in categories]
 
-        self.fields['category'].choices = friendly_names
+        self.fields["category"].choices = friendly_names
         for field_name, field in self.fields.items():
-            if field_name != 'image':
-                field.widget.attrs['class'] = 'border-black rounded-0'
+            if field_name != "image":
+                field.widget.attrs["class"] = "border-black rounded-0"
 
 
 class ProductStockForm(forms.ModelForm):
-
     class Meta:
         model = ProductStock
-        fields = 'available_stock',
+        fields = ("available_stock",)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'border-black rounded-0'
+            field.widget.attrs["class"] = "border-black rounded-0"

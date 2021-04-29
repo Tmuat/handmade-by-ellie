@@ -10,7 +10,10 @@ from django.template.defaultfilters import slugify
 from django.template.loader import render_to_string
 
 from admin_area.forms import (
-    DeliveryFormset, DiscountFormset, ProductForm, ProductStockForm
+    DeliveryFormset,
+    DiscountFormset,
+    ProductForm,
+    ProductStockForm,
 )
 from checkout.models import Order
 from products.models import Product, ProductStock
@@ -155,10 +158,10 @@ def admin_add_product(request):
     """
 
     if not request.user.is_staff:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
+        messages.error(request, "Sorry, only store owners can do that.")
+        return redirect(reverse("home"))
 
-    if request.method == 'POST':
+    if request.method == "POST":
         form = ProductForm(request.POST, request.FILES)
         form2 = ProductStockForm(request.POST)
 
@@ -171,20 +174,21 @@ def admin_add_product(request):
             instance.save()
             instance_stock.product = instance
             instance_stock.save()
-            messages.info(request, 'Successfully added product!')
-            return redirect('admin_products')
+            messages.info(request, "Successfully added product!")
+            return redirect("admin_products")
         else:
-            messages.error(request,
-                           ('Failed to add product. '
-                            'Please ensure the form is valid.'))
+            messages.error(
+                request,
+                ("Failed to add product. " "Please ensure the form is valid."),
+            )
     else:
         form = ProductForm()
         form2 = ProductStockForm()
 
-    template = 'admin_area/admin_add_product.html'
+    template = "admin_area/admin_add_product.html"
     context = {
-        'form': form,
-        'form2': form2,
+        "form": form,
+        "form2": form2,
     }
 
     return render(request, template, context)
@@ -197,13 +201,13 @@ def admin_edit_product(request, product_slug):
     """
 
     if not request.user.is_staff:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
+        messages.error(request, "Sorry, only store owners can do that.")
+        return redirect(reverse("home"))
 
     product = get_object_or_404(Product, slug=product_slug)
     product_stock = get_object_or_404(ProductStock, product=product)
 
-    if request.method == 'POST':
+    if request.method == "POST":
         form = ProductForm(request.POST, request.FILES, instance=product)
         form2 = ProductStockForm(request.POST, instance=product_stock)
 
@@ -214,21 +218,25 @@ def admin_edit_product(request, product_slug):
             instance.updated_by = request.user.email
             instance.save()
             form2.save()
-            messages.info(request, 'Successfully updated product!')
-            return redirect('admin_products')
+            messages.info(request, "Successfully updated product!")
+            return redirect("admin_products")
         else:
-            messages.error(request,
-                           ('Failed to update product. '
-                            'Please ensure the form is valid.'))
+            messages.error(
+                request,
+                (
+                    "Failed to update product. "
+                    "Please ensure the form is valid."
+                ),
+            )
     else:
         form = ProductForm(instance=product)
         form2 = ProductStockForm(instance=product_stock)
 
-    template = 'admin_area/admin_edit_product.html'
+    template = "admin_area/admin_edit_product.html"
     context = {
-        'form': form,
-        'form2': form2,
-        'product': product,
+        "form": form,
+        "form2": form2,
+        "product": product,
     }
 
     return render(request, template, context)
@@ -240,13 +248,13 @@ def delete_product(request, product_id):
     Delete a product from the store.
     """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
+        messages.error(request, "Sorry, only store owners can do that.")
+        return redirect(reverse("home"))
 
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
-    messages.info(request, 'Product deleted!')
-    return redirect(reverse('admin_products'))
+    messages.info(request, "Product deleted!")
+    return redirect(reverse("admin_products"))
 
 
 @staff_member_required
