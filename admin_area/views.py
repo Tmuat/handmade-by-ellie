@@ -167,8 +167,8 @@ def admin_edit_product(request, product_slug):
         if form.is_valid() and form2.is_valid():
             form.save()
             form2.save()
-            messages.success(request, 'Successfully updated product!')
-            return redirect(reverse('product_detail', args=[product.slug]))
+            messages.info(request, 'Successfully updated product!')
+            return redirect('admin_products')
         else:
             messages.error(request,
                            ('Failed to update product. '
@@ -185,6 +185,21 @@ def admin_edit_product(request, product_slug):
     }
 
     return render(request, template, context)
+
+
+@staff_member_required
+def delete_product(request, product_id):
+    """
+    Delete a product from the store.
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    product = get_object_or_404(Product, pk=product_id)
+    product.delete()
+    messages.info(request, 'Product deleted!')
+    return redirect(reverse('admin_products'))
 
 
 @staff_member_required

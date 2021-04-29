@@ -12,6 +12,9 @@ urlpatterns = [
     path('edit/<product_slug>/',
          views.admin_edit_product,
          name='admin_edit_product'),
+    path('delete/<product_id>/',
+         views.delete_product,
+         name='delete_product'),
     path(
         'edit-delivery/',
         views.admin_edit_delivery,

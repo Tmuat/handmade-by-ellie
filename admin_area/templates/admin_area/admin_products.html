@@ -83,7 +83,7 @@
             <tbody>
                 {% for product in products %}
                 <tr>
-                    <td class="text-nowrap"><a href="">{{ product.name }}</a></td>
+                    <td class="text-nowrap"><a href="{% url 'admin_edit_product' product.slug %}">{{ product.name }}</a></td>
                     <td class="d-none d-md-table-cell">
                         {% for category in product.category.all %}
                             <p class="small mb-0">

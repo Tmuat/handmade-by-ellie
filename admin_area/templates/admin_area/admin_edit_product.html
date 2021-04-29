@@ -46,8 +46,31 @@
                     <a class="btn btn-secondary border border-dark rounded-0 btn-text-sm mt-2 mt-sm-0" href="{% url 'admin_home' %}">Cancel</a>
                     <button class="btn btn-primary border border-dark rounded-0 btn-text-sm mt-2 mt-sm-0" type="submit">Update
                         Product</button>
+                    <p class="btn btn-danger border border-dark rounded-0 btn-text-sm m-0" data-toggle="modal" data-target="#deleteModal">Delete
+                        Product</p>
                 </div>
             </form>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Note: Please only delete a product if you added it by mistake. If you simply don't sell the product, please set the product to not active.
+                    <br>
+                    <br>
+                    Please confirm you want to delete '{{ product.name }}'?
+                    <a href="{% url 'delete_product' product.id %}" class="btn btn-danger border border-dark rounded-0 btn-text-sm mt-3 d-block" type="submit">Confirm Delete</a>
+                </div>
+            </div>
         </div>
     </div>
 </main>
