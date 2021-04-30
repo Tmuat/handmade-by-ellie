@@ -46,8 +46,6 @@ The site allows the store admin to add, edit and delete products as well as bein
   - [Fixed Bugs](#fixed-bugs)
   - [Known Bugs](#known-bugs)
 - [Deployment](#deployment)
-  - [Local Deployment](#local-deployment)
-  - [Deploying to Heroku](#deploying-to-heroku)
 - [Credits](#credits)
   - [Code](#code)
   - [Media](#media)
@@ -712,6 +710,8 @@ The site features a number of automated tests. During development TDD principles
 
 The site uses pytest as its testing framework; this was used for the simpler style of writing tests. The site is intergrated with TravisCI to ensure all pushes to github pass the tests.
 
+Click [here](https://travis-ci.com/Tmuat/handmade-by-ellie) to go to TravisCI.
+
 ---
 
 ### User Story Testing
@@ -950,11 +950,37 @@ Testing the user stories from the [UX Section](#ux).
 
 ---
 
+- Error when adding categories to products
+  - There was an error when trying to add categories to the products model. Due to the use of a many to many link, the form required a different implementation that the standard form.save().
+
+- The product count on the admin page displayed the wrong number
+  - The product count on the admin page was linking to the wrong variable and this caused the wrong number of products to be displayed to the store owner.
+
+- Checkout was disabled if there wasn't a discount code
+  - There was an error in implementing if statements in the checkout which caused the checkout to be disabled if the product was in stock and delivery was set but no discount code was used.
+
+- Discount codes without quantity or expiry
+  - Discount codes with no quantity set or expiry set would be missed in the checking discounts in the context processor
+
+- Toast order date fail
+  - Moved an order date formatting out of an f string after it caused automated tests to fail
+
+- When saving requirements.txt argon was deleted
+  - Whenever requirements.txt was frozen, it would cause argon to be removed.
+
 ---
 
 ### Known Bugs
 
 ---
+- Backdrop-filter
+  - Although backdrop-filter is implemented and works, it causes validation errors when being passed through a validator.
+
+- li HTML warnings
+  - The same as the Boutique Ado site, I recieve a warning about li elements being a child of the nav.
+
+- Concurrent Checkouts
+  - Should an items have only 1 stock left and two users processed the checkout at the same time this would create an error. Whilst the likelihood of two seperate presses of the checkout button on a product with one stock is unlikely it is not inconcievable. 
 
 ---
 
@@ -964,7 +990,88 @@ Testing the user stories from the [UX Section](#ux).
 
 ## Deployment
 
-### Local Deployment
+### Create A Project
+
+To create this project you can use the `git init` command in your CLI.
+
+Then proceed with `git add .` to add all files to the staging area. Then you need to input a message with the command `git commit -m "Initial commit"`.
+
+Then as the project progresed the following commands were used regularly to submit changes to version control:
+
+`git add <filename>` or `git add .` - This command either added specified files to the staging area or all files that had been changed to the staging area prior to committing.
+
+`git commit -m "commit message explaining the updates"` - This is then used to provide a message explaining the changes; this is extremley useful if something breaks and you need to roll it back.
+
+`git push` - This command is used to push all committed changes to the GitHub repository.
+
+
+### Deployment to Heroku
+
+1. Navigate to Heroku.com and login or register for a profile.
+1. Select to create new app and put in a unique name.
+1. Select region closest to you.
+
+**Set up connection to Github Repository:**
+
+1. Once the app is created, navigate to the deploy tab.
+1. Select GitHub - Connect to GitHub to connect heroku to your github where the repository to deploy is stored.
+1. Find the github repository to connect to.
+1. Enter the repository name for the project you wish to deplot and click search.
+1. Once the repo has been found, click the connect button.
+
+
+**Add PostgreSQL Database:**
+
+1. Along the navigation bar at the top, go to the resources tab.
+1. Under Add-ons search for Heroku Postgres and then select it.
+1. Select the free hobby plan unless you wish to move to a paid option.
+
+**Set environment variables:**
+
+1. The project uses a number of environment variables to keep sensitive information hidden.
+1. You need to navigate to the settings tab and click reveal config vars; you will then need to add the below.
+    * DJANGO_SECRET_KEY
+    * DJANGO_DEBUG
+    * DJANGO_ALLOWED_HOSTS
+    * DJANGO_SETTINGS_MODULE_ENV = core.settings.development or core.settings.production
+    * DJANGO_ACCOUNT_ALLOW_REGISTRATION
+    * DJANGO_LOGGING_LEVEL
+    * DJANGO_ADMIN_URL=
+    * DJANGO_ADMIN_NAME=
+    * DJANGO_ADMIN_EMAIL=
+    * DJANGO_SECURE_SSL_REDIRECT=
+    * DATABASE_URL= heroku database
+    * AWS_ACCESS_KEY_ID=
+    * AWS_SECRET_ACCESS_KEY=
+    * AWS_STORAGE_BUCKET_NAME=
+    * AWS_S3_REGION_NAME=
+    * AWS_SES_REGION_NAME=
+    * AWS_SES_REGION_ENDPOINT=
+    * DEFAULT_FROM_EMAIL=
+    * SERVER_EMAIL==
+    * STRIPE_PUBLIC_KEY=
+    * STRIPE_SECRET_KEY=
+    * STRIPE_CURRENCY=
+    * STRIPE_WH_SECRET=
+
+*These variables are different for each deployment; and as such the values for nearly all aren't written here. *
+
+**Enable automatic deployment:**
+1. If you would like there is an option to enable automatic deploys when you push to github.
+1. You can also set automatic deploys to only happen if the project passes the tests in TravisCI.
+1. In the Automatic deploys section, choose the branch you want to deploy from then click Enable Automation Deploys.
+
+### Run Locally
+
+1. Navigate to the GitHub [Repository](https://github.com/Tmuat/handmade-by-ellie).
+1. Select the Code drop down menu.
+1. You now have options to either download tahe ZIP file and open with your choice of IDE or you can copy Git URL from the HTTPS dialogue box which is [here](https://github.com/Tmuat/handmade-by-ellie.git).
+1. Open your IDE of choice and open you CLI in a directory of your choice.
+1. Use the `git clone` command in said CLI followed by the copied git URL which will enable you to clone the project.
+1. Once the project is in your IDE, run the following command in the CLI to install all the required packages - `pip install -r requirements.txt`.
+1. As stated in deploying to Heroku the project requires a number of environment variables to work, these can be set globally in your environment or as this project uses environ you can create a **.env** file in the same location as the **.env.example**, this is located in core.settings.
+
+****
 
 ---
 
