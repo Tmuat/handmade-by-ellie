@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block pageheader %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<section id="bag" class="min-height">
+    <div class="container">
+        <div class="row">
+            <p class="lead mb-5">Something went wrong.</p>
+            <a href="{% url 'home' %}"
+                class="btn rounded-0 bg-custom-pink border-custom-dark-pink-2 btn-keep-shopping">
+                <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <span class="text-uppercase">Home</span>
+            </a>
+        </div>
+    </div>
+</section>         
+{% endblock %}
