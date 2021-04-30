@@ -27,6 +27,9 @@ class CustomUserCreationForm(UserCreationForm):
             "last_name": "Last Name",
             "password1": "Password",
             "password2": "Repeat Password",
+            "is_staff": "Is Staff?",
+            "is_superuser": "Is Superuser",
+            "is_active": "Active?"
         }
         for field in self.fields:
             placeholder = placeholders[field]
