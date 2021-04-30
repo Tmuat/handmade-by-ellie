@@ -563,6 +563,110 @@ Across the site 4 languages were used:
 
 ---
 
+A number of external frameworks, code libraries and programs were incorportated into the Visit Kingston site. These are listed below with code attribution within each segment of the live site and in the credits section towards the end of this README.
+
+- [Django](https://www.djangoproject.com/)
+    - Django was the python framework used to build the application - version 3.1.8 was used on this project.
+
+- [Bootstrap 4.5.3](https://getbootstrap.com/)
+    - Bootstrap formed the skeleton of the website; the bootstrap grid system and classes formed the underlying structure of the site
+
+- [Font Awesome 5.12.2](https://fontawesome.com/)
+    - Font Awesome was used to add icons across the site for a more intuitive user experience
+
+- [JQuery 3.5.1](https://jquery.com/)
+    - JQuery was used across the different pages of the site to create interactive elements without the need for huge volumes of Javascript coding
+
+- [Popper.js 1.16.0](https://popper.js.org/)
+    - Popper was used with Bootstrap to create a responsive navbar element
+
+- [argon2-cffi](https://argon2.online/)
+    - Argon2 was used as the password validator as reccommended by Two Scoops of Django.
+
+- [Django Allauth](https://django-allauth.readthedocs.io/en/latest/)
+    - Allauth was used to handle the complete sign up process on the site.
+
+- [Black](https://pypi.org/project/black/)
+    - Black was used as a python code formatter.
+
+- [Boto3](https://pypi.org/project/boto3/)
+    - Boto3 was used to intergrate with AWS
+
+- [Coverage](https://pypi.org/project/coverage/)
+    - Coverage was used to assess the overall testing coverage
+
+- [Django Admin Env Notice](https://pypi.org/project/django-admin-env-notice/)
+    - This was used to put a simple banner at the top of the admin site to visually display which environment the user is working in
+
+- [Django Cleanup](https://pypi.org/project/django-cleanup/)
+    - This was used to automatically delete user uploaded images etc
+  
+- [Django Admin Honeypot](https://pypi.org/project/django-admin-honeypot/)
+    - As previosuly stated, this package was used to change the admin url and create a honeypot which can alert the superuser of malicious attempts to access the admin.
+
+- [Django Cleanup](https://pypi.org/project/django-countries/)
+    - This was used to set the countries recognised country code
+
+- [Django Crispy Forms](https://pypi.org/project/django-crispy-forms/)
+    - This was used to easily format all forms on the site
+
+- [Django Debug Toolbar](https://pypi.org/project/django-debug-toolbar/)
+    - This was used in development to provide additional information about each page, database queries etc
+
+- [Django Environ](https://pypi.org/project/django-environ/)
+    - As reccomended by the Twelve Factor App, django environ was used to store all env varibales in an env file.
+
+- [Django SES](https://pypi.org/project/django-ses3/)
+    - Django SES was used to connect to the AWS SES service for the production sites email backend
+
+- [Django Storages](https://pypi.org/project/django-storages/)
+    - Django Storages was used alongside Boto3 to utilise AWS S3 as the sites static files provider
+
+- [Pillow](https://pypi.org/project/Pillow/)
+    - Pillow was used to allow image upload for the product model
+
+- [Pytest](https://pypi.org/project/pytest/)
+    - Pytest was used as the testing library for the site
+
+- [Stripe](https://pypi.org/project/stripe/)
+    - Stripe was used to form a connection to the stripe api for payments
+
+- [Gitpod](https://gitpod.io/)
+    - Gitpod was the development environment used to code this site, gitpods terminal was used to synchronise with Github
+
+- [Github](https://github.com/)
+    - Github was used to store all components of this site during and after the build
+
+- [Git](https://git-scm.com/)
+    - Git was the version control system utilised for the build of this project
+
+- [Figma](https://www.figma.com/)
+    - Figma was used to create the wireframes prior to the build commencing
+
+- [Google Fonts](https://fonts.google.com/)
+    - Google Fonts was used to find and import the selected font for the site
+
+- [Heroku](https://www.heroku.com)
+    - Heroku was used to host the website online.
+
+- WC3 [HTML](https://validator.w3.org/) & [CSS](https://jigsaw.w3.org/css-validator/) Validator
+    - Both the CSS & HTML validators were used to check code for compliance with recognised standards
+
+- [Google Lighthouse](https://developers.google.com/web/tools/lighthouse#devtools)
+    - Was used to check the accessibility of the site
+
+- [JSHint](https://jshint.com/)
+    - Was used to validate all Javascript codes
+
+- [Pep8Online](http://pep8online.com/checkresult)
+    - Along with the fact that Pep8 compliance is built into the coding environment, this external site was also used to
+        check the python code
+
+- [Responsivley](https://responsively.app/)
+    - Responsivley was used to check the responsiveness of the site (see testing below)
+
+Click [here](https://github.com/Tmuat/handmade-by-ellie/blob/master/requirements.txt) to view the sites requirements.txt.
+
 ---
 
 [Return to Contents](#contents)
