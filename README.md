@@ -514,6 +514,10 @@ As the site uses the product skug for product detail, it requires them all to be
 
 Currently when a store user makes a purchase, they are sent an email summarising their order. However, an automated email to the store owner would allow to owner to start acting on orders without having to access the site.
 
+#### Pagination
+
+At the moment there is no pagination for the products page, this will help as more and more products are added to the site.
+
 ---
 
 [Return to Contents](#contents)
@@ -1086,6 +1090,16 @@ Then as the project progresed the following commands were used regularly to subm
 ---
 
 - To create the user model, the following tutorial was followed [here](https://testdriven.io/blog/django-custom-user-model/)
+- Code for the navbar on the site came from [Bootstrap](https://getbootstrap.com/docs/4.5/components/navbar/).
+- Code for the footer on the site came from [Bootstrap](https://mdbootstrap.com/docs/standard/navigation/footer/).
+- The base view for the admin area came from [Bootstrap Examples](https://getbootstrap.com/docs/4.5/examples/dashboard/).
+- Code for the toasts came from [Bootstrap](https://getbootstrap.com/docs/4.5/components/toasts/).
+- Code for the Facebook social media icon came from [Font Awesome](https://fontawesome.com/icons/facebook-square?style=brands).
+- Code for the Youtube social media icon came from [Font Awesome](https://fontawesome.com/icons/youtube-square?style=brands).
+- Code for the Twitter social media icon came from [Font Awesome](https://fontawesome.com/icons/twitter-square?style=brands).
+- A lot of aspects of the site came from the amazing Boutique Ado example from Code Institute.
+- The implementation of pytest came from an udemy course.
+
 
 ---
 
@@ -1095,19 +1109,28 @@ Then as the project progresed the following commands were used regularly to subm
 
 - #### Misc
 
+  - The favicon was produced using favicon.io](https://favicon.io/favicon-generator/), it incorporates the main colours of the site with the sites initials.
+  - The mockup at the start of the README.md was created using [Am I Responsive](http://ami.responsivedesign.is/).
+
 ---
 
 - #### Content
 
+  - The main content for the site came directly from Handmade By Ellie.
+
 ---
 
 - #### Images & Video
+
+  - As with the content, the all images for the site came from Handmade By Ellie.
 
 ---
 
 ### Acknowledgements
 
 ---
+
+I would like to thank my mentor Oluwafemi Medale for his help not only on this project but across the course. He is always there to pick up some of my front end woes.I would like to thank all the people that kindly sat and reviewed my site through production.
 
 ---
 
