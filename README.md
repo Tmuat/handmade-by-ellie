@@ -38,12 +38,10 @@ The site allows the store admin to add, edit and delete products as well as bein
   - [Languages](#languages)
   - [Frameworks and External Resources](#frameworks-and-external-resources)
 - [Testing](#testing)
-  - [WC3 Validation](#wc3-validation)
-  - [Lighthouse Accessibility](#lighthouse-accessibility)
-  - [JSHint](#jshint)
   - [Google Dev Tools](#google-dev-tools)
   - [Responsivley](#responsivley)
   - [Manual Testing](#manual-testing)
+  - [Automated Testing](#automated-testing)
   - [User Story Testing](#user-story-testing)
   - [Fixed Bugs](#fixed-bugs)
   - [Known Bugs](#known-bugs)
@@ -218,20 +216,6 @@ Some if not all the annoymous user stories carry over to registered users.
 
 - When a user adds a product to the shopping bag, the product sku and quantity will be added or updated in the users session.
 
-#### User Story:
-
-> As a **annonymous user**, I want to be able to create a shopping bag of one or more items to purchase in one checkout process.
-
-**Acceptance Criteria**
-
-- The user will be able to add one or more products to a viewable shopping bag; the items in the shopping bag must accept varying quantities.
-
-**Implementation**
-
-- The users session will be used to hold shopping bag details.
-
-- When a user adds a product to the shopping bag, the product sku and quantity will be added or updated in the users session.
-
 - When viewing the bag, all items and quantities in the bag will be displayed for the user.
 
 #### User Story:
@@ -340,8 +324,6 @@ Some if not all the annoymous user stories carry over to registered users.
 
 - A seperate admin site will be created for admin users to access; once here they have the ability to perform CRUD operations on the sites products.
 
-- As well as being able to use the admin site for CRUD operations; admin users will be able to access a modal on the product pages to perform the same actions.
-
 #### User Story:
 
 > As a **admin user**, I want to be able to monitor and adjust product stock quantities.
@@ -372,7 +354,7 @@ Some if not all the annoymous user stories carry over to registered users.
 
 #### User Story:
 
-> As a **admin user**, I want to be able to adjust order status' and send corresponding.emails to users who have made purchases.
+> As a **admin user**, I want to be able to adjust order status' and send corresponding emails to users who have made purchases.
 
 **Acceptance Criteria**
 
@@ -652,9 +634,6 @@ A number of external frameworks, code libraries and programs were incorportated 
 - WC3 [HTML](https://validator.w3.org/) & [CSS](https://jigsaw.w3.org/css-validator/) Validator
     - Both the CSS & HTML validators were used to check code for compliance with recognised standards
 
-- [Google Lighthouse](https://developers.google.com/web/tools/lighthouse#devtools)
-    - Was used to check the accessibility of the site
-
 - [JSHint](https://jshint.com/)
     - Was used to validate all Javascript codes
 
@@ -675,21 +654,11 @@ Click [here](https://github.com/Tmuat/handmade-by-ellie/blob/master/requirements
 
 ## Testing
 
-### WC3 Validation
-
----
-
----
-
-### Lighthouse Accessibility
-
----
-
----
-
 ### JSHint
 
 ---
+
+All Javascript codes were passed through the [JSHint](https://jshint.com/) validator with all corrections made.
 
 ---
 
@@ -697,15 +666,51 @@ Click [here](https://github.com/Tmuat/handmade-by-ellie/blob/master/requirements
 
 ---
 
+Chrome DevTools was used from start to finish when building and testing this site. Throughout the build it served several purposes:
+
+- Throughout the build it was used to quickly test responsiveness for all elements and design
+
+- When constructing pages and elements, it was used to quickly and visually check for any padding and margin issues. Unicorn Revealer also provided a lot of help with this.
+
+- Dev tools was used to identify and errors and warnings; I was reminded to utilise a favicon. Once created a link tag was added into the head of the base template.
+
+- It was used vigorously to adjust css for hover, focus and active classes. 
+
 ---
 
 ### Responsivley
 
 ---
 
+During development, the respondivley app was used to easily show how the front end reacts to multiple screen sizes. This sped up development as multiple views could be seen at once.
+
 ---
 
 ### Manual Testing
+
+---
+
+Along with the autmated testing below, manual tests were conducted by completing user stories and processes which would take place should the site move to production such as adding products to the shopping bag, completing orders and editing/adding products.
+
+- Each page has been tested individually to check that:
+    - Images load properly and are the correct sizes
+    - Navigation buttons work and also link to the correct pages on the site
+    - Any external links on the site (footer & products page) are set to target="_blank" to open on a new page
+    - On top of this testing, with the number of forms on the site they were also checked for:
+        - Client side & server side validation works
+        - Any messages back to the user are clearly displayed in appropriatley coloured toasts
+    - Checked the navbar is visible on all pages. 
+        - The navbar has a different background on the landing page to all other pages.
+
+---
+
+### Automated Testing
+
+---
+
+The site features a number of automated tests. During development TDD principles were attempted; by writing failing tests before creating the view, model etc. 
+
+The site uses pytest as its testing framework; this was used for the simpler style of writing tests. The site is intergrated with TravisCI to ensure all pushes to github pass the tests.
 
 ---
 
@@ -717,9 +722,227 @@ Testing the user stories from the [UX Section](#ux).
 
 #### First Time User:
 
+#### User Story:
+
+> As a **annonymous user**, I want to visit a responsive site.
+
+**Acceptance Criteria**
+
+- The website will feature a grid layout, incorporating breakpoints and media queries to respond to the users screen size & platform.
+
+**Pass/Fail**
+
+- The website was built entirely within the bootstrap framework and is responsive to all screen sizes.
+
+#### User Story:
+
+> As a **annonymous user**, I want it to be clear the purpose of the site and what the site is intending to sell.
+
+**Acceptance Criteria**
+
+- The landing page will feature information regarding the site aim with headings and imagery styled to the same aim.
+
+**Pass/Fail**
+
+- The landing page contains a brief sentence describing the site. Underneath this is an about section providing an overview of the site as well as testimonials from happy customers.
+
+#### User Story:
+
+> As a **annonymous user**, I want to be easily able to navigate through the site.
+
+**Acceptance Criteria**
+
+- A navigation bar responsive to all screen sizes.
+- All links should navigate to the correct pages.
+- The current page should be highlighted as active to indicate to the user which page they are on.
+
+**Pass/Fail**
+
+- A navbar and footer is visible on all pages across all screen sizes. The navbar and footer are responsive to allow for a good UX on smaller screen sizes.
+
+- The navbar updates dependent on whether the user is logged in and if they are a staff member/superuse.
+
+- The shopping bag changes colour dependent on whether there is items in it.
+
+#### User Story:
+
+> As a **annonymous user**, I want to be able to register an account for the site.
+
+**Acceptance Criteria**
+
+- A user is able to register for an account, using a site form. They will be required to complete email verification. Subsequently the user is then able to login to their account.
+
+**Pass/Fail**
+
+- The site takes advantage of the allauth package and allows for user registration, email verification along with forgotten passwords and changing passwords.
+
+#### User Story:
+
+> As a **annonymous user**, I want to be able to search and filter through the different products on sale.
+
+**Pass/Fail**
+
+- At the top of the page in the navbar there is a search bar for the user to input a query; this is collpased into a search dropdown on smaller screen sizes. On top of this the user has the option to filter to different styles and types of products from a number of dropdowns. 
+
+- Once on the product page they have a filter bar appear on the left hand side of the page or if on smaller device appear through clicking a fixed button in the bottom right corner.
+
+#### User Story:
+
+> As a **annonymous user**, I want to be able to create a shopping bag of one or more items to purchase in one checkout process.
+
+**Acceptance Criteria**
+
+- The user will be able to add one or more products to a viewable shopping bag; the items in the shopping bag must accept varying quantities.
+
+**Pass/Fail**
+
+- The user is able to add varying quantities of numerous products to their shopping bag; this is dependent on the stock levels available for each product. Once in the bag the user can see each product and the quantity in their bag. The shopping bag, delivery option and discount code are stored in the users session.
+
+#### User Story:
+
+> As a **annonymous user**, I want to be able to add, change and delete products in my shopping bag.
+
+**Acceptance Criteria**
+
+- When in the shopping bag, the user is able to adjust quantities and delete products from their bag. When doing so, the user should see their bag refreshed with the updated bag shown.
+
+**Pass/Fail**
+
+- The user is able to adjust/remove items in their bag. Stock is checked when editing their bag to ensure they cannot add a higher quantity than available stock.
+
+#### User Story:
+
+> As a **annonymous user**, I want to be able to checkout annonymously.
+
+**Acceptance Criteria**
+
+- A user is able to go through the full process of purchasing an item as an unauthenticated user.
+
+**Pass/Fail**
+
+- Users are able to complete the whole purchase process as an unauthenticated user; they are given the option to sign in or create an account.
+
+#### User Story:
+
+> As a **annonymous user**, I want to recieve an email notification of my order.
+
+**Acceptance Criteria**
+
+- Any user making a purchase must recieve email notification their order.
+
+**Pass/Fail**
+
+-  Amazon SES has been implemented as the email service; once an order is processed either by the site or through the webhook an email is sent to the user.
+
+
 #### Registered User:
 
+#### User Story:
+
+> As a **registered user**, I want to be able to login to the site.
+
+**Acceptance Criteria**
+
+- A registered user is able to navigate to a login page and authenticate with the site.
+
+**Pass/Fail**
+
+- Using the previously mentioned [All Auth](https://django-allauth.readthedocs.io/en/latest/#) and the inbuilt django authentication; the user can login as a registered user.
+
+#### User Story:
+
+> As a **registered user**, I want to be able to reset my password if I had forgotten it.
+
+**Acceptance Criteria**
+
+- Users are able to recieve a forgotten password email should they be unathenticated on the site. They are then able to change their password.
+
+- Users already authenticated are taken to a form to change their password; once changed they are able to login using the new password.
+
+**Pass/Fail**
+
+- Should the user be able to login, they can change their password using the allauth templates. 
+
+- If the user cannot login, they can receive an change password email and be redirected to a password change form.
+
+#### User Story:
+
+> As a **registered user**, I want to be able to save my default information for quicker checkout processes of future purchases.
+
+**Acceptance Criteria**
+
+- Users information is stored in their profile; if it has been saved and they move to checkout the information is pre-filled.
+
+**Pass/Fail**
+
+- The user is able to select a checkbox to save their information on the checkout page, this will save their information and prefill it once the user proceeds to checkout a second time.
+
+- The user is also able to edit and update their default information from their profile page.
+
+#### User Story:
+
+> As a **registered user**, I want to be able to view my previous orders and their status.
+
+**Acceptance Criteria**
+
+- Users must be able to view all previous orders on their profile page along with the up to date status of said order/s.
+
+**Pass/Fail**
+
+- The user can view all orders made from their profile and the status of the orders.
+
+- When the order has been marked as dispatched by the store owner, the purchaser will recieve a dispatch email.
+
+
 #### Admin User:
+
+#### User Story:
+
+> As a **admin user**, I want to be able to create, update and delete products in the store.
+
+**Acceptance Criteria**
+
+- The admin user is able to view the admin site and subsequently perform CRUD operations on all products within the store.
+
+**Pass/Fail**
+
+- The site includes a seperate admin area for the store owner, where they can see all orders, perform CRUD operations on products, delivery options and discount codes.
+
+#### User Story:
+
+> As a **admin user**, I want to be able to monitor and adjust product stock quantities.
+
+**Acceptance Criteria**
+
+- When viewing product detail, the admin user can see up to date product stock. They are also able to add/delete stock for individual products.
+
+**Pass/Fail**
+
+- A product stock model has been implemented with a one to one link to the product model. The owner can edit stock through the edit product page.
+
+#### User Story:
+
+> As a **admin user**, I want to be able to view all orders being made on the site.
+
+**Acceptance Criteria**
+
+- When on the admin site, the admin user is able to see all orders that have been placed (including order detail).
+
+**Pass/Fail**
+
+- On the admin site, the store owner is shown the most recent orders. They can also naviagte to an all orders page and from here search for orders should they need to.
+
+#### User Story:
+
+> As a **admin user**, I want to be able to adjust order status' and send corresponding emails to users who have made purchases.
+
+**Acceptance Criteria**
+
+- The admin user is able to select one or more orders and change the order status. This must trigger an email to be sent out to the email address linked to each order.
+
+**Pass/Fail**
+
+- The store owner can select a checkobox next to the order and mark the order as dispatched or completed. If the order/s is marked as dispatched the send_mass_mail function is used to send out all the dispatch emails.
 
 ---
 
