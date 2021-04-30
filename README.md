@@ -36,7 +36,7 @@ The site allows the store admin to add, edit and delete products as well as bein
   - [Features Left to Implement](#features-left-to-implement)
 - [Technologies Used](#technologies-used)
   - [Languages](#languages)
-  - [Frameworks and External Resources](#frameworks-and-externalresources)
+  - [Frameworks and External Resources](#frameworks-and-external-resources)
 - [Testing](#testing)
   - [WC3 Validation](#wc3-validation)
   - [Lighthouse Accessibility](#lighthouse-accessibility)
