@@ -430,6 +430,10 @@ The site features two main fonts taken from the logo; the main font across the s
 
 #### Information Architecture
 
+![Information Architecture](https://github.com/Tmuat/handmade-by-ellie/blob/master/assets/readme_images/information_architecture.png "Information Architecture")
+
+To access the Information Architecture click [here](https://github.com/Tmuat/handmade-by-ellie/blob/master/assets/readme_images/information_architecture.png).
+
 #### Differences To Design
 
 There were two main differences to the wireframes; the landing imagery and the admin section.
